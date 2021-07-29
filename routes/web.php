@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\CriteriaCategoryController;
+use App\Http\Controllers\v1\DashboardController;
 use App\Http\Controllers\v1\Auth\AuthController;
 
 Route::get('/', function () {
@@ -37,9 +38,7 @@ Route::get('/syarat-dana-umroh', function(){
     return view('borrower.loanterms.danum.index');
 })->name('syarat.danum');
 
-Route::get('/dashboard', function () {
-    return view('borrower.dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
 Route::get('/daftar',[AuthController::class,'register']);
