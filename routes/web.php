@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\CriteriaCategoryController;
 use App\Http\Controllers\v1\DashboardController;
 use App\Http\Controllers\v1\Auth\AuthController;
+use App\Http\Controllers\v1\ScoringController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,17 +19,15 @@ Route::get('/pinjaman-modal', function(){
     return view('borrower.jamod.index');
 })->name('pinjaman.modal');
 
-Route::get('/pinjaman-dana-umroh', function(){
+Route::get('/pinjaman-umroh', function(){
     return view('borrower.danum.index');
-})->name('pinjaman.dana.umroh');
+})->name('pinjaman.umroh');
 
 Route::get('/data-diri', function(){
     return view('borrower.verification.personalData.index');
 })->name('personal.data');
 
-Route::get('/scoring', function(){
-    return view('borrower.verification.scoring.index');
-})->name('scoring');
+Route::get('/scoring', [ScoringController::class, 'index'])->name('scoring');
 
 Route::get('/syarat-pinjaman-modal', function(){
     return view('borrower.loanterms.jamod.index');
