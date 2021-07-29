@@ -27,7 +27,7 @@
                     <div class="card-body">
                             <label for="">Jangka waktu pengembalian :</label>
                             <div class="form-group">
-                                <label for="">3 Tahun (36 bulan)</label>
+                                <label for="">3 Tahun (36 bulan)</label> <br>
                                 <label for="">Ajukan Nomimal Pinjaman (Rp.)</label>
                                 <input type="number" placeholder="Rp." class="form-control">
                             </div>

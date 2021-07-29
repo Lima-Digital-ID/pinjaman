@@ -18,6 +18,10 @@ Route::get('/pinjaman-dana-umroh', function(){
     return view('borrower.danum.index');
 })->name('pinjaman.dana.umroh');
 
+Route::get('/data-diri', function(){
+    return view('borrower.verification.personalData.index');
+})->name('personal.data');
+
 Route::get('/dashboard', function () {
     return view('borrower.dashboard');
 })->middleware(['auth'])->name('dashboard');

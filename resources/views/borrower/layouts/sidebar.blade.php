@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('dashboard') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
@@ -68,7 +68,7 @@
       <div id="collapsedData" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Verivikasi data</h6>
-          <a class="collapse-item" href="utilities-color.html">Data diri</a>
+          <a class="collapse-item" href="{{ route('personal.data') }}">Data diri</a>
           <a class="collapse-item" href="utilities-animation.html">Data Lainnya</a>
         </div>
       </div>
