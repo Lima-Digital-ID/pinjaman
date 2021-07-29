@@ -44,3 +44,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/daftar',[AuthController::class,'register']);
 Route::get('/masuk', [AuthController::class,'login']);
+
+
+// Consume API
+Route::post('/register', [AuthController::class,'ApiRegister'])->name('api.register');
+Route::post('/login', [AuthController::class,'ApiRegister'])->name('api.login');

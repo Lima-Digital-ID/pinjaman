@@ -4,7 +4,8 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-8">
-                <form action="" method="POST">
+                <form action="{{route('api.register')}}" method="POST" autocomplete="on">
+                    @csrf
                     <div class="form-group">
                         <label for="">Nama Lengkap</label>
                         <input type="text" class="form-control" name="nama">
