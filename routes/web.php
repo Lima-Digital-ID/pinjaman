@@ -26,6 +26,10 @@ Route::get('/scoring', function(){
     return view('borrower.verification.scoring.index');
 })->name('scoring');
 
+Route::get('/syarat-pinjaman-modal', function(){
+    return view('borrower.loanterms.jamod.index');
+})->name('syarat.jamod');
+
 Route::get('/dashboard', function () {
     return view('borrower.dashboard');
 })->middleware(['auth'])->name('dashboard');
