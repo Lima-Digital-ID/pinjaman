@@ -41,10 +41,10 @@ Route::get('/syarat-dana-umroh', function(){
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
-Route::get('/daftar',[AuthController::class,'register']);
-Route::get('/masuk', [AuthController::class,'login']);
+Route::get('/daftar',[AuthController::class,'register'])->name('register');
+Route::get('/masuk', [AuthController::class,'login'])->name('login');
 
 
 // Consume API
 Route::post('/register', [AuthController::class,'ApiRegister'])->name('api.register');
-Route::post('/login', [AuthController::class,'ApiRegister'])->name('api.login');
+Route::post('/login', [AuthController::class,'ApiLogin'])->name('api.login');

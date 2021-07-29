@@ -2,7 +2,7 @@
 
 /* Api Configuration */
 
-$domain = 'http://192.168.1.17:8000/';
+$domain = 'http://localhost/';
 $base_url = $domain.'api/';
 
 return [
