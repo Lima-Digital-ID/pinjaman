@@ -1,23 +1,13 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Http;
-use App\Http\Controllers\v1\CriteriaCategory;
 use App\Http\Controllers\v1\CriteriaCategoryController;
+use App\Http\Controllers\v1\Auth\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-// example : 
-// Route::get('/kategori-kriteria', function(){
-    
-//     $response = Http::withToken('13|lt7Ay2tXzLTubmSfvCl9ElvSieYonDUciSSsZqgi')
-//                 ->get('http://127.0.0.1:8080/api/kategori-kriteria');
-//     // dd($response);
-//     return response($response, 200);
-// });
 Route::get('/kategori-kriteria', [CriteriaCategoryController::class,'index']);
-
 
 Route::get('/pinjaman-cepat', function(){
     return view('borrower.jacep.index');
@@ -51,4 +41,6 @@ Route::get('/dashboard', function () {
     return view('borrower.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+
+Route::get('/daftar',[AuthController::class,'register']);
+Route::get('/masuk', [AuthController::class,'login']);
