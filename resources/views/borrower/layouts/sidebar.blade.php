@@ -69,7 +69,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Verivikasi data</h6>
           <a class="collapse-item" href="{{ route('personal.data') }}">Data diri</a>
-          <a class="collapse-item" href="utilities-animation.html">Data Lainnya</a>
+          <a class="collapse-item" href="{{ route('scoring') }}">Data Lainnya</a>
         </div>
       </div>
     </li>

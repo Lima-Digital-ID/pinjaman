@@ -22,6 +22,10 @@ Route::get('/data-diri', function(){
     return view('borrower.verification.personalData.index');
 })->name('personal.data');
 
+Route::get('/scoring', function(){
+    return view('borrower.verification.scoring.index');
+})->name('scoring');
+
 Route::get('/dashboard', function () {
     return view('borrower.dashboard');
 })->middleware(['auth'])->name('dashboard');
