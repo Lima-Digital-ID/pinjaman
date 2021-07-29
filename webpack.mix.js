@@ -12,6 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/sb-admin-2.scss', 'public/borrower')
     .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+]);
