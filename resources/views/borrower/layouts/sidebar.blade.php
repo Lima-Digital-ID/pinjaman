@@ -37,7 +37,7 @@
           <h6 class="collapse-header">Jenis Pinjaman</h6>
           @php
               $urlJenis = \Config::get('api_config.jenis_pinjaman');
-              $jenisPinjaman = \Http::withToken('2|q7VZRXQn0XR1SOBxRIizJ3A9ZelzF8ujKtBRBgpf')->get($urlJenis);
+              $jenisPinjaman = \Http::withToken(Session::get('token'))->get($urlJenis);
               $resJenis = json_decode($jenisPinjaman, false);
               if($resJenis->status == 'success') {
                 $itemJenis = json_decode($jenisPinjaman, true);
@@ -80,7 +80,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Kelengkapan profile</h6>
           <a class="collapse-item" href="utilities-color.html">Profile</a>
-          <a class="collapse-item" href="utilities-border.html">Riwayat Pengajuan Pinjaman</a>
+          <a class="collapse-item" href="{{ route('riwayat') }}">Riwayat Pengajuan Pinjaman</a>
           <a class="collapse-item" href="utilities-animation.html">Tagihan</a>
         </div>
       </div>

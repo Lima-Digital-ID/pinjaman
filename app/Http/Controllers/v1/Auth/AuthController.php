@@ -25,8 +25,8 @@ class AuthController extends Controller
     }
     public function ApiRegister(Request $request)
     {
-        // $url = \Config::get('http://127.0.0:8080/register');
-        $register = Http::post('http://127.0.0:8080/register', [
+        $url = \Config::get('api_config.register');
+        $register = Http::post($url, [
             'nama' => $request->nama,
             'no_hp' => $request->no_hp,
             'email' => $request->email,
@@ -53,9 +53,11 @@ class AuthController extends Controller
 
         $requestLogin = json_decode($login, false);
 
-        // return $requestLogin;
+        // return $requestLogin->data;
         if ($requestLogin->status == 'success') {
-            \Session::put('token', $requestLogin->token);
+            Session::put('token', $requestLogin->token);
+            Session::put('nama', $login['data']['nama']);
+            Session::put('foto_profil', $login['data']['foto_profil']);
             return redirect()
                         ->route('dashboard');
         }
@@ -75,8 +77,9 @@ class AuthController extends Controller
 
     public function ApiLogout()
     {
-        if(Session::has('token')) 
+        if(!Session::has('token')) 
             return redirect()->back();
+        
         $token = Session::get('token');
         $url = \Config::get('api_config.logout');
         $logout = Http::withToken($token)->get($url);

@@ -7,20 +7,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
-use function PHPUnit\Framework\isNan;
-
 class DashboardController extends Controller
 {
     private $params;
 
     public function index()
     {
+        $token = Session::get('token');
+
         $url_limit = \Config::get('api_config.limit_pinjaman');
         $url_hutang = \Config::get('api_config.get_hutang');
 
-        $limitPinjaman = Http::withToken('2|q7VZRXQn0XR1SOBxRIizJ3A9ZelzF8ujKtBRBgpf')
+        $limitPinjaman = Http::withToken($token)
                             ->get($url_limit);
-        $hutang = Http::withToken('2|q7VZRXQn0XR1SOBxRIizJ3A9ZelzF8ujKtBRBgpf')
+        $hutang = Http::withToken($token)
                         ->get($url_hutang);
 
         $eLimitPinjaman = json_decode($limitPinjaman, false);
@@ -37,7 +37,7 @@ class DashboardController extends Controller
             $this->params['hutang'] = $eHutang->data->hutang;
         }
         else {
-            $this->params['hutang'] = isNan();
+            $this->params['hutang'] = null;
         }
 
         return view('borrower.dashboard', $this->params);

@@ -2,7 +2,8 @@
 
 /* Api Configuration */
 
-$domain = 'http://192.168.7.140:8000/';
+$domain = 'http://192.168.1.17:8000/';
+// $domain = 'http://demoumkm.tech/backup/';
 $base_url = $domain.'api/';
 
 return [
@@ -16,5 +17,5 @@ return [
     'jenis_pinjaman' => $base_url.'jenis-pinjaman',
     'kategori_kriteria' => $base_url.'kategori-kriteria',
     'options' => $base_url.'get-option-by-kriteria',
-
+    'riwayat' => $base_url.'pinjaman-pending',
 ];

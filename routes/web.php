@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\CriteriaCategoryController;
 use App\Http\Controllers\v1\DashboardController;
 use App\Http\Controllers\v1\Auth\AuthController;
+use App\Http\Controllers\v1\RiwayatPengajuanController;
 use App\Http\Controllers\v1\ScoringController;
 
 Route::get('/', function () {
@@ -38,6 +39,7 @@ Route::get('/syarat-dana-umroh', function(){
 })->name('syarat.danum');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/riwayat', [RiwayatPengajuanController::class, 'index'])->name('riwayat');
 
 
 Route::get('/daftar',[AuthController::class,'register'])->name('register');

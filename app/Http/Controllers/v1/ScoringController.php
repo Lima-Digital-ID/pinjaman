@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Http;
 class ScoringController extends Controller
 {
     private $params;
+    private $token;
+
+    public function __construct()
+    {
+        $this->token = \Session::get('token');
+    }
 
     public function index()
     {
@@ -21,12 +27,11 @@ class ScoringController extends Controller
 
         if($eKategori->status == 'success') {
             $this->params['kategori'] = json_decode($kategori, true);
-            // return $eKategori->data;
         }
         else {
-            // $this->params['limit'] = null;
+            $this->params['kategori'] = null;
         }
-        // return $eKategori->data;
+
         return view('borrower.verification.scoring.index', $this->params);
     }
 }
