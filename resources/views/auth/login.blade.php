@@ -4,7 +4,8 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-8">
-                <form action="" method="POST">
+                <form action="{{route('api.login')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="">Email</label>
                         <input type="email" class="form-control" name="email">
