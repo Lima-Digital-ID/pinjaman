@@ -13,12 +13,11 @@
         @include('borrower.verification.scoring.utilities.pillsCapacityAnalysis')
         
         {{-- pills work --}}
-        @include('borrower.verification.scoring.utilities.pillRepaymentCapacityAnalysis')
-        
-        {{-- pills work --}}
-        {{-- @include('borrower.verification.scoring.utilities.pillsContact') --}}
-        
+        @include('borrower.verification.scoring.utilities.pillRepaymentCapacityAnalysis')  
 
+        {{-- pills work --}}
+        @include('borrower.verification.scoring.utilities.pillRepaymentCapacityAnalysis2')  
+        
         {{-- button --}}
         <div class="form-group row">
             <div class="col-md-2">

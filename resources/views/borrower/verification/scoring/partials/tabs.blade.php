@@ -8,4 +8,7 @@
     <li class="nav-item" role="presentation">
       <a class="nav-link" id="pills-Repayment-Capacity-Analysis-tab" data-toggle="pill" href="#pills-Repayment-Capacity-Analysis" role="tab" aria-controls="pills-contact" aria-selected="false">Repayment Capacity Analysis</a>
     </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-Repayment-Capacity-Analysis2-tab" data-toggle="pill" href="#pills-Repayment-Capacity-Analysis2" role="tab" aria-controls="pills-contact" aria-selected="false">Repayment Capacity Analysis</a>
+    </li>
 </ul>
