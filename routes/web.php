@@ -30,6 +30,10 @@ Route::get('/syarat-pinjaman-modal', function(){
     return view('borrower.loanterms.jamod.index');
 })->name('syarat.jamod');
 
+Route::get('/syarat-dana-umroh', function(){
+    return view('borrower.loanterms.danum.index');
+})->name('syarat.danum');
+
 Route::get('/dashboard', function () {
     return view('borrower.dashboard');
 })->middleware(['auth'])->name('dashboard');
