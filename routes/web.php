@@ -1,10 +1,23 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\v1\CriteriaCategory;
+use App\Http\Controllers\v1\CriteriaCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// example : 
+// Route::get('/kategori-kriteria', function(){
+    
+//     $response = Http::withToken('13|lt7Ay2tXzLTubmSfvCl9ElvSieYonDUciSSsZqgi')
+//                 ->get('http://127.0.0.1:8080/api/kategori-kriteria');
+//     // dd($response);
+//     return response($response, 200);
+// });
+Route::get('/kategori-kriteria', [CriteriaCategoryController::class,'index']);
+
 
 Route::get('/pinjaman-cepat', function(){
     return view('borrower.jacep.index');
