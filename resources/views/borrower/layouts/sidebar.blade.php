@@ -79,7 +79,7 @@
         <span>Kebijakan & Privasi</span></a>
     </li>
 
-  <form method="POST" action="{{ route('logout') }}">
+  <form method="POST" action="#">
     <li class="nav-item">
       <a class="nav-link" href="#"data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-fw fa-table"></i>
