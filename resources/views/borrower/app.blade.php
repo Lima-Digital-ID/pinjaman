@@ -80,8 +80,7 @@
         <div class="modal-body">Apakah anda ingin pergi dari halaman ini?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <form method="POST" action="#">
-            @csrf
+          <form method="GET" action="{{route('api.logout')}}">
             <a class="btn btn-primary" href="#"
                     onclick="event.preventDefault();
                     this.closest('form').submit();" >

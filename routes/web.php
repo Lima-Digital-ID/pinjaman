@@ -48,3 +48,4 @@ Route::get('/masuk', [AuthController::class,'login'])->name('login');
 // Consume API
 Route::post('/register', [AuthController::class,'ApiRegister'])->name('api.register');
 Route::post('/login', [AuthController::class,'ApiLogin'])->name('api.login');
+Route::get('/logout', [AuthController::class,'ApiLogout'])->name('api.logout');
