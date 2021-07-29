@@ -21,6 +21,10 @@ Route::get('/pinjaman-cepat', function(){
     return view('borrower.jacep.index');
 })->name('pinjaman.cepat');
 
+Route::get('/pinjaman-modal', function(){
+    return view('borrower.jamod.index');
+})->name('pinjaman.modal');
+
 Route::get('/dashboard', function () {
     return view('borrower.dashboard');
 })->middleware(['auth'])->name('dashboard');

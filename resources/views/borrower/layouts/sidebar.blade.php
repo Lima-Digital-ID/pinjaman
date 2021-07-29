@@ -36,7 +36,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Jenis Pinjaman</h6>
           <a class="collapse-item" href="{{ route('pinjaman.cepat') }}">Pinjaman Cepat</a>
-          <a class="collapse-item" href="buttons.html">Pinjaman Modal</a>
+          <a class="collapse-item" href="{{ route('pinjaman.modal') }}">Pinjaman Modal</a>
           <a class="collapse-item" href="cards.html">Dana Umroh</a>
         </div>
       </div>

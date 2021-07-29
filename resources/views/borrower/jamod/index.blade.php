@@ -1,8 +1,8 @@
-@extends('borrower.app',['jumbotron' => 'Pinjaman Cepat'])
+@extends('borrower.app', ['jumbotron' => 'Pinjaman Modal'])
 
 @section('body')
     <p>
-        Sebuah Pinjaman nasabah untuk keperluan apapun yang bisa di akses secara cepat mudah dan tanpa agunan
+        Fitur Pinjaman memakai agunan untuk pengembangan modal usaha dari 5 juta - 5 milyar dengan jangka waktu 1 tahun sampai dengan 5 tahun.
     </p>
 
     <div class="row">
@@ -15,7 +15,7 @@
                 </tr>
                 <tr>
                     <td>Jenis Pinjaman</td>
-                    <td>: Pinjaman Cepat</td>
+                    <td>: Pinjaman Modal</td>
                 </tr>
                 <tr>
                     <td>Total Pinjaman</td>
@@ -23,22 +23,15 @@
                 </tr>
                 </table>
                 <br>
-                <label for="">Jangka waktu pengembalian :</label>
                 <div class="card">
                     <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p class="">
-                            <strong>Pengembalian 1 Bulan</strong> <br>
-                            <small>Pelunasan selama 36 x 24jam</small>
-                        </p>
-                        <p class="">
-                        
-                        </p>
-                        <p class="">
-                            <strong>Termin 1x</strong>
-                        </p>
+                            <label for="">Jangka waktu pengembalian :</label>
+                            <div class="form-group">
+                                <label for="">3 Tahun (36 bulan)</label>
+                                <label for="">Ajukan Nomimal Pinjaman (Rp.)</label>
+                                <input type="number" placeholder="Rp." class="form-control">
+                            </div>
                     </div>
-                </div>
                 </div>
                 <div class="d-flex justify-content-end">
                 <button class="btn btn-danger mt-2 ">Selanjutnya</button>
