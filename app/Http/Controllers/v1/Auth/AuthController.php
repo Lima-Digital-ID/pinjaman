@@ -11,13 +11,12 @@ class AuthController extends Controller
 {
     public function register()
     {
-        if(Session::has('token')) 
-            return redirect()->back();
+        return view('auth.register');
     }
     public function login()
     {
-        if(Session::has('token')) 
-            return redirect()->back();
+       
+        return view('auth.login');
     }
     public function ApiRegister(Request $request)
     {

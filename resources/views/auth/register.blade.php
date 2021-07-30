@@ -2,9 +2,11 @@
 
 @section('body')
     <div class="container">
-        <div class="row mt-4">
-            <div class="col-md-8">
+        <div class="row" style="margin-top: 180px;">
+            <div class="col-md-6">
                 <form action="{{route('api.register')}}" method="POST" autocomplete="on">
+                    <h4>Form Daftar</h4>
+                    <small>Silahkan daftarkan akun anda</small>
                     @csrf
                     <div class="form-group">
                         <label for="">Nama Lengkap</label>
@@ -24,6 +26,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Daftar</button>
                 </form>
+                <small>Anda telah memiliki akun? silahkan <a href="{{ route('login')}}">login</a></small>
             </div>
         </div>
     </div>
