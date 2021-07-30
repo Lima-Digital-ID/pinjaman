@@ -38,6 +38,10 @@ Route::get('/syarat-dana-umroh', function(){
     return view('borrower.loanterms.danum.index');
 })->name('syarat.danum');
 
+Route::get('/kebijakan-privasi', function(){
+    return view('borrower.kebijakanPrivasi.index');
+})->name('kebijakan.privasi');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 

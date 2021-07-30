@@ -13,15 +13,11 @@ class AuthController extends Controller
     {
         if(Session::has('token')) 
             return redirect()->back();
-
-        return view('auth.register');
     }
     public function login()
     {
         if(Session::has('token')) 
             return redirect()->back();
-        
-        return view('auth.login');
     }
     public function ApiRegister(Request $request)
     {
@@ -43,8 +39,6 @@ class AuthController extends Controller
     
     public function ApiLogin(Request $request)
     {
-        if(Session::has('token')) 
-            return redirect()->back();
         $url = \Config::get('api_config.login');
         $login = Http::post($url, [
             'email' => $request->email,
@@ -75,7 +69,7 @@ class AuthController extends Controller
 
     public function ApiLogout()
     {
-        if(Session::has('token')) 
+        if(!Session::has('token')) 
             return redirect()->back();
         $token = Session::get('token');
         $url = \Config::get('api_config.logout');
