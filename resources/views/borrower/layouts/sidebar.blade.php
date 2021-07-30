@@ -35,9 +35,37 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Jenis Pinjaman</h6>
-          <a class="collapse-item" href="{{ route('pinjaman.cepat') }}">Pinjaman Cepat</a>
-          <a class="collapse-item" href="{{ route('pinjaman.modal') }}">Pinjaman Modal</a>
-          <a class="collapse-item" href="{{ route('pinjaman.dana.umroh') }}">Dana Umroh</a>
+          @php
+              $urlJenis = \Config::get('api_config.jenis_pinjaman');
+              $jenisPinjaman = \Http::withToken(Session::get('token'))->get($urlJenis);
+              $resJenis = json_decode($jenisPinjaman, false);
+              if($resJenis->status == 'success') {
+                $itemJenis = json_decode($jenisPinjaman, true);
+              }
+              else {
+                $itemJenis = null;
+              }
+              $jenisPinjaman = json_decode($jenisPinjaman, true);
+              $route = '';
+          @endphp
+          @foreach ($jenisPinjaman['data'] as $i => $item)
+          @php
+              $route = 'pinjaman.';
+
+              if (strpos(strtolower($item['jenis_pinjaman']), 'cepat') != false){
+                $route = $route .'cepat';
+              }
+              if (strpos(strtolower($item['jenis_pinjaman']), 'modal') != false) {
+                $route = $route .'modal';
+              }
+              if (strpos(strtolower($item['jenis_pinjaman']), 'umroh') != false) {
+                $route = $route .'umroh';
+              }
+          @endphp
+          <a class="collapse-item" href="{{ route($route) }}">{{ ucwords($item['jenis_pinjaman']) }}</a>
+          @endforeach 
+          {{-- <a class="collapse-item" href="{{ route('pinjaman.modal') }}">Pinjaman Modal</a>
+          <a class="collapse-item" href="{{ route('pinjaman.dana.umroh') }}">Dana Umroh</a> --}}
         </div>
       </div>
     </li>
@@ -52,7 +80,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Kelengkapan profile</h6>
           <a class="collapse-item" href="utilities-color.html">Profile</a>
-          <a class="collapse-item" href="utilities-border.html">Riwayat pengajuan pinjaman</a>
+          <a class="collapse-item" href="{{ route('riwayat') }}">Riwayat Pengajuan Pinjaman</a>
           <a class="collapse-item" href="utilities-animation.html">Tagihan</a>
         </div>
       </div>

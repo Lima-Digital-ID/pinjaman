@@ -15,7 +15,7 @@
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Limit Pinjaman</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $limit != null ? 'Rp.'.number_format($limit, 2, ',', '.') : 'isNan' }}</div>
             </div>
             <div class="col-auto">
                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -30,7 +30,7 @@
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pinjaman Belum dibayar</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $hutang != null ? 'Rp.'.number_format($hutang, 2, ',', '.') : 'isNan' }}</div>
             </div>
             <div class="col-auto">
                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -40,38 +40,34 @@
         </div>
     </div>
 </div>
+@php
+    $urlJenis = \Config::get('api_config.jenis_pinjaman');
+    $jenisPinjaman = \Http::withToken(Session::get('token'))->get($urlJenis);
+    $resJenis = json_decode($jenisPinjaman, false);
+    if($resJenis->status == 'success') {
+        $itemJenis = json_decode($jenisPinjaman, true);
+    }
+    else {
+        $itemJenis = null;
+    }
+    $jenisPinjaman = json_decode($jenisPinjaman, true);
+@endphp
 <div class="row">
     <div class="col-xl-12 col-md-12">
         <div class="card p-4">
             <h3>Pinjaman</h3>
             <div class="row">
+                @foreach ($jenisPinjaman['data'] as $i => $item)
                 <div class="col-md-4">
                     <a href="#" style="text-decoration:none">
                     <div class="card">
                         <div class="card-body">
-                            <p>Pinjaman Cepat</p>
+                            <p>{{ ucwords($item['jenis_pinjaman']) }}</p>
                         </div>
                     </div>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <a href="#" style="text-decoration:none">
-                    <div class="card">
-                        <div class="card-body">
-                            <p>Pinjaman Modal</p>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" style="text-decoration:none">
-                    <div class="card">
-                        <div class="card-body">
-                            <p>Dana Umroh</p>
-                        </div>
-                    </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

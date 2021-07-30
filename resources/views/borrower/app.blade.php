@@ -17,7 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="borrower/sb-admin-2.css" rel="stylesheet">
-
+  @stack('stylesheet')
 </head>
 
 <body id="page-top">
@@ -102,6 +102,8 @@
   <!-- Custom scripts for all pages-->
   <script src="borrower/js/sb-admin-2.min.js"></script>
 
+  <!-- Extra scripts -->
+  @stack('script')
 </body>
 
 </html>
