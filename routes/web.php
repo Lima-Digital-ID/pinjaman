@@ -3,19 +3,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\{CriteriaCategoryController,
                             DashboardController,
                             RiwayatPengajuanController,
-                            ScoringController
-                        };
+                            ScoringController,
+                            SyaratPinjamanModalController
+};
 use App\Http\Controllers\v1\Auth\AuthController;
 use App\Http\Middleware\AuthStatus;
-use GuzzleHttp\Middleware;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
 
     Route::get('/kategori-kriteria', [CriteriaCategoryController::class,'index']);
 
+
+    /**
+     * Pinjaman
+     */
     Route::get('/pinjaman-cepat', function(){
         return view('borrower.jacep.index');
     })->name('pinjaman.cepat');
@@ -28,34 +32,46 @@ Route::get('/', function () {
         return view('borrower.danum.index');
     })->name('pinjaman.umroh');
 
+    /**
+     * Verifikasi
+     */
     Route::get('/data-diri', function(){
         return view('borrower.verification.personalData.index');
     })->name('personal.data');
 
     Route::get('/scoring', [ScoringController::class, 'index'])->name('scoring');
 
-    Route::get('/syarat-pinjaman-modal', function(){
-        return view('borrower.loanterms.jamod.index');
-    })->name('syarat.jamod');
+    /**
+     * Syarat Pinjaman
+     */
+    Route::get('/syarat-pinjaman-modal',[SyaratPinjamanModalController::class, 'index'])->name('syarat.jamod');
 
     Route::get('/syarat-dana-umroh', function(){
         return view('borrower.loanterms.danum.index');
     })->name('syarat.danum');
 
-    Route::get('/kebijakan-privasi', function(){
-        return view('borrower.kebijakanPrivasi.index');
-    })->name('kebijakan.privasi');
+    /**
+     * Kebijakan Privasi
+     */
+    Route::view('/kebijakan-privasi', 'borrower.kebijakanPrivasi.index')
+            ->name('kebijakan.privasi');
 
+    /**
+     * Other
+     */
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/riwayat', [RiwayatPengajuanController::class, 'index'])->name('riwayat');
 
+    /**
+     * Authentication
+     */
     Route::group(['middleware'=> AuthStatus::class], function(){
         Route::get('/daftar',[AuthController::class,'register'])->name('register');
         Route::get('/masuk', [AuthController::class,'login'])->name('login');
     });
 
-// Consume API
-Route::post('/register', [AuthController::class,'ApiRegister'])->name('api.register');
-Route::post('/login', [AuthController::class,'ApiLogin'])->name('api.login');
-Route::get('/logout', [AuthController::class,'ApiLogout'])->name('api.logout');
+    // Consume API
+    Route::post('/register', [AuthController::class,'ApiRegister'])->name('api.register');
+    Route::post('/login', [AuthController::class,'ApiLogin'])->name('api.login');
+    Route::get('/logout', [AuthController::class,'ApiLogout'])->name('api.logout');
 
