@@ -2,8 +2,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\{CriteriaCategoryController,
                             DashboardController,
+                            PinjamanCepatController,
+                            PinjamanModalController,
+                            PinjamanUmrohController,
                             RiwayatPengajuanController,
                             ScoringController,
+                            SyaratDanaUmrohController,
                             SyaratPinjamanModalController
 };
 use App\Http\Controllers\v1\Auth\AuthController;
@@ -20,17 +24,11 @@ use App\Http\Middleware\AuthStatus;
     /**
      * Pinjaman
      */
-    Route::get('/pinjaman-cepat', function(){
-        return view('borrower.jacep.index');
-    })->name('pinjaman.cepat');
+    Route::get('/pinjaman-cepat', [PinjamanCepatController::class, 'index'])->name('pinjaman.cepat');
 
-    Route::get('/pinjaman-modal', function(){
-        return view('borrower.jamod.index');
-    })->name('pinjaman.modal');
+    Route::get('/pinjaman-modal', [PinjamanModalController::class, 'index'])->name('pinjaman.modal');
 
-    Route::get('/pinjaman-umroh', function(){
-        return view('borrower.danum.index');
-    })->name('pinjaman.umroh');
+    Route::get('/pinjaman-umroh', [PinjamanUmrohController::class, 'index'])->name('pinjaman.umroh');
 
     /**
      * Verifikasi
@@ -46,9 +44,7 @@ use App\Http\Middleware\AuthStatus;
      */
     Route::get('/syarat-pinjaman-modal',[SyaratPinjamanModalController::class, 'index'])->name('syarat.jamod');
 
-    Route::get('/syarat-dana-umroh', function(){
-        return view('borrower.loanterms.danum.index');
-    })->name('syarat.danum');
+    Route::get('/syarat-dana-umroh', [SyaratDanaUmrohController::class, 'index'])->name('syarat.danum');
 
     /**
      * Kebijakan Privasi
