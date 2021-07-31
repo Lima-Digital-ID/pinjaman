@@ -1,5 +1,6 @@
 @extends('borrower.app', ['jumbotron' => 'Pinjaman Modal'])
 
+
 @section('body')
     <p>
         Fitur Pinjaman memakai agunan untuk pengembangan modal usaha dari 5 juta - 5 milyar dengan jangka waktu 1 tahun sampai dengan 5 tahun.
@@ -39,5 +40,4 @@
         </div>
         <div class="col-xl-6"></div>
     </div>
-
 @endsection

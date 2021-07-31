@@ -61,6 +61,8 @@ class AuthController extends Controller
             else {
                 $this->params['limit'] = null;
             }
+
+            // return $login['data'];
             // Session
             Session::put('token', $requestLogin->token);
             Session::put('nama', $login['data']['nama']);

@@ -12,7 +12,7 @@ class PinjamanCepatController extends Controller
 {
     public function index()
     {
-    $url = \Config::get('api_config.pinjaman');
+        $url = \Config::get('api_config.pinjaman');
     
         $user = \Session::get('nama');
 
@@ -37,24 +37,21 @@ class PinjamanCepatController extends Controller
         $res = json_decode($response, false);
 
         if ($res->status ==  'success') {
-            $data =  $res->data;
-            return $data;
-            
+            $idPinjaman =  $res->data;
+
             return redirect()
                         ->route('api.pinjaman.cepat.detail');
         }else{
-            return back();
-            return $res->message;
+            return back()
+                    ->withError($res->message);
         }
     }
 
     public function detail()
     {
         
-        $url = \Config::get('api_config');
+        $url = \Config::get('api_config.pinjaman');
         
-        
-
         return view('borrower.jacep.detail');
     }
 }
