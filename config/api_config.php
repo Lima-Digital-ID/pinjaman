@@ -2,7 +2,6 @@
 
 /* Api Configuration */
 
-$domain = 'http://127.0.0.1:8080/';
 // $domain = 'http://demoumkm.tech/backup/';
 $base_url = $domain.'api/';
 
