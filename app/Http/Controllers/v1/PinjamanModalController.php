@@ -31,13 +31,15 @@ class PinjamanModalController extends Controller
 
         if ($res->status ==  'success') {
 
+            $idPinjaman =  $res->data;
+
             $response = Http::withToken(\Session::get('token'))
             ->get($url.'/'.$idPinjaman );
 
             $res = json_decode($response, false);
 
             if ($res->status =='success') {
-                return view('borrower.danum.detail',[
+                return view('borrower.jamod.detail',[
                     'data' => $res->data,
                     'asuransi' => $res->asuransi
                     ]);    
