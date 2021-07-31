@@ -61,8 +61,13 @@ class AuthController extends Controller
             else {
                 $this->params['limit'] = null;
             }
+            // Session
             Session::put('token', $requestLogin->token);
             Session::put('nama', $login['data']['nama']);
+            Session::put('is_verified', $login['data']['is_verified']);
+            Session::put('syarat_pinjaman_umroh', $login['data']['syarat_pinjaman_umroh']);
+            Session::put('kelengkapan_data', $login['data']['syarat_pinjaman_umroh']);
+            
             Session::put('foto_profil', $login['data']['foto_profil']);
             return redirect()
                         ->route('dashboard');

@@ -4,7 +4,6 @@
     <p>
         Fitur Pinjaman dana talangan umroh dan haji bagi UMKM.
     </p>
-
     <div class="row">
         <div class="col-xl-6">
             <strong>Dengan ini :</strong>

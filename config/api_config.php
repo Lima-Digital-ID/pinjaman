@@ -26,5 +26,6 @@ return [
     'riwayat'               => $base_url.'pinjaman-pending',
     'syarat_modal'          => $base_url.'data-tambahan-nasabah',
     'syarat_pinjaman_umroh' => $base_url.'syarat-pinjaman-umroh',
-    'pinjaman_cepat'        => $base_url.'pinjaman-per-nasabah',
+    'pinjaman'              => $base_url.'pinjaman',
+    'nasabah'               => $base_url. 'nasabah'
 ];

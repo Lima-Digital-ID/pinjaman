@@ -13,23 +13,28 @@ use App\Http\Controllers\v1\{CriteriaCategoryController,
 };
 use App\Http\Controllers\v1\Auth\AuthController;
 use App\Http\Middleware\AuthStatus;
+use App\Http\Middleware\AuthNoLogin;
 
     Route::get('/', function () {
         return view('welcome');
     });
 
+Route::group(['middleware' => AuthNoLogin::class], function(){
 
     Route::get('/kategori-kriteria', [CriteriaCategoryController::class,'index']);
-
 
     /**
      * Pinjaman
      */
     Route::get('/pinjaman-cepat', [PinjamanCepatController::class, 'index'])->name('pinjaman.cepat');
+    Route::post('/pinjaman-cepat', [PinjamanCepatController::class, 'create'])->name('api.pinjaman.cepat');
+    Route::get('/pinjaman-cepat-detail', [PinjamanCepatController::class, 'detail'])->name('api.pinjaman.cepat.detail');
 
     Route::get('/pinjaman-modal', [PinjamanModalController::class, 'index'])->name('pinjaman.modal');
+    Route::post('/pinjaman-modal', [PinjamanModalController::class, 'create'])->name('api.pinjaman.modal');
 
     Route::get('/pinjaman-umroh', [PinjamanUmrohController::class, 'index'])->name('pinjaman.umroh');
+    Route::post('/pinjaman-umroh', [PinjamanUmrohController::class, 'create'])->name('api.pinjaman.umroh');
 
     /**
      * Verifikasi
@@ -61,7 +66,7 @@ use App\Http\Middleware\AuthStatus;
      */
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/riwayat', [RiwayatPengajuanController::class, 'index'])->name('riwayat');
-
+});
     /**
      * Authentication
      */
