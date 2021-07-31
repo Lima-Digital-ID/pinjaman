@@ -1,4 +1,5 @@
-<div class="tab-pane fade show active" id="pills-ktp" role="tabpanel" aria-labelledby="pills-ktp-tab">
+{{-- <div class="tab-pane fade show active" id="pills-ktp" role="tabpanel" aria-labelledby="pills-ktp-tab"> --}}
+<div id="step-1" class="tab-pane" role="tabpanel">
     <div class="form-group row">
         <label for="" class="col-md-2">Foto KTP</label>
         <input type="file" name="scan_ktp" class="form-control col-md-4" required>

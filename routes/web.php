@@ -3,7 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\{CriteriaCategoryController,
                             DashboardController,
                             PinjamanCepatController,
-                            PinjamanModalController,
+    PinjamanController,
+    PinjamanModalController,
                             PinjamanUmrohController,
                             RiwayatPengajuanController,
                             ScoringController,
@@ -37,11 +38,15 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     Route::post('/pinjaman-cepat', [PinjamanCepatController::class, 'create'])->name('api.pinjaman.cepat');
     Route::get('/pinjaman-cepat-detail', [PinjamanCepatController::class, 'detail'])->name('api.pinjaman.cepat.detail');
 
+    /**
+     * Pinjaman modal and dana umroh
+     */
     Route::get('/pinjaman-modal', [PinjamanModalController::class, 'index'])->name('pinjaman.modal');
-    Route::post('/pinjaman-modal', [PinjamanModalController::class, 'create'])->name('api.pinjaman.modal');
+    Route::post('/pinjaman-modal', [PinjamanModalController::class, 'store'])->name('api.pinjaman.modal');
 
     Route::get('/pinjaman-umroh', [PinjamanUmrohController::class, 'index'])->name('pinjaman.umroh');
-    Route::post('/pinjaman-umroh', [PinjamanUmrohController::class, 'create'])->name('api.pinjaman.umroh');
+    Route::post('/pinjaman-umroh', [PinjamanUmrohController::class, 'store'])->name('api.pinjaman.umroh');
+    Route::post('/pinjaman-umroh-detail', [PinjamanUmrohController::class, 'detail'])->name('api.pinjaman.umroh.detail');
 
     /**
      * Verifikasi

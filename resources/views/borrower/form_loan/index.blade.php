@@ -1,5 +1,4 @@
-@extends('borrower.app', ['jumbotron' => 'Pinjaman Modal'])
-
+@extends('borrower.app', ['jumbotron' => 'Pinjaman'])
 
 @section('body')
     <p>
@@ -40,4 +39,5 @@
         </div>
         <div class="col-xl-6"></div>
     </div>
+
 @endsection

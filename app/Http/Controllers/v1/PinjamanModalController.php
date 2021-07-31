@@ -17,14 +17,27 @@ class PinjamanModalController extends Controller
 
         return view('borrower.jamod.index', compact('user', 'limit_pinjaman'));
     }
-
-    public function create(Request $request)
+    public function store(Request $request)
     {
-        $url = \Session::get('api_config.pinjaman_modal');
+        $url = \Config::get('api_config.pinjaman');
 
-        $token = Session::get('token');
-        
-        return $response;
+        $limit_pinjaman = \Session::get('limit_pinjaman');
+
+        $response = Http::withToken(\Session::get('token'))
+                        ->post($url,[
+                            'nominal'      => $limit_pinjaman
+                        ]);
+        $res = json_decode($response, false);
+
+        if ($res->status ==  'success') {
+            $idPinjaman =  $res->data;
+
+            return redirect()
+                        ->route('api.pinjaman.cepat.detail');
+        }else{
+            return back()
+                    ->withError($res->message);
+        }
     }
 
 }

@@ -92,19 +92,19 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Apakah anda ingin pergi dari halaman ini?</div>
+        <div class="modal-body">Apakah anda ingin pergi dari aplikasi ini?</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
           <form method="GET" action="{{route('api.logout')}}">
             <a class="btn btn-primary" href="#"
                     onclick="event.preventDefault();
                     this.closest('form').submit();" >
-            Logout</a>
+            Ya</a>
           </form>
 
         </div>
