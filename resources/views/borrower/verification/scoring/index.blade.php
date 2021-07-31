@@ -19,25 +19,34 @@
             </li>
             @endforeach
         </ul>
-        <form action="#" method="POST">
+        <form action="{{ route('proses-skoring') }}" method="POST">
+          @csrf
           <div class="tab-content" id="pills-tabContent">
-        
                 @foreach ($kategori['data'] as $key => $item)
                 <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" id="{{ 'pills-'.$item['id'] }}" role="tabpanel" >
                     @foreach ($item['kriteria'] as $i => $items)
+                    @if($items['nama_kriteria'] != 'Debt to Equity Ratio' && $items['nama_kriteria'] != 'ROA (Return on Asset)' && $items['nama_kriteria'] != 'ROE (Return on Equity)' )
                     <div class="form-group row">
                         <label for="" class="col-md-2">{{$items['nama_kriteria']}}</label>
                         <div class="col-md-4">
                             @foreach ($items['option'] as $o => $options)
                             <input
                                 type="radio"
+                                class="form control @error(\Str::slug($items['nama_kriteria']) ) is-invalid @enderror"
                                 name="{{ \Str::slug($items['nama_kriteria']) }}"
                                 id="{{ $options['id'] }}"
-                                value="{{ $options['id'] }}"> 
-                                <label for="{{ $options['id'] }}">{{ $options['option'] }}</label> <br>
+                                value="{{ $options['id'].'-'.$options['skor'] }}"> 
+                            <label for="{{ $options['id'] }}">{{ $options['option'] }}</label> <br>
+                            <br>
+                            @error(\Str::slug($items['nama_kriteria']))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                             @endforeach
                         </div>
-                    </div>                
+                    </div>
+                    @endif
                     @endforeach
                 </div>
                 @endforeach        

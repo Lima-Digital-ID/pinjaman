@@ -21,7 +21,14 @@ use App\Http\Middleware\AuthNoLogin;
 
 Route::group(['middleware' => AuthNoLogin::class], function(){
 
+    /**
+     * Scoring
+     */
     Route::get('/kategori-kriteria', [CriteriaCategoryController::class,'index']);
+    Route::post('/proses-skoring', [ScoringController::class,'store'])->name('proses-skoring');
+    /**
+     * END Scoring
+     */
 
     /**
      * Pinjaman
