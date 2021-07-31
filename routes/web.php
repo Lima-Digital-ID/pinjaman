@@ -9,7 +9,8 @@ use App\Http\Controllers\v1\{CriteriaCategoryController,
                             RiwayatPengajuanController,
                             ScoringController,
                             SyaratDanaUmrohController,
-                            SyaratPinjamanModalController
+                            SyaratPinjamanModalController,
+                            VerificationController
 };
 use App\Http\Controllers\v1\Auth\AuthController;
 use App\Http\Middleware\AuthStatus;
@@ -43,9 +44,11 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     /**
      * Verifikasi
      */
-    Route::get('/data-diri', function(){
-        return view('borrower.verification.personalData.index');
-    })->name('personal.data');
+    Route::get('/data-diri', [VerificationController::class, 'index'])->name('personal.data');
+    Route::post('/data-diri', [VerificationController::class, 'store'])->name('personal.store-data');
+    // get kabupaten by provinsi
+    Route::get('/get-kabupaten', [VerificationController::class, 'getKabupaten']);
+    Route::get('/get-kecamatan', [VerificationController::class, 'getKecamatan']);
 
     Route::get('/scoring', [ScoringController::class, 'index'])->name('scoring');
 

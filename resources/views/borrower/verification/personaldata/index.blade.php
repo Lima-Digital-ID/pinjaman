@@ -27,13 +27,13 @@
       </div> --}}
         {{-- pills ktp --}}
         @include('borrower.verification.personalData.utilities.pillsKTP')
-        
+
         {{-- pills bank --}}
         @include('borrower.verification.personalData.utilities.pillsBank')
-        
+
         {{-- pills work --}}
         @include('borrower.verification.personalData.utilities.pillsWork')
-        
+
         {{-- pills work --}}
         @include('borrower.verification.personalData.utilities.pillsContact')
         

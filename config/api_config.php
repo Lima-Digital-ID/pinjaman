@@ -2,7 +2,7 @@
 
 /* Api Configuration */
 
-$domain = 'http://127.0.0.1:8080/';
+$domain = 'http://127.0.0.1:666/';
 // $domain = 'http://demoumkm.tech/backup/';
 $base_url = $domain.'api/';
 
@@ -12,6 +12,12 @@ return [
     'login'                 => $base_url.'login',
     'logout'                => $base_url.'logout',
     'register'              => $base_url.'register',
+    'get_provinsi'          => $base_url.'get-provinsi',
+    'get_kabupaten'         => $base_url.'get-kabupaten',
+    'get_kecamatan'         => $base_url.'get-kecamatan',
+    'kantor_cabang'         => $base_url.'kantor-cabang',
+    'bank'                  => $base_url.'bank',
+    'lengkapi_data'                  => $base_url.'lengkapi-data',
     'limit_pinjaman'        => $base_url.'get-limit-nasabah',
     'get_hutang'            => $base_url.'get-saldo-hutang-nasabah',
     'jenis_pinjaman'        => $base_url.'jenis-pinjaman',
