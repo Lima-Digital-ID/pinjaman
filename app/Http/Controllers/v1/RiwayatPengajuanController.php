@@ -30,4 +30,8 @@ class RiwayatPengajuanController extends Controller
 
         return view('borrower.history.index', $this->params);
     }
+    public function detail()
+    {
+        return view('borrower.history.detail');
+    }
 }

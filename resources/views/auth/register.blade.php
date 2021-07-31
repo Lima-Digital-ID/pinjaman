@@ -2,8 +2,8 @@
 
 @section('body')
     <div class="container">
-        <div class="row" style="margin-top: 180px;">
-            <div class="col-md-6">
+        <div class="row justify-content-center" style="margin-top: 150px;">
+            <div class="col-md-8 shadow-sm p-4">
                 @if (session('error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ session('error') }}

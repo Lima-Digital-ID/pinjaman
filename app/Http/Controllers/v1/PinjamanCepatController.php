@@ -15,6 +15,8 @@ class PinjamanCepatController extends Controller
         $url = \Config::get('api_config.pinjaman');
     
         $user = \Session::get('nama');
+        $nasabah = Http::withToken()
+                        ->get($url);
 
         $limit_pinjaman = \Session::get('limit_pinjaman');
 

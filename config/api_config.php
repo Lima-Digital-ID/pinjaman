@@ -16,7 +16,7 @@ return [
     'get_kecamatan'         => $base_url.'get-kecamatan',
     'kantor_cabang'         => $base_url.'kantor-cabang',
     'bank'                  => $base_url.'bank',
-    'lengkapi_data'                  => $base_url.'lengkapi-data',
+    'lengkapi_data'         => $base_url.'lengkapi-data',
     'limit_pinjaman'        => $base_url.'get-limit-nasabah',
     'get_hutang'            => $base_url.'get-saldo-hutang-nasabah',
     'jenis_pinjaman'        => $base_url.'jenis-pinjaman',
