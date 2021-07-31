@@ -45,7 +45,16 @@
                         <div class="form-group d-flex justify-content-between">
                             <div class="label">Rekening Bank</div>
                             <p>
-                                {{$data[0]->no_rekening}}
+                                @php
+                                    $i = 1;
+                                    $encrypt = '*';
+                                    while ($i < (strlen($data[0]->no_rekening) - 4)) {
+                                        $encrypt .= '*';
+                                        $i++;
+                                    }
+                                    $norek = $encrypt.substr($data[0]->no_rekening, -4);
+                                @endphp
+                                {{$norek}}
                             </p>
                         </div>
                     </div>    

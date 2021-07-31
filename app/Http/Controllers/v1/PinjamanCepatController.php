@@ -23,7 +23,6 @@ class PinjamanCepatController extends Controller
     
     public function create(Request $request)
     {
-        
         $url = \Config::get('api_config.pinjaman');
     
         $limit_pinjaman = \Session::get('limit_pinjaman');
@@ -40,18 +39,36 @@ class PinjamanCepatController extends Controller
             $idPinjaman =  $res->data;
 
             return redirect()
-                        ->route('api.pinjaman.cepat.detail');
+                        ->route('api.pinjaman.cepat.detail', ['id' => $idPinjaman]);
         }else{
             return back()
                     ->withError($res->message);
         }
     }
 
-    public function detail()
+    public function detail($id)
     {
-        
-        $url = \Config::get('api_config.pinjaman');
-        
-        return view('borrower.jacep.detail');
+        try {
+            $url = \Config::get('api_config.pinjaman');
+
+            $response = Http::withToken(\Session::get('token'))
+                                ->get($url.'/'.$id );
+
+            $res = json_decode($response, false);
+
+            if ($res->status =='success') {
+                return view('borrower.jacep.detail',[
+                    'data' => $res->data,
+                    'asuransi' => $res->asuransi
+                ]);
+            }else{
+                return back()
+                        ->withError($res->message);
+            }
+        } catch (\Exception $e) {
+            return back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return back()->withError($e->getMessage());
+        }
     }
 }

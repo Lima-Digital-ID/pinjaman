@@ -24,23 +24,6 @@
         Sebuah Pinjaman nasabah untuk keperluan apapun yang bisa di akses secara cepat mudah dan tanpa agunan
     </p>
 
-    @if (session('status'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('status') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
-@if (session('error'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ session('error') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
-
     <div class="row">
         <div class="col-xl-6">
             <strong>Dengan ini :</strong>
@@ -55,7 +38,7 @@
                 </tr>
                 <tr>
                     <td>Total Pinjaman</td>
-                    <td>: {{ $limit_pinjaman }}</td>
+                    <td>: Rp.{{ $limit_pinjaman != 0 || $limit_pinjaman != null ? number_format($limit_pinjaman, 2, ',', '.') : '0,00' }}</td>
                 </tr>
                 </table>
                 <br>

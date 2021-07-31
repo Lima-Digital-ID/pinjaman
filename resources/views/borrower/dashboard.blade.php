@@ -2,13 +2,20 @@
 
 @section('body')
 <div class="row">
-    <div class="col-xl-6">
+    <div class="col-xl-12 col-md-12">
         @if (\Session::get('is_verified') == 0)
-            
-        @else
         <div class="alert alert-warning" role="alert">
             <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="#" class="alert-link"> disini.</a> Untuk melengkapi data diri anda
         </div>
+        @elseif (\Session::get('is_verified') == 2)
+        <div class="alert alert-info" role="alert">
+            <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
+        </div>
+        @elseif (\Session::get('is_verified') == 3)
+        <div class="alert alert-danger" role="alert">
+            <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.
+        </div>
+        @else
         @endif
     </div>
 </div>
@@ -19,7 +26,7 @@
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Limit Pinjaman</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ \Session::get('limit_pinjaman') != null ? 'Rp.'.number_format(\Session::get('limit_pinjaman'), 2, ',', '.') : 'isNan' }}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $limit != null ? 'Rp.'.number_format($limit, 2, ',', '.') : 'Rp.0,00' }}</div>
             </div>
             <div class="col-auto">
                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -34,7 +41,7 @@
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pinjaman Belum dibayar</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $hutang != null ? 'Rp.'.number_format($hutang, 2, ',', '.') : 'isNan' }}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $hutang != null ? 'Rp.'.number_format($hutang, 2, ',', '.') : 'Rp.0,00' }}</div>
             </div>
             <div class="col-auto">
                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
