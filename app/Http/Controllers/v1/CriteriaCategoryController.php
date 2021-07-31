@@ -15,8 +15,8 @@ class CriteriaCategoryController extends Controller
     {
     
        // this is response json
-       $CriteriaCategory = Http::withToken('13|lt7Ay2tXzLTubmSfvCl9ElvSieYonDUciSSsZqgi')
-                                ->get('http://127.0.0.1:8080/api/kategori-kriteria');
+       $CriteriaCategory = Http::withToken('6|iFaXuhMwLGPok4GF2P5FjpLE4ELWALHK9RILsZp6')
+                                ->get('http://127.0.0.1:666/api/kategori-kriteria');
 
         // return response
         return $CriteriaCategory;

@@ -17,6 +17,10 @@
 
   <!-- Custom styles for this template-->
   <link href="borrower/sb-admin-2.css" rel="stylesheet">
+  
+  <link href="borrower/vendor/select2-develop/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="borrower/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+  <link href="borrower/custom.css" rel="stylesheet">
   @stack('stylesheet')
 </head>
 
@@ -101,6 +105,10 @@
 
   <!-- Custom scripts for all pages-->
   <script src="borrower/js/sb-admin-2.min.js"></script>
+  
+  <script src="borrower/vendor/select2-develop/dist/js/select2.min.js"></script>
+  <script src="borrower/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+  <script src="borrower/js/custom.js"></script>
 
   <!-- Extra scripts -->
   @stack('script')
