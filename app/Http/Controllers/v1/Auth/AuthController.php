@@ -75,15 +75,15 @@ class AuthController extends Controller
                         ->route('dashboard');
         }
         else if($requestLogin->status == 'Unauthorized') {
-            return 'password salah';
+            // return 'password salah';
             return redirect()->back()->withError('password salah');
         }
         else if($requestLogin->status == 'failed' && strpos(strtolower($requestLogin->message), 'akun tidak ditemukan') !== false) {
-            return 'akun tidak ditemukan';
+            // return 'akun tidak ditemukan';
             return redirect()->back()->withError('akun tidak ditemukan');
         }
         else {
-            return 'terjadi kesalahan';
+            // return 'terjadi kesalahan';
             return redirect()->back()->withError('terjadi kesalahan');
         }
     }
