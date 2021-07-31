@@ -31,7 +31,7 @@ class PinjamanUmrohController extends Controller
                         ]);
 
         $res = json_decode($response, false);
-
+        return $res;
         if ($res->status ==  'success') {
             $idPinjaman =  $res->data;
             

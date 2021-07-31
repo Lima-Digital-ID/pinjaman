@@ -13,9 +13,8 @@ class PinjamanModalController extends Controller
         $url = \Session::get('api_config.pinjaman_cepat');
     
         $user = \Session::get('nama');
-        $limit_pinjaman = \Session::get('limit_pinjaman');
 
-        return view('borrower.jamod.index', compact('user', 'limit_pinjaman'));
+        return view('borrower.jamod.index', compact('user'));
     }
     public function store(Request $request)
     {

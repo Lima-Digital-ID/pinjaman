@@ -43,7 +43,9 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
      */
     Route::get('/pinjaman-modal', [PinjamanModalController::class, 'index'])->name('pinjaman.modal');
     Route::post('/pinjaman-modal', [PinjamanModalController::class, 'store'])->name('api.pinjaman.modal');
-
+    Route::get('/pinjaman-modal-detail', function(){
+        return view('borrower.jamod.detail');
+    });
     Route::get('/pinjaman-umroh', [PinjamanUmrohController::class, 'index'])->name('pinjaman.umroh');
     Route::post('/pinjaman-umroh', [PinjamanUmrohController::class, 'store'])->name('api.pinjaman.umroh');
     Route::get('/pinjaman-umroh-detail', function() {

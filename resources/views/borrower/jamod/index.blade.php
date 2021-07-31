@@ -8,19 +8,17 @@
 
     <div class="row">
         <div class="col-xl-6">
+            <form action="{{ route('api.pinjaman.modal')}}" method="POST" autocomplete="off">
+                @csrf
             <strong>Dengan ini :</strong>
                 <table>
                 <tr>
                     <td>Nama </td>
-                    <td>: Nama user pengguna</td>
+                    <td>: {{ $user }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Pinjaman</td>
                     <td>: Pinjaman Modal</td>
-                </tr>
-                <tr>
-                    <td>Total Pinjaman</td>
-                    <td>: Harga total pinjaman</td>
                 </tr>
                 </table>
                 <br>
@@ -30,14 +28,14 @@
                             <div class="form-group">
                                 <label for="">3 Tahun (36 bulan)</label> <br>
                                 <label for="">Ajukan Nomimal Pinjaman (Rp.)</label>
-                                <input type="number" placeholder="Rp." class="form-control">
+                                <input type="number" placeholder="Rp." class="form-control" name="nominal">
                             </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
                 <button class="btn btn-danger mt-2 ">Selanjutnya</button>
                 </div>
+            </form>
         </div>
-        <div class="col-xl-6"></div>
     </div>
 @endsection
