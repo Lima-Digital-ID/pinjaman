@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Http;
 
 class PinjamanUmrohController extends Controller
 {
+
+    private $params;
+
     public function index()
     {     
         $url = \Config::get('api_config.pinjaman');
@@ -20,16 +23,32 @@ class PinjamanUmrohController extends Controller
     {
         $url = \Config::get('api_config.pinjaman');
 
-        $limit_pinjaman = \Session::get('limit_pinjaman');
-
         $response = Http::withToken(\Session::get('token'))
                         ->post($url,[
-                            'nominal'     => $limit_pinjaman
+                            'id_jenis_pinjaman' => 1,
+                            'jangka_waktu'      => 36,
+                            'nominal'           => $request->nominal
                         ]);
+
         $res = json_decode($response, false);
 
         if ($res->status ==  'success') {
             $idPinjaman =  $res->data;
+            
+            $response = Http::withToken(\Session::get('token'))
+                                ->get($url.'/'.$idPinjaman );
+
+            $res = json_decode($response, false);
+            
+            if ($res->status =='success') {
+                return view('borrower.danum.detail',[
+                    'data' => $res->data,
+                    'asuransi' => $res->asuransi
+                ]);    
+            }else{
+                return back()
+                        ->withError($res->message);
+            }
 
             return redirect()
                         ->route('api.pinjaman.cepat.detail');

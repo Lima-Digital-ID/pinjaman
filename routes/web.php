@@ -39,7 +39,10 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
 
     Route::get('/pinjaman-umroh', [PinjamanUmrohController::class, 'index'])->name('pinjaman.umroh');
     Route::post('/pinjaman-umroh', [PinjamanUmrohController::class, 'store'])->name('api.pinjaman.umroh');
-    Route::post('/pinjaman-umroh-detail', [PinjamanUmrohController::class, 'detail'])->name('api.pinjaman.umroh.detail');
+    Route::get('/pinjaman-umroh-detail', function() {
+        return view('borrower.danum.detail');
+    });
+    // Route::get('/pinjaman-umroh-detail', [PinjamanUmrohController::class, 'detail'])->name('api.pinjaman.umroh.detail');
 
     /**
      * Verifikasi
