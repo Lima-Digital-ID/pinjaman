@@ -1,9 +1,45 @@
 @extends('borrower.app',['jumbotron' => 'Pinjaman Cepat'])
 
+@push('stylesheet')
+    <style>
+        .active {
+            color: white;
+            background-color: #DC464F;
+        }
+        .active .st-title{
+            color:white;
+        }
+        .card {
+            cursor: pointer;
+        }
+        .st-title{
+            color: #DC464F;
+        }
+
+    </style>
+@endpush
+
 @section('body')
     <p>
         Sebuah Pinjaman nasabah untuk keperluan apapun yang bisa di akses secara cepat mudah dan tanpa agunan
     </p>
+
+    @if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('status') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+@if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 
     <div class="row">
         <div class="col-xl-6">
@@ -24,59 +60,35 @@
                 </table>
                 <br>
                 <label for="">Jangka waktu pengembalian :</label>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <p class="">
-                                    <strong>Pengembalian 1 Bulan</strong> <br>
-                                    <small>Pelunasan selama 36 x 24jam</small>
-                                </p>
-                                <p class="">
-                                
-                                </p>
-                                <p class="">
-                                    <strong>Termin 1x</strong>
-                                </p>
-                            </div>
-                        </div>
+                <form action="{{route('api.pinjaman.cepat')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="selected" id="selected">
+                    @include('borrower.jacep.partials.card')
+                    <div class="d-flex justify-content-end mb-4 mt-4">
+                        <button class="btn btn-danger mt-2 ">Selanjutnya</button>
                     </div>
-                    <div class="card mt-2">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <p class="">
-                                    <strong>Pengembalian 2 Bulan</strong> <br>
-                                    <small>Pelunasan selama 30 x 24jam setelah pembayaran pertama</small>
-                                </p>
-                                <p class="">
-                                
-                                </p>
-                                <p class="">
-                                    <strong>Termin 2x</strong>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mt-2">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <p class="">
-                                    <strong>Pengembalian 1 Bulan</strong> <br>
-                                    <small>Pelunasan selama 36 x 24jam seteleah pembayaran kedua</small>
-                                </p>
-                                <p class="">
-                                
-                                </p>
-                                <p class="">
-                                    <strong>Termin 3x</strong>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                <div class="d-flex justify-content-end">
-                <button class="btn btn-danger mt-2 ">Selanjutnya</button>
-                </div>
+                </form>
         </div>
-        <div class="col-xl-6"></div>
     </div>
 
 @endsection
+
+@push('script')
+    <script>
+        $('.termin-1').click(function(){
+            $(".active").removeClass("active");
+            $('#selected').val(1);
+            $(this).addClass("active");
+        });
+        $('.termin-2').click(function(){
+            $(".active").removeClass("active");
+            $('#selected').val(2);
+            $(this).addClass("active");
+        });
+        $('.termin-3').click(function(){
+            $(".active").removeClass("active");
+            $('#selected').val(3);
+            $(this).addClass("active");
+        });
+    </script>
+@endpush

@@ -3,9 +3,13 @@
 @section('body')
 <div class="row">
     <div class="col-xl-6">
+        @if (\Session::get('is_verified') == 0)
+            
+        @else
         <div class="alert alert-warning" role="alert">
             <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="#" class="alert-link"> disini.</a> Untuk melengkapi data diri anda
         </div>
+        @endif
     </div>
 </div>
 <div class="row">

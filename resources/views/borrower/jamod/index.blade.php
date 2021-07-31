@@ -11,7 +11,7 @@
                 <table>
                 <tr>
                     <td>Nama </td>
-                    <td>: {{ $user }}</td>
+                    <td>: Nama user pengguna</td>
                 </tr>
                 <tr>
                     <td>Jenis Pinjaman</td>
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td>Total Pinjaman</td>
-                    <td>: {{ $limit_pinjaman }}</td>
+                    <td>: Harga total pinjaman</td>
                 </tr>
                 </table>
                 <br>
