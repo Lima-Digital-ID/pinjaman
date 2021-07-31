@@ -10,7 +10,16 @@ class PinjamanModalController extends Controller
 {
     public function index()
     {
-        $url = \Session::get('api_config.pinjaman_cepat');
+        $url_nasabah = \Config::get('api_config.get_nasabah');
+        $nasabah = Http::withToken(\Session::get('token'))
+                        ->get($url_nasabah);
+
+        $eNasabah = json_decode($nasabah, false);
+
+        if($eNasabah->status == 'success') {
+            \Session::put('nama', $eNasabah->data->nama);
+            \Session::put('syarat_pinmo', $eNasabah->data->kelengkapan_data);
+        }
     
         $user = \Session::get('nama');
 

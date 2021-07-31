@@ -4,33 +4,58 @@
 @section('body')
 
 @if (\Session::get('syarat_pinjaman_umroh') == 0)
-<div class="form-group row">
-    <label for="" class="col-md-2">File Suket Travel/KBIH</label>
-    <input type="file" class="form-control col-md-4">
-</div>
-<div class="form-group row">
-    <label for="" class="col-md-2">File Selfie Usaha</label>
-    <input type="file" class="form-control col-md-4">
-</div>
-<div class="form-group row">
-    <label for="" class="col-md-2">File SIUP</label>
-    <input type="file" class="form-control col-md-4">
-</div>
-<div class="form-group row">
-    <label for="" class="col-md-2">FILE NIB</label>
-    <input type="file" class="form-control col-md-4">
-</div>
-<div class="form-group row">
-    <label for="" class="col-md-2">File Scan Jaminan</label>
-    <input type="file" class="form-control col-md-4">
-</div>
-<div class="form-group row">
-    <div class="col-md-2"></div>
-    <div class="col-md-4 d-flex justify-content-end">
-        <button class="btn btn-primary">
-            Submit
-        </button>
+<form action="{{ route('api.syarat.danum') }}" method="post" enctype="multipart/form-data">
+    @csrf
+    <div class="form-group row">
+        <label for="" class="col-md-2">File Suket Travel/KBIH</label>
+        <input type="file" name="suket" class="form-control col-md-4">
     </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File Selfie Usaha</label>
+        <input type="file" name="selfie" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File SIUP</label>
+        <input type="file" name="siup" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File NIB</label>
+        <input type="file" name="nib" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File Scan Jaminan</label>
+        <input type="file" name="jaminan" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File NPWP Usaha</label>
+        <input type="file" name="npwp" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File Akta Usaha</label>
+        <input type="file" name="akta" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File Domisili</label>
+        <input type="file" name="domisili" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-2">File Laporan Keuangan 3 Bulan Terakhir</label>
+        <input type="file" name="keuangan" class="form-control col-md-4">
+    </div>
+    <div class="form-group row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4 d-flex justify-content-end">
+            <input type="submit" class="btn btn-primary" value="Kirim" />
+        </div>
+    </div>
+</form>
+@elseif(\Session::get('syarat_pinjaman_umroh') == 2)
+<div class="alert alert-info" role="alert">
+    <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
+</div>
+@elseif(\Session::get('syarat_pinjaman_umroh') == 3)
+<div class="alert alert-danger" role="alert">
+    <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.
 </div>
 @elseif(\Session::get('syarat_pinjaman_umroh') == 1)
 <p>

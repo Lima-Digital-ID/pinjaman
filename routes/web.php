@@ -71,6 +71,7 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     Route::post('/syarat-pinjaman-modal',[SyaratPinjamanModalController::class, 'create'])->name('api.syarat.jamod');
 
     Route::get('/syarat-dana-umroh', [SyaratDanaUmrohController::class, 'index'])->name('syarat.danum');
+    Route::post('/syarat-dana-umroh', [SyaratDanaUmrohController::class, 'store'])->name('api.syarat.danum');
 
     /**
      * Kebijakan Privasi

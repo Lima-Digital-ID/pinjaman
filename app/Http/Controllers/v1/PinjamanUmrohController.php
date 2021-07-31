@@ -12,9 +12,18 @@ class PinjamanUmrohController extends Controller
     private $params;
 
     public function index()
-    {     
-        $url = \Config::get('api_config.pinjaman');
-        
+    {
+        $url_nasabah = \Config::get('api_config.get_nasabah');
+        $nasabah = Http::withToken(\Session::get('token'))
+                        ->get($url_nasabah);
+
+        $eNasabah = json_decode($nasabah, false);
+
+        if($eNasabah->status == 'success') {
+            \Session::put('nama', $eNasabah->data->nama);
+            \Session::put('syarat_pinjaman_umroh', $eNasabah->data->syarat_pinjaman_umroh);
+        }
+
         $user = \Session::get('nama');
         
         return view('borrower.danum.index', compact('user'));
@@ -31,7 +40,7 @@ class PinjamanUmrohController extends Controller
                         ]);
 
         $res = json_decode($response, false);
-        return $res;
+
         if ($res->status ==  'success') {
             $idPinjaman =  $res->data;
             
