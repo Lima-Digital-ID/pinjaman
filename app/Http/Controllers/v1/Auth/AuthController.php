@@ -15,7 +15,6 @@ class AuthController extends Controller
     }
     public function login()
     {
-       
         return view('auth.login');
     }
     public function ApiRegister(Request $request)
@@ -48,6 +47,20 @@ class AuthController extends Controller
 
         // return $requestLogin->data;
         if ($requestLogin->status == 'success') {
+
+            $url_limit = \Config::get('api_config.limit_pinjaman');
+
+            $limitPinjaman = Http::withToken($requestLogin->token)
+                            ->get($url_limit);
+
+            $eLimitPinjaman = json_decode($limitPinjaman, false);
+
+            if($eLimitPinjaman->status == 'success') {
+                Session::put('limit_pinjaman', $eLimitPinjaman->data->limit_pinjaman);
+            }
+            else {
+                $this->params['limit'] = null;
+            }
             Session::put('token', $requestLogin->token);
             Session::put('nama', $login['data']['nama']);
             Session::put('foto_profil', $login['data']['foto_profil']);

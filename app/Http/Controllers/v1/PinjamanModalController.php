@@ -9,6 +9,11 @@ class PinjamanModalController extends Controller
 {
     public function index()
     {
-        return view('borrower.jamod.index');
+        $url = \Session::get('api_config.pinjaman_cepat');
+    
+        $user = \Session::get('nama');
+        $limit_pinjaman = \Session::get('limit_pinjaman');
+
+        return view('borrower.jamod.index', compact('user', 'limit_pinjaman'));
     }
 }

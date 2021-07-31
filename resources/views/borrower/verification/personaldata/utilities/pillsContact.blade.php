@@ -74,4 +74,15 @@
         <label for="" class="col-md-2">Alamat: </label>
         <textarea name="" id="" cols="30" rows="10" class="form-control col-md-4"></textarea>
     </div>
+
+{{-- button --}}
+<div class="form-group row">
+    <div class="col-md-2">
+        <button class="btn btn-primary">
+            Submit
+        </button>
+    </div>
+</div>
+
+
 </div>

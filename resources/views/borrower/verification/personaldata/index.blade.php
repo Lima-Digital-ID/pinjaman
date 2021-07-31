@@ -19,14 +19,6 @@
         @include('borrower.verification.personalData.utilities.pillsContact')
         
 
-        {{-- button --}}
-        <div class="form-group row">
-            <div class="col-md-2">
-                <button class="btn btn-primary">
-                    Submit
-                </button>
-            </div>
-        </div>
     </div>
 {{-- </form> --}}
 @endsection
