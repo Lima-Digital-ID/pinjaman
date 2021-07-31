@@ -67,6 +67,7 @@ class AuthController extends Controller
             Session::put('token', $requestLogin->token);
             Session::put('nama', $login['data']['nama']);
             Session::put('is_verified', $login['data']['is_verified']);
+            Session::put('score', $login['data']['skor']);
             Session::put('syarat_pinjaman_umroh', $login['data']['syarat_pinjaman_umroh']);
             Session::put('kelengkapan_data', $login['data']['syarat_pinjaman_umroh']);
             

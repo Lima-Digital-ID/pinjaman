@@ -36,7 +36,7 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
      */
     Route::get('/pinjaman-cepat', [PinjamanCepatController::class, 'index'])->name('pinjaman.cepat');
     Route::post('/pinjaman-cepat', [PinjamanCepatController::class, 'create'])->name('api.pinjaman.cepat');
-    Route::get('/pinjaman-cepat-detail', [PinjamanCepatController::class, 'detail'])->name('api.pinjaman.cepat.detail');
+    Route::get('/pinjaman-cepat-detail/{id}', [PinjamanCepatController::class, 'detail'])->name('api.pinjaman.cepat.detail');
 
     /**
      * Pinjaman modal and dana umroh

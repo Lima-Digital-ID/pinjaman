@@ -27,5 +27,6 @@ return [
     'syarat_modal'          => $base_url.'data-tambahan-nasabah',
     'syarat_pinjaman_umroh' => $base_url.'syarat-pinjaman-umroh',
     'pinjaman'              => $base_url.'pinjaman',
-    'nasabah'               => $base_url. 'nasabah'
+    'nasabah'               => $base_url. 'nasabah',
+    'get_nasabah'           => $base_url. 'get-nasabah',
 ];

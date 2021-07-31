@@ -30,10 +30,10 @@ class ScoringController extends Controller
             return view('borrower.verification.scoring.index', $this->params);
         }
         catch (\Exception $e) {
-            return back()->withError($e->getMessage);
+            return back()->withError($e->getMessage());
         }
         catch (\Illuminate\Database\QueryException $e) {
-            return back()->withError($e->getMessage);
+            return back()->withError($e->getMessage());
         }
     }
 
@@ -146,11 +146,11 @@ class ScoringController extends Controller
         }
         catch (\Exception $e) {
             return $e->getMessage();
-            return back()->withError($e->getMessage);
+            return back()->withError($e->getMessage());
         }
         catch (\Illuminate\Database\QueryException $e) {
             return $e->getMessage();
-            return back()->withError($e->getMessage);
+            return back()->withError($e->getMessage());
         }
     }
 }
