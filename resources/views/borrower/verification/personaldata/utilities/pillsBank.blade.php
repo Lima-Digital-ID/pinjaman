@@ -1,4 +1,5 @@
-<div class="tab-pane fade" id="pills-bank" role="tabpanel" aria-labelledby="pills-bank-tab">
+{{-- <div class="tab-pane fade" id="pills-bank" role="tabpanel" aria-labelledby="pills-bank-tab"> --}}
+<div id="step-2" class="tab-pane" role="tabpanel">
     <div class="form-group row">
         <label for="" class="col-md-2">Nama Akun Bank: </label>
         <input type="text" class="form-control col-md-4">

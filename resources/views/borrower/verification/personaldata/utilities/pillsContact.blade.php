@@ -1,4 +1,5 @@
-<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+{{-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"> --}}
+<div id="step-4" class="tab-pane" role="tabpanel">
     <div class="form-group row">
         <label for="" class="col-md-2">Hubungan ke satu: </label>
         <select name="" id="" class="form-control col-md-4">
