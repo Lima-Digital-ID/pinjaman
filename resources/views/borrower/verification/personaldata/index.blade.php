@@ -24,7 +24,8 @@
     
 
   @include('borrower.verification.personalData.partials.tabs')
-<form action="" method="POST">
+<form action="#" method="POST">
+  @csrf
   <div class="tab-content" id="pills-tabContent">
   
 

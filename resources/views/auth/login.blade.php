@@ -20,18 +20,28 @@
     @endif
         <div class="row justify-content-center" style="margin-top: 170px">
             <div class="col-md-8 col-sm-10 col-xl-6 p-4 shadow-sm">
-                <form action="{{route('api.login')}}" method="POST">
+                <form action="{{route('api.login')}}" method="POST" autocomplete="off">
                     @csrf
                     <h4>Selamat Datang</h4>
                     <small>Silahkan login menggunakan akun anda</small>
                     <br><br>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
+                        @error('email')
+                            <small class="text-danger">
+                                {{$message}}
+                            </small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                        @error('password')
+                            <small class="text-danger">
+                                {{$message}}
+                            </small>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-danger">Login</button>
                 </form>

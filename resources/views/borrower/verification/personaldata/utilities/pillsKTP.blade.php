@@ -9,7 +9,7 @@
     </div>
     <div class="form-group ">
         <label for="" class="">Nama Lengkap</label>
-        <input type="text" name="nama" value="{{old('name')}}" class="form-control " required>
+        <input type="text" name="nama" value="{{old('name', \Session::get('nama'))}}" class="form-control " required>
     </div>
     <div class="form-group ">
         <label for="" class="">NIK</label>
@@ -21,7 +21,9 @@
             data-url="{{ url('get-kabupaten') }}" required>
             <option value="" selected readonly disabled>Pilih Provinsi</option>
             @foreach ($provinsi as $item)
+                @if ($item->nama == 'Jawa Timur')
                 <option value="{{ $item->id }}" {{old('id_provinsi') == $item->id ? 'selected' : ''}} >{{ $item->nama }}</option>
+                @endif
             @endforeach
         </select>
     </div>
