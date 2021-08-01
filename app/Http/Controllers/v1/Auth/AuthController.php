@@ -17,6 +17,14 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+    // public function edit()
+    // {
+    //     $url = \Config::get('api_config.nasabah');
+
+    //     $ress= Http::withToken(\Session::get('token'))->get($url);
+    
+       
+    // }
     public function ApiRegister(Request $request)
     {
         $url = \Config::get('api_config.register');
@@ -63,9 +71,13 @@ class AuthController extends Controller
             }
 
             // return $login['data'];
+
             // Session
             Session::put('token', $requestLogin->token);
             Session::put('nama', $login['data']['nama']);
+            Session::put('tanggal_lahir', $login['data']['tanggal_lahir']);
+            Session::put('tempat_lahir', $login['data']['tempat_lahir']);
+            Session::put('alamat', $login['data']['alamat']);
             Session::put('is_verified', $login['data']['is_verified']);
             Session::put('score', $login['data']['skor']);
             Session::put('syarat_pinjaman_umroh', $login['data']['syarat_pinjaman_umroh']);

@@ -96,7 +96,7 @@
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Kelengkapan profile</h6>
-          <a class="collapse-item" href="utilities-color.html">Profile</a>
+          <a class="collapse-item" href="{{ route('edit.profile') }}">Profil</a>
           <a class="collapse-item" href="{{ route('riwayat') }}">Riwayat Pengajuan Pinjaman</a>
           <a class="collapse-item" href="utilities-animation.html">Tagihan</a>
         </div>

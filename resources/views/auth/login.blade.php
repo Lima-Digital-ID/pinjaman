@@ -1,4 +1,4 @@
-@extends('auth.app')
+@extends('auth.app', ['title' => 'Masuk'])
 
 @section('body')
     <div class="container">
