@@ -98,7 +98,7 @@
           <h6 class="collapse-header">Kelengkapan profile</h6>
           <a class="collapse-item" href="{{ route('edit.profile') }}">Profil</a>
           <a class="collapse-item" href="{{ route('riwayat') }}">Riwayat Pengajuan Pinjaman</a>
-          <a class="collapse-item" href="utilities-animation.html">Tagihan</a>
+          <a class="collapse-item" href="{{ route('tagihan') }}">Tagihan</a>
         </div>
       </div>
     </li>
