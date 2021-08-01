@@ -2,8 +2,10 @@
 
 @section('body')
     <div class="container">
-        <div class="row justify-content-center" style="margin-top: 150px;">
+        <div class="row justify-content-center" style="margin-top: 100px;">
+
             <div class="col-md-8 shadow-sm p-4">
+                <img src="{{asset('img/logo.jpg')}}" alt="" width="50vh" class="mb-4">
 
                 @if (session('error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">

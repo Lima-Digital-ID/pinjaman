@@ -2,11 +2,12 @@
 
 @section('body')
     <div class="container">
-        <div class="row justify-content-center" style="margin-top: 170px">
+        <div class="row justify-content-center" style="margin-top: 120px">
 
-            <img src="" alt="">
+            {{-- <img src="{{asset('img/logo.jpg')}}" alt="" width="400vh"> --}}
 
             <div class="col-md-8 col-sm-10 col-xl-6 p-4 shadow-sm">
+                <img src="{{asset('img/logo.jpg')}}" alt="" width="50vh" class="mb-4">
                 {{-- Session --}}
                 @if (session('status'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
