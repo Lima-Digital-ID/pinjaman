@@ -83,7 +83,14 @@
                             <div class="form-group">
                                 <label for="">3 Tahun (36 bulan)</label> <br>
                                 <label for="">Ajukan Nomimal Pinjaman (Rp.)</label>
-                                <input type="number" placeholder="Rp." name="nominal" class="form-control">
+                                <input type="number" placeholder="Rp." name="nominal" class="form-control @error('nominal') is-invalid @enderror">
+                                @error('nominal')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>
+                                            {{$message}}
+                                        </strong>
+                                    </span>
+                                 @enderror
                             </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ class PinjamanModalController extends Controller
 
         if($eNasabah->status == 'success') {
             \Session::put('nama', $eNasabah->data->nama);
-            \Session::put('syarat_pinmo', $eNasabah->data->kelengkapan_data);
+            \Session::put('kelengkapan_data', $eNasabah->data->kelengkapan_data);
         }
     
         $user = \Session::get('nama');
@@ -29,6 +29,15 @@ class PinjamanModalController extends Controller
     {
         $url = \Config::get('api_config.pinjaman');
 
+        $validated = $request->validate([
+            'nominal' => 'required|numeric|max:5000000000'
+        ],[
+            'max' => ':attribute tidak boleh lebih dari Rp.5.000.000.000,00.',
+            'required' => ':attribute harus diisi.'
+        ], [
+            'nominal' => 'Nominal',
+        ]);
+        
         $response = Http::withToken(\Session::get('token'))
                         ->post($url,[
                             'id_jenis_pinjaman' => 3,

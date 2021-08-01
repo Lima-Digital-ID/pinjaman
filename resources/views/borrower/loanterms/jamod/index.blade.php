@@ -6,11 +6,11 @@
     <div class="form-group row">
         <label for="" class="col-md-2">Jenis Tempat Tinggal:</label>
         <div class="col-md-2">
-            <input type="radio" name="tempat_tinggal"> Rumah tangga <br>
-            <input type="radio" name="tempat_tinggal"> Kos <br>
-            <input type="radio" name="tempat_tinggal"> Kontrakan <br>
-            <input type="radio" name="tempat_tinggal"> Apartemen <br>
-            <input type="radio" name="tempat_tinggal"> Lain-lain
+            <input type="radio" name="tempat_tinggal" value="Rumah Tangga"> Rumah Tangga <br>
+            <input type="radio" name="tempat_tinggal" value="Kos"> Kos <br>
+            <input type="radio" name="tempat_tinggal" value="Kontrakan"> Kontrakan <br>
+            <input type="radio" name="tempat_tinggal" value="Apartemen"> Apartemen <br>
+            <input type="radio" name="tempat_tinggal" value="Lain-lain"> Lain-lain
         </div>
     </div>
     <div class="row">
@@ -35,15 +35,16 @@
                 <label for="" class="">Lampiran BPKB</label>
                 <input type="file" class="form-control" name="bpkb">
             </div>
-        </div>
-        <div class="col-md-6">
             <div class="form-group">
                 <label for="" class="">Lampiran Domisili Usaha</label>
                 <input type="file" class="form-control" name="domisili_usaha">
             </div>
+        </div>
+        <div class="col-md-6">
+
             <div class="form-group">
-                <label for="" class="">Foto Agunan</label>
-                <input type="file" class="form-control" name="foto_agunan">
+                <label for="" class="">Lampiran NPWP Usaha</label>
+                <input type="file" class="form-control" name="npwp_usaha">
             </div>
             <div class="form-group">
                 <label for="" class="">NIB</label>
@@ -54,11 +55,15 @@
                 <input type="file" class="form-control" name="akta">
             </div>
             <div class="form-group">
-                <label for="" class="">NPWP Usaha</label>
-                <input type="file" class="form-control" name="npwp_usaha">
+                <label for="" class="">Jaminan</label>
+                <input type="file" class="form-control" name="scan_jaminan">
+            </div>
+            <div class="form-group">
+                <label for="" class="">Laporan Keuangan 3 bulan terakhir (.pdf)</label>
+                <input type="file" class="form-control" name="keuangan">
             </div>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" type="submit">
                     Submit
                 </button>
             </div>

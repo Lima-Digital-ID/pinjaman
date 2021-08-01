@@ -20,7 +20,7 @@ class PinjamanCepatController extends Controller
 
         $limit_pinjaman = \Session::get('limit_pinjaman');
 
-        return view('borrower.jacep.index', compact('user', 'limit_pinjaman'));
+        return view('borrower.jacep.index', compact('limit_pinjaman'));
     }
     
     public function create(Request $request)

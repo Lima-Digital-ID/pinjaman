@@ -30,7 +30,7 @@
                 <table>
                 <tr>
                     <td>Nama </td>
-                    <td>: {{ $user }}</td>
+                    <td>: {{ \Session::get('nama') }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Pinjaman</td>

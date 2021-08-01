@@ -13,6 +13,18 @@ class VerificationController extends Controller
 
     public function index()
     {
+        $url_nasabah = \Config::get('api_config.get_nasabah');
+        $nasabah = Http::withToken(\Session::get('token'))
+                        ->get($url_nasabah);
+
+        $eNasabah = json_decode($nasabah, false);
+
+        if($eNasabah->status == 'success') {
+            \Session::put('nama', $eNasabah->data->nama);
+            \Session::put('is_verified', $eNasabah->data->is_verified);
+        }
+
+
         $token = Session::get('token');
 
         $url_provinsi = \Config::get('api_config.get_provinsi');

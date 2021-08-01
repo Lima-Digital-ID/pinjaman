@@ -70,7 +70,7 @@
             <div class="row">
                 @foreach ($jenisPinjaman['data'] as $i => $item)
                 <div class="col-md-4">
-                    <a href="#" style="text-decoration:none">
+                    <a href="{{ $item['id'] == 1 ? route('pinjaman.umroh') : ($item['id'] == 2 ? route('pinjaman.cepat') : route('pinjaman.modal')) }}" style="text-decoration:none">
                     <div class="card">
                         <div class="card-body">
                             <p>{{ ucwords($item['jenis_pinjaman']) }}</p>

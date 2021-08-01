@@ -19,15 +19,17 @@ class SyaratPinjamanModalController extends Controller
         $url = \Config::get('api_config.syarat_modal');
         $token = \Session::get('token');
 
-        $scan_npwp          = base64_encode(file_get_contents($request->file('scan_npwp')->path()));
-        $ktp_suami          = base64_encode(file_get_contents($request->file('ktp_suami')->path()));
-        $ktp_istri          = base64_encode(file_get_contents($request->file('ktp_istri')->path()));
-        $surat_nikah        = base64_encode(file_get_contents($request->file('surat_nikah')->path()));
-        $bpkb               = base64_encode(file_get_contents($request->file('bpkb')->path()));
-        $domisili_usaha     = base64_encode(file_get_contents($request->file('domisili_usaha')->path()));
-        $nib                = base64_encode(file_get_contents($request->file('nib')->path()));
-        $akta               = base64_encode(file_get_contents($request->file('akta')->path()));
-        $scan_jaminan       = base64_encode(file_get_contents($request->file('scan_jaminan')->path()));
+        $scan_npwp          = base64_encode(file_get_contents($request->file('scan_npwp')));
+        $ktp_suami          = base64_encode(file_get_contents($request->file('ktp_suami')));
+        $ktp_istri          = base64_encode(file_get_contents($request->file('ktp_istri')));
+        $surat_nikah        = base64_encode(file_get_contents($request->file('surat_nikah')));
+        $bpkb               = base64_encode(file_get_contents($request->file('bpkb')));
+        $domisili_usaha     = base64_encode(file_get_contents($request->file('domisili_usaha')));
+        $npwp_usaha         = base64_encode(file_get_contents($request->file('npwp_usaha')));
+        $nib                = base64_encode(file_get_contents($request->file('nib')));
+        $akta               = base64_encode(file_get_contents($request->file('akta')));
+        $scan_jaminan       = base64_encode(file_get_contents($request->file('scan_jaminan')));
+        $keuangan           = base64_encode(file_get_contents($request->file('keuangan')));
 
         $response = Http::withToken($token)->post($url, [
             'tempat_tinggal'    => $request->tempat_tinggal,
@@ -37,16 +39,35 @@ class SyaratPinjamanModalController extends Controller
             'surat_nikah'       => $surat_nikah,
             'bpkb'              => $bpkb,
             'domisili_usaha'    => $domisili_usaha,
-            'foto_agunan'       => $request->foto_agunan,
-            'npwp_usaha'        => $request->npwp_usaha,
+            'npwp_usaha'        => $npwp_usaha,
             'nib'               => $nib,
             'akta'              => $akta,
-            'notaris'           => $request->notaris,
-            'scan_jaminan'      => $scan_jaminan
+            'jaminan'           => $scan_jaminan,
+            'keuangan'          => $keuangan,
+            
+            'npwp_filename'              => $request->file('scan_npwp')->getClientOriginalName(),
+            'ktp_suami_filename'         => $request->file('ktp_suami')->getClientOriginalName(),
+            'ktp_istri_filename'         => $request->file('ktp_istri')->getClientOriginalName(),
+            'surat_nikah_filename'       => $request->file('surat_nikah')->getClientOriginalName(),
+            'bpkb_filename'              => $request->file('bpkb')->getClientOriginalName(),
+            'domisili_usaha_filename'    => $request->file('domisili_usaha')->getClientOriginalName(),
+            'npwp_usaha_filename'        => $request->file('npwp_usaha')->getClientOriginalName(),
+            'nib_filename'               => $request->file('nib')->getClientOriginalName(),
+            'akta_filename'              => $request->file('akta')->getClientOriginalName(),
+            'jaminan_filename'           => $request->file('scan_jaminan')->getClientOriginalName(),
+            'keuangan_filename'          => $request->file('keuangan')->getClientOriginalName()
         ]);
 
-        return $response;
+        $res = json_decode($response, false);
 
+            if ($res->status ==  'success') {
+                \Session::put('kelengkapan_data', 2);
+                return back()
+                            ->withStatus('Berhasil mengirim persyaratan, silahkan tunggu konfirmasi dari admin.');
+            }else{
+                return back()
+                        ->withError($res->message);
+            }
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         } catch (\Illuminate\Database\QueryException $e) {
