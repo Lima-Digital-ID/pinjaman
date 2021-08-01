@@ -199,10 +199,11 @@ class VerificationController extends Controller
             ]);
         $res = json_decode($response, false);
         if($res->message == "Success update data") {
-            return 'sukses';
+            \Session::put('is_verified', 2);
+            return back()->withStatus('Berhasil mengirim data. Verifikasi membutuhkan waktu sekitar 2-3 hari.');
         }
         else {
-            return 'gagal';   
+            return back()->withError('Gagal mengirim data.');
         }
 
         return $response;
