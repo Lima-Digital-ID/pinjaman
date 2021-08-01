@@ -21,9 +21,7 @@
             data-url="{{ url('get-kabupaten') }}" required>
             <option value="" selected readonly disabled>Pilih Provinsi</option>
             @foreach ($provinsi as $item)
-                @if ($item->nama == 'Jawa Timur')
-                <option value="{{ $item->id }}" {{old('id_provinsi') == $item->id ? 'selected' : ''}} >{{ $item->nama }}</option>
-                @endif
+                <option value="{{ $item->id }}" {{old('id_provinsi') == $item->id ? 'selected' : ''}} >{{ $item->nama }}</option>    
             @endforeach
         </select>
     </div>
