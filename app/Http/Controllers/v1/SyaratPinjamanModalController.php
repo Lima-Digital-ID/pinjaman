@@ -15,6 +15,7 @@ class SyaratPinjamanModalController extends Controller
     public function create(Request $request)
     {
 
+        try {
         $url = \Config::get('api_config.syarat_modal');
         $token = \Session::get('token');
 
@@ -45,5 +46,11 @@ class SyaratPinjamanModalController extends Controller
         ]);
 
         return $response;
+
+        } catch (\Exception $e) {
+            return back()->withError($e->getMessage());
+        } catch (\Illuminate\Database\QueryException $e) {
+            return back()->withError($e->getMessage());
+        }
     }
 }
