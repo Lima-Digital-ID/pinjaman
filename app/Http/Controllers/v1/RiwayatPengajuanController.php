@@ -32,6 +32,25 @@ class RiwayatPengajuanController extends Controller
     }
     public function detail()
     {
-        return view('borrower.history.detail');
+        $token = Session::get('token');
+
+        $url = \Config::get('api_config.riwayat');
+
+        $riwayat = Http::withToken($token)->get($url);
+
+        $json = json_decode($riwayat, false);
+
+        // return $json;
+        $jangka_waktu = $json->data[0]->jangka_waktu;
+        $nominal = $json->data[0]->nominal;
+
+        return view('borrower.history.detail', [
+            'nominal'       => $nominal,
+            'asuransi'      => $json->asuransi,
+            'jangka_waktu'  => $jangka_waktu,
+            'operational'   => $nominal / $jangka_waktu,
+            'kode_pinjaman' => $json->data[0]->kode_pinjaman,
+            'tanggal_pengajuan' => $json->data[0]->tanggal_pengajuan,
+        ]);
     }
 }

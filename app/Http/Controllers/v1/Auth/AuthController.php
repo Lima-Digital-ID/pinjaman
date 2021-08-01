@@ -13,18 +13,12 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
+    
     public function login()
     {
         return view('auth.login');
     }
-    // public function edit()
-    // {
-    //     $url = \Config::get('api_config.nasabah');
 
-    //     $ress= Http::withToken(\Session::get('token'))->get($url);
-    
-       
-    // }
     public function ApiRegister(Request $request)
     {
         $url = \Config::get('api_config.register');

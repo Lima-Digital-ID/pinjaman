@@ -84,7 +84,7 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
      */
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/riwayat', [RiwayatPengajuanController::class, 'index'])->name('riwayat');
-    Route::get('/riwayat-detail', [RiwayatPengajuanController::class, 'detail'])->name('api.riwayat.detail');
+    Route::get('/riwayat-detail/{id}', [RiwayatPengajuanController::class, 'detail'])->name('api.riwayat.detail');
     // Route::get('/profile', [AuthController::class, 'edit'])->name('edit.profile');
     Route::get('/profile', function(){
         return view('auth.profile');

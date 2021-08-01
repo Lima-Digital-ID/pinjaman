@@ -2,7 +2,7 @@
 
 
 @section('body')
-@if (\Session::get('syarat_pinmo') == 0)
+{{-- @if (\Session::get('syarat_pinmo') == 0)
 @include('borrower.loanterms.jamod.index')
 @elseif(\Session::get('syarat_pinmo') == 2)
 <div class="alert alert-info" role="alert">
@@ -11,8 +11,8 @@
 @elseif(\Session::get('syarat_pinmo') == 3)
 <div class="alert alert-danger" role="alert">
     <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.
-</div>
-@elseif(\Session::get('syarat_pinmo') == 1)
+</div> --}}
+{{-- @elseif(\Session::get('syarat_pinmo') == 1) --}}
     <p>
         Fitur Pinjaman memakai agunan untuk pengembangan modal usaha dari 5 juta - 5 milyar dengan jangka waktu 1 tahun sampai dengan 5 tahun.
     </p>
@@ -49,5 +49,5 @@
             </form>
         </div>
     </div>
-@endif
+{{-- @endif --}}
 @endsection
