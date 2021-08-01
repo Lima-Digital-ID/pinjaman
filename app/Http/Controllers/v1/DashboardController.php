@@ -53,4 +53,101 @@ class DashboardController extends Controller
 
         return view('borrower.dashboard', $this->params);
     }
+
+    public function profile()
+    {
+        try {
+            $token = Session::get('token');
+
+            $url_nasabah = \Config::get('api_config.get_nasabah');
+            $nasabah = Http::withToken($token)
+                            ->get($url_nasabah);
+
+            $eNasabah = json_decode($nasabah, false);
+
+            if($eNasabah->status == 'success') {
+                $this->params['data'] = $eNasabah->data;
+
+                Session::put('nama', $eNasabah->data->nama);
+                Session::put('tanggal_lahir', $eNasabah->data->tanggal_lahir);
+                Session::put('tempat_lahir', $eNasabah->data->tempat_lahir);
+                Session::put('alamat', $eNasabah->data->alamat);
+                Session::put('foto_profil', $eNasabah->data->foto_profil);
+            }
+            else {
+                $this->params['data'] = null;
+            }
+
+            return view('auth.profile', $this->params);
+        }
+        catch(\Exception $e) {
+            return back()->withError($e->getMessage());
+        }
+        catch (\Illuminate\Database\QueryException $e) {
+            return back()->withError($e->getMessage());
+        }
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'required',
+            'tanggal_lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'alamat' => 'required',
+        ], [
+            'required' => ':attribute harus diisi',
+        ], [
+            'nama' => 'Nama lengkap',
+            'tanggal_lahir' => 'Tanggal lahir',
+            'tempat_lahir' => 'Tempat lahir',
+            'alamat' => 'Alamat'
+        ]);
+        try {
+            $token = Session::get('token');
+
+            $foto = $request->file('foto_profile');
+
+            if($foto != null || $foto != '') {
+                $fotoBase64 = base64_encode(file_get_contents($foto));
+
+                $url_profil = \Config::get('api_config.update_foto_profil');
+                $resfoto = Http::withToken($token)
+                                ->post($url_profil, [
+                                    'foto_profil' => $fotoBase64,
+                                    'foto_profil_filename' => $foto->getClientOriginalName(),
+                                ]);
+
+                $responseFoto = json_decode($resfoto, false);
+            }
+
+            $url_profil = \Config::get('api_config.update_profil');
+            $profile = Http::withToken($token)
+                            ->post($url_profil, [
+                                'nama' => $request->get('nama'),
+                                'tgl_lahir' => $request->get('tanggal_lahir'),
+                                'tempat_lahir' => $request->get('tempat_lahir'),
+                                'alamat' => $request->get('alamat'),
+                            ]);
+
+            $response = json_decode($profile, false);
+
+            if($response->status == 'success') {
+                $this->params['data'] = $response->data;
+                
+                return redirect()->route('edit.profile');
+            }
+            else {
+                $this->params['data'] = null;
+            }
+
+            return view('auth.profile', $this->params);
+        }
+        catch(\Exception $e) {
+            return back()->withError($e->getMessage());
+        }
+        catch (\Illuminate\Database\QueryException $e) {
+            return back()->withError($e->getMessage());
+        }
+    }
 }

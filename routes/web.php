@@ -3,14 +3,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\{CriteriaCategoryController,
                             DashboardController,
                             PinjamanCepatController,
-    PinjamanController,
-    PinjamanModalController,
+                            PinjamanController,
+                            PinjamanModalController,
                             PinjamanUmrohController,
                             RiwayatPengajuanController,
                             ScoringController,
                             SyaratDanaUmrohController,
                             SyaratPinjamanModalController,
-                            VerificationController
+                            VerificationController,
+                            TagihanController
 };
 use App\Http\Controllers\v1\Auth\AuthController;
 use App\Http\Middleware\AuthStatus;
@@ -21,6 +22,16 @@ use App\Http\Middleware\AuthNoLogin;
     });
 
 Route::group(['middleware' => AuthNoLogin::class], function(){
+
+    /**
+     * Tagihan
+     */
+    Route::get('/tagihan', [TagihanController::class,'index'])->name('tagihan');
+    Route::post('/metode-pembayaran', [TagihanController::class,'metodePembayaran'])->name('metode-pembayaran');
+    Route::post('/pembayaran', [TagihanController::class,'pembayaran'])->name('pembayaran');
+    /**
+     * END Tagihan
+     */
 
     /**
      * Scoring
@@ -86,9 +97,8 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     Route::get('/riwayat', [RiwayatPengajuanController::class, 'index'])->name('riwayat');
     Route::get('/riwayat-detail/{id}', [RiwayatPengajuanController::class, 'detail'])->name('api.riwayat.detail');
     // Route::get('/profile', [AuthController::class, 'edit'])->name('edit.profile');
-    Route::get('/profile', function(){
-        return view('auth.profile');
-    })->name('edit.profile');
+    Route::get('/profile', [DashboardController::class, 'profile'])->name('edit.profile');
+    Route::post('/profile', [DashboardController::class, 'updateProfile'])->name('update.profile');
 
 });
     /**
