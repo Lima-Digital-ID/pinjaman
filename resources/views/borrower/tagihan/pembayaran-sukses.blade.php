@@ -6,7 +6,7 @@
             <div class="col-xl-12 col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <p>Selamat!Pembayaran anda berhasil dilakukan.</p>
+                        <p> <strong>Selamat!</strong> Pembayaran anda berhasil dilakukan.</p>
                         <a href="{{ route('dashboard') }}">
                             <button class="btn btn-primary">
                                 Beranda
