@@ -5,7 +5,7 @@
     <div class="col-xl-12 col-md-12">
         @if (\Session::get('is_verified') == 0)
         <div class="alert alert-warning" role="alert">
-            <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="#" class="alert-link"> disini.</a> Untuk melengkapi data diri anda
+            <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('personal.data') }}" class="alert-link"> disini.</a> Untuk melengkapi data diri anda
         </div>
         @elseif (\Session::get('is_verified') == 2)
         <div class="alert alert-info" role="alert">
@@ -70,7 +70,7 @@
             <div class="row">
                 @foreach ($jenisPinjaman['data'] as $i => $item)
                 <div class="col-md-4">
-                    <a href="#" style="text-decoration:none">
+                    <a href="{{ $item['id'] == 1 ? route('pinjaman.umroh') : ($item['id'] == 2 ? route('pinjaman.cepat') : route('pinjaman.modal')) }}" style="text-decoration:none">
                     <div class="card">
                         <div class="card-body">
                             <p>{{ ucwords($item['jenis_pinjaman']) }}</p>

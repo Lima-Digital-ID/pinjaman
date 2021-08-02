@@ -21,24 +21,58 @@ class AuthController extends Controller
 
     public function ApiRegister(Request $request)
     {
+
+        $validated = $request->validate([
+            'nama'              => 'required',
+            'no_hp'             => 'required',
+            'email'             => 'required',
+            'password'          => 'required'
+        ], [
+            'required' => ':attribute harus diisi.'
+        ], [
+            'nama'      => 'Nama',
+            'no_hp'     => 'No.Handphone',
+            'email'  => 'Email',
+            'password'  => 'Password'
+        ]);
+        
+        
         $url = \Config::get('api_config.register');
-        $register = Http::post($url, [
+        $response = Http::post($url, [
             'nama' => $request->nama,
             'no_hp' => $request->no_hp,
             'email' => $request->email,
             'password' => $request->password
         ]);
 
-        $requestRegister = json_decode($register, false);
+        $requestRegister = json_decode($response, false);
 
         if ($requestRegister->status == 'success') {
             return redirect()
                         ->route('login');
         }
+        else if (strpos($requestRegister->message, 'nasabah_email_unique') !== false) {
+            return back()->withError('Email telah digunakan');
+        }
+        else {
+            // gagal
+            return back()->withError('Gagal mendaftar');
+        }
     }
     
     public function ApiLogin(Request $request)
     {
+
+        $validated = $request->validate([
+            'email'             => 'required',
+            'password'          => 'required'
+        ], [
+            'required' => ':attribute harus diisi.'
+        ], [
+            'email'  => 'Email',
+            'password'  => 'Password'
+        ]);
+
         $url = \Config::get('api_config.login');
         $login = Http::post($url, [
             'email' => $request->email,

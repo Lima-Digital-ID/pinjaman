@@ -13,6 +13,18 @@ class VerificationController extends Controller
 
     public function index()
     {
+        $url_nasabah = \Config::get('api_config.get_nasabah');
+        $nasabah = Http::withToken(\Session::get('token'))
+                        ->get($url_nasabah);
+
+        $eNasabah = json_decode($nasabah, false);
+
+        if($eNasabah->status == 'success') {
+            \Session::put('nama', $eNasabah->data->nama);
+            \Session::put('is_verified', $eNasabah->data->is_verified);
+        }
+
+
         $token = Session::get('token');
 
         $url_provinsi = \Config::get('api_config.get_provinsi');
@@ -187,10 +199,11 @@ class VerificationController extends Controller
             ]);
         $res = json_decode($response, false);
         if($res->message == "Success update data") {
-            return 'sukses';
+            \Session::put('is_verified', 2);
+            return back()->withStatus('Berhasil mengirim data. Verifikasi membutuhkan waktu sekitar 2-3 hari.');
         }
         else {
-            return 'gagal';   
+            return back()->withError('Gagal mengirim data.');
         }
 
         return $response;
