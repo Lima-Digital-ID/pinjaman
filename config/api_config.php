@@ -34,4 +34,9 @@ return [
     'get_nasabah'           => $base_url. 'get-nasabah',
     'update_profil'         => $base_url. 'update-profile-nasabah',
     'update_foto_profil'    => $base_url. 'update-photo-nasabah',
+    'get_new_notification'    => $base_url. 'get-new-notification',
+    'get_all_notification'    => $base_url. 'get-notification',
+    'detail_notification'    => $base_url. 'detail-notification/',
+    'read_notification'    => $base_url. 'read-notification/',
+    'update_notification'    => $base_url. 'update-notification-sended',
 ];

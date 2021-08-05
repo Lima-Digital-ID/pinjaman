@@ -11,7 +11,8 @@ use App\Http\Controllers\v1\{CriteriaCategoryController,
                             SyaratDanaUmrohController,
                             SyaratPinjamanModalController,
                             VerificationController,
-                            TagihanController
+                            TagihanController,
+                            NotificationController
 };
 use App\Http\Controllers\v1\Auth\AuthController;
 use App\Http\Middleware\AuthStatus;
@@ -22,6 +23,15 @@ use App\Http\Middleware\AuthNoLogin;
     });
 
 Route::group(['middleware' => AuthNoLogin::class], function(){
+
+    /**
+     * Tagihan
+     */
+    Route::get('/notifikasi', [NotificationController::class,'index'])->name('notifikasi');
+    Route::get('/detail-notifikasi/{id}', [NotificationController::class,'detail'])->name('detail-notifikasi');
+    /**
+     * END Tagihan
+     */
 
     /**
      * Tagihan
