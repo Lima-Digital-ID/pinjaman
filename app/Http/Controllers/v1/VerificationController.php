@@ -110,6 +110,7 @@ class VerificationController extends Controller
 
     public function store(Request $request)
     {
+        // dd('hello');
         $validatedData = $request->validate(
             [
                 'scan_ktp' => 'required',
