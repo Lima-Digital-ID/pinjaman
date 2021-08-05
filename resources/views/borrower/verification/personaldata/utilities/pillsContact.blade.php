@@ -78,10 +78,10 @@
 {{-- button --}}
 <div class="form-group ">
     <div class="">
-        <input type="submit" value="Simpan" class="btn btn-primary">
-        {{-- <button type="submit" class="btn btn-primary">
+        {{-- <input type="submit" value="Simpan" class="btn btn-primary"> --}}
+        <button type="submit" class="btn btn-primary">
             Simpan
-        </button> --}}
+        </button>
     </div>
 </div>
 
