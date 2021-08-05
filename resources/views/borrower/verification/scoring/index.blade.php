@@ -2,9 +2,9 @@
 
 @section('body')
 
-@if (\Session::get('is_verified') == 1)
+@if (\Session::get('is_verified') == 0)
 <div class="alert alert-success" role="alert">
-  <strong>Informasi!</strong> Verifikasi data anda telah diterima.
+  <strong>Informasi!</strong> Verifikasi data diri anda terlebih dahulu.
 </div>
 @endif
 
@@ -20,7 +20,7 @@
 </div>
 @endif
 
-@if (\Session::get('is_verified') == 0)
+@if (\Session::get('is_verified') == 1 && (\Session::get('kelengkapan_data') == 0))
 
 <div class="card">
     <div class="card-body">
@@ -47,8 +47,8 @@
                     @foreach ($item['kriteria'] as $i => $items)
                     @if($items['nama_kriteria'] != 'Debt to Equity Ratio' && $items['nama_kriteria'] != 'ROA (Return on Asset)' && $items['nama_kriteria'] != 'ROE (Return on Equity)' )
                     <div class="form-group row">
-                        <label for="" class="col-md-2">{{$items['nama_kriteria']}}</label>
-                        <div class="col-md-4">
+                        <label for="" class="col-md-4">{{$items['nama_kriteria']}}</label>
+                        <div class="col-md-5">
                             @foreach ($items['option'] as $o => $options)
                             <input
                                 type="radio"
@@ -82,5 +82,6 @@
         </form>
     </div>
 </div>
+
 @endif
 @endsection

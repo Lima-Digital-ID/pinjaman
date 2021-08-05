@@ -27,7 +27,7 @@
                 @endif
 
 
-                <form action="{{route('api.login')}}" method="POST" autocomplete="off">
+                <form action="{{route('api.login')}}" method="POST" autocomplete="on">
                     @csrf
                     <h4>Selamat Datang</h4>
                     <small>Silahkan login menggunakan akun anda</small>

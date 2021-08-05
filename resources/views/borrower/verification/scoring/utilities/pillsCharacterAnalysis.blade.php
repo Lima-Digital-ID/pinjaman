@@ -1,6 +1,6 @@
 <div class="tab-pane fade show active" id="pills-character-analysis" role="tabpanel" aria-labelledby="pills-character-analysis-tab">
     <div class="form-group row">
-        <label for="" class="col-md-2">Jenis Kelamin</label>
+        <label for="" class="col-md-2">Pilih salah satu jenis kelamin anda</label>
         <div class="col-md-4">
             <input type="radio" name="jk" id=""> Pria <br>
             <input type="radio" name="jk" id=""> Wanita
