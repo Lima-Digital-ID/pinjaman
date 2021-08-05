@@ -2,19 +2,22 @@
 
 @section('body')
 
-@if (\Session::get('is_verified') == 0)
+@if (\Session::get('score') > 0 && \Session::get('is_verified') == 1)
 <div class="alert alert-success" role="alert">
   <strong>Informasi!</strong> Verifikasi data diri anda terlebih dahulu.
 </div>
+
+tampilkan data scoring
 @endif
 
-@if (\Session::get('is_verified') == 2)
+@if (\Session::get('is_verified') == 2 && \Session::get('score') > 0)
 <div class="alert alert-info" role="alert">
   <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
 </div>
 @endif
 
-@if (\Session::get('is_verified') == 3)
+@if ((\Session::get('is_verified') == 0 && \Session::get('score') == 0) || \Session::get('is_verified') == 1 && \Session::get('score') == 0)
+@if (\Session::get('is_verified') == 3 && \Session::get('score') > 0)
 <div class="alert alert-danger" role="alert">
   <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.
 </div>
