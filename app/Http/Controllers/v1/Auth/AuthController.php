@@ -81,7 +81,7 @@ class AuthController extends Controller
 
         $requestLogin = json_decode($login, false);
 
-        // return $requestLogin->data;
+        // return $requestLogin;
         if ($requestLogin->status == 'success') {
 
             $url_limit = \Config::get('api_config.limit_pinjaman');
