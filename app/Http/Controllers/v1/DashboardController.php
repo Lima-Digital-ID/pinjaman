@@ -30,9 +30,10 @@ class DashboardController extends Controller
                         ->get($url_limit);
 
         $eLimit = json_decode($limit, false);
-        
+
         if($eLimit->status == 'success') {
             $this->params['limit'] = $eLimit->data->limit_pinjaman;
+            $this->params['temp_limit'] = $eNasabah->data->temp_limit;
         }
         else {
             $this->params['limit'] = null;

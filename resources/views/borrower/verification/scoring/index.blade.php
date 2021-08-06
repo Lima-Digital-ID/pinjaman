@@ -3,11 +3,45 @@
 @section('body')
 
 @if (\Session::get('score') > 0 && \Session::get('is_verified') == 1)
-<div class="alert alert-success" role="alert">
+{{-- <div class="alert alert-success" role="alert">
   <strong>Informasi!</strong> Verifikasi data diri anda terlebih dahulu.
-</div>
+</div> --}}
+<div class="accordion" id="accordionExample">
+    {{-- {{$getScore}} --}}
+    @foreach ($kategori['data'] as $key => $item)
+        
+    <div class="card mt-2">
+      <div class="card-header" id="heading{{$item['id']}}">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{$item['id']}}" aria-expanded="true" aria-controls="collapse{{$item['id']}}">
+            {{$item['nama_kategori']}}
+        </h2>
+      </div>
+  
+      <div id="collapse{{$item['id']}}" class="collapse" aria-labelledby="heading{{$item['id']}}" data-parent="#accordionExample">
+        <div class="card-body">
+            @foreach ($item['kriteria'] as $i => $kriteria)
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for=""><strong> {{$kriteria['nama_kriteria']}} </strong></label>
+                    {{-- @foreach ($kriteria['options'] as $o => $options)
+                        <p>
+                          {{$options['skor']}}
+                        </p>
+                    @endforeach --}}
+                </div>
+            </div>
+            <div class="col-md-6">
 
-tampilkan data scoring
+            </div>
+            @endforeach
+        </div>
+      </div>
+    </div>
+    @endforeach
+
+  </div>
+    
 @endif
 
 @if (\Session::get('is_verified') == 2 && \Session::get('score') > 0)
@@ -17,6 +51,7 @@ tampilkan data scoring
 @endif
 
 @if ((\Session::get('is_verified') == 0 && \Session::get('score') == 0) || \Session::get('is_verified') == 1 && \Session::get('score') == 0)
+@endif
 @if (\Session::get('is_verified') == 3 && \Session::get('score') > 0)
 <div class="alert alert-danger" role="alert">
   <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.

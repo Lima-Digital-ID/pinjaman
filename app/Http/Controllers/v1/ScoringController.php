@@ -14,8 +14,11 @@ class ScoringController extends Controller
     {
         try {
 
+            $token = \Session::get('token');
+
+
             $url_nasabah = \Config::get('api_config.get_nasabah');
-            $nasabah = Http::withToken(\Session::get('token'))
+            $nasabah = Http::withToken($token)
                             ->get($url_nasabah);
 
             $eNasabah = json_decode($nasabah, false);
@@ -27,7 +30,7 @@ class ScoringController extends Controller
 
             $url_kategori = \Config::get('api_config.kategori_kriteria');
 
-            $kategori = Http::withToken(\Session::get('token'))
+            $kategori = Http::withToken($token)
                                 ->get($url_kategori);
 
             $eKategori = json_decode($kategori, false);
@@ -38,6 +41,19 @@ class ScoringController extends Controller
             else {
                 $this->params['kategori'] = null;
             }
+
+
+            $http_get_score_by_Id = Http::withToken($token)
+                                                ->get('http://127.0.0.1:8080/api/get-scoring-per-nasabah');
+
+            $json_get_Score = json_decode($http_get_score_by_Id, false);
+        
+            if ($json_get_Score->status == 'success') {
+                $this->params['get_score'] = json_decode($http_get_score_by_Id, true);
+            }else {
+                $this->params['get_score'] = null;
+            }
+        
 
             return view('borrower.verification.scoring.index', $this->params);
         }
