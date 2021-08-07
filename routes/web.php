@@ -19,7 +19,7 @@ use App\Http\Middleware\AuthStatus;
 use App\Http\Middleware\AuthNoLogin;
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('auth.login');
     });
 
 Route::group(['middleware' => AuthNoLogin::class], function(){
