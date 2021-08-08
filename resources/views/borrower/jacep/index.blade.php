@@ -21,34 +21,34 @@
 
 @section('body')
     <p>
-        Sebuah Pinjaman nasabah untuk keperluan apapun yang bisa di akses secara cepat mudah dan tanpa agunan
+        {{__('jacep-index.desc-small')}}
     </p>
 
     <div class="row">
         <div class="col-xl-6">
-            <strong>Dengan ini :</strong>
+            <strong>{{__('jacep-index.dengan-ini')}} :</strong>
                 <table>
                 <tr>
-                    <td>Nama </td>
+                    <td>{{__('jacep-index.nama')}} </td>
                     <td>: {{ \Session::get('nama') }}</td>
                 </tr>
                 <tr>
-                    <td>Jenis Pinjaman</td>
+                    <td>{{__('jacep-index.type-loan')}}</td>
                     <td>: Pinjaman Cepat</td>
                 </tr>
                 <tr>
-                    <td>Total Pinjaman</td>
+                    <td>{{__('jacep-index.total-loan')}}</td>
                     <td>: Rp.{{ $limit_pinjaman != 0 || $limit_pinjaman != null ? number_format($limit_pinjaman, 2, ',', '.') : '0,00' }}</td>
                 </tr>
                 </table>
                 <br>
-                <label for="">Jangka waktu pengembalian :</label>
+                <label for="">{{__('jacep-index.pending')}} :</label>
                 <form action="{{route('api.pinjaman.cepat')}}" method="POST">
                     @csrf
                     <input type="hidden" name="selected" id="selected">
                     @include('borrower.jacep.partials.card')
                     <div class="d-flex justify-content-end mb-4 mt-4">
-                        <button class="btn btn-danger mt-2 ">Selanjutnya</button>
+                        <button class="btn btn-danger mt-2 ">{{__('jacep-index.next')}}</button>
                     </div>
                 </form>
         </div>

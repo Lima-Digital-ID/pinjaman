@@ -16,5 +16,4 @@ return [
     'failed' => 'Akun tidak ditemukan.',
     'password' => 'Password yang digunakan tidak cocok.',
     'throttle' => 'Terlalu banyak upaya login. Silakan coba lagi di :seconds detik.',
-
 ];

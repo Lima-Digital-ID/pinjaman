@@ -25,7 +25,7 @@
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nominal Awal Pinjaman</div>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('dashboard.initial-loan-nominal')}}</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($temp_limit, 2, ',', '.') }}</div>
             </div>
             <div class="col-auto">
@@ -40,7 +40,7 @@
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Limit Pinjaman</div>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('dashboard.loan-limit')}}</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $limit != null ? 'Rp.'.number_format($limit, 2, ',', '.') : 'Rp.0,00' }}</div>
             </div>
             <div class="col-auto">
@@ -55,7 +55,7 @@
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pinjaman Belum dibayar</div>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('dashboard.unpaid-loan')}}</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $hutang != null ? 'Rp.'.number_format($hutang, 2, ',', '.') : 'Rp.0,00' }}</div>
             </div>
             <div class="col-auto">
@@ -81,7 +81,7 @@
 <div class="row">
     <div class="col-xl-12 col-md-12">
         <div class="card p-4">
-            <h3>Pinjaman</h3>
+            <h3>{{__('dashboard.loan')}}</h3>
             <div class="row">
                 @foreach ($jenisPinjaman['data'] as $i => $item)
                 <div class="col-md-4">

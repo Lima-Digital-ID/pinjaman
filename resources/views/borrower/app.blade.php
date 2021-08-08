@@ -97,14 +97,14 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Apakah anda ingin pergi dari aplikasi ini?</div>
+        <div class="modal-body">{{__('logout-modal.question')}}</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">{{__('logout-modal.btn-no')}}</button>
           <form method="GET" action="{{route('api.logout')}}">
             <a class="btn btn-primary" href="#"
                     onclick="event.preventDefault();
                     this.closest('form').submit();" >
-            Ya</a>
+            {{__('logout-modal.btn-yes')}}</a>
           </form>
 
         </div>

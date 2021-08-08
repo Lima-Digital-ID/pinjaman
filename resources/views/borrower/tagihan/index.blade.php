@@ -27,41 +27,41 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xl-6 col-md-6">
-                                <span for="">Kode Pinjaman</span>
+                                <span for=""> {{__('tagihan.loan-code')}} </span>
                                 <br>
                                 <b>
                                     {{$data[0]->kode_pinjaman}}
                                 </b>
                                 <br><br>
-                                <span for="">Jumlah Pinjaman termasuk bunga</span>    
+                                <span for=""> {{__('tagihan.loan-interest')}} </span>    
                                 <br>
                                 <b>
                                     Rp.{{ number_format($data[0]->nominal, 2, ',', '.') }}
                                 </b>
                                 <br><br>
-                                <span for="">Biaya Asuransi</span>
+                                <span for=""> {{__('tagihan.insurance-fee')}} </span>
                                 <br>
                                 <b>
                                     Rp.{{ number_format($asuransi, 2, ',', '.') }}
                                 </b>
                             </div>
                             <div class="col-xl-6 col-md-6">
-                                <span for="">Tanggal Pengajuan</span>
+                                <span for=""> {{__('tagihan.date-of-filing')}} </span>
                                 <br>
                                 <b>
                                     {{$data[0]->tanggal_pengajuan}}
                                 </b>
                                 <br><br>
-                                <span for="">Tanggal Diterima</span>
+                                <span for=""> {{__('tagihan.date-of-receipt')}} </span>
                                 <br>
                                 <b>
                                     {{$data[0]->tanggal_diterima}}
                                 </b>
                                 <br><br>
-                                <span for="">Jangka Waktu Pengembalian</span>
+                                <span for=""> {{__('tagihan.payback-time')}} </span>
                                 <br>
                                 <b>
-                                    {{$data[0]->jangka_waktu}} Bulan
+                                    {{$data[0]->jangka_waktu}} {{__('tagihan.month')}}
                                 </b>
                             </div>
                         </div>

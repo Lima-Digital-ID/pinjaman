@@ -31,6 +31,22 @@
         </div>
       </li>
 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Lang
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          @if (app()->getLocale() == 'id')
+            <a class="dropdown-item" href="{{ url('locale/en') }}">@lang('english')</a>
+            <a class="dropdown-item" href="{{  url('locale/id')}}">@lang('indonesia')</a>              
+          @endif
+          @if (app()->getLocale() == 'en')
+            <a class="dropdown-item" href="{{ url('locale/en') }}">@lang('english')</a>
+            <a class="dropdown-item" href="{{  url('locale/id')}}">@lang('indonesia')</a>              
+          @endif
+        </div>
+      </li>
+
       <!-- Nav Item - Alerts -->
       {{-- @php
         $url_notif = \Config::get('api_config.get_new_notification');
@@ -51,7 +67,7 @@
         <!-- Dropdown - Alerts -->
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
           <h6 class="dropdown-header">
-            Notifikasi
+            {{__('nav.notification')}}
           </h6>
           {{-- @forelse ($eNotif->data as $key => $value)
             <a class="dropdown-item d-flex align-items-center" href="{{ route('detail-notifikasi', $value->id) }}">
@@ -68,9 +84,10 @@
           @empty
               belum ada notifikasi.
           @endforelse --}}
-          <a class="dropdown-item text-center small text-gray-500" href="{{ route('notifikasi') }}">Tampilkan semua notifikasi</a>
+          <a class="dropdown-item text-center small text-gray-500" href="{{ route('notifikasi') }}">{{__('nav.show-all-notification')}}</a>
         </div>
       </li>
+      
 
       <div class="topbar-divider d-none d-sm-block"></div>
 

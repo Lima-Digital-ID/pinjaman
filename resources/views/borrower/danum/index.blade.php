@@ -59,30 +59,30 @@
 </div>
 @elseif(\Session::get('syarat_pinjaman_umroh') == 1)
 <p>
-    Fitur Pinjaman dana talangan umroh dan haji bagi UMKM.
+    {{__('danum.desc')}}
 </p>
 <form action="{{route('api.pinjaman.umroh')}}" method="POST" autocomplete="off">
     @csrf
 <div class="row">
         <div class="col-xl-6">
-            <strong>Dengan ini :</strong>
+            <strong>{{__('danum.with-this')}} :</strong>
                 <table>
                 <tr>
-                    <td>Nama </td>
+                    <td> {{__('danum.name')}} </td>
                     <td>: {{ $user }}</td>
                 </tr>
                 <tr>
-                    <td>Jenis Pinjaman</td>
+                    <td> {{__('danum.type-loan')}} </td>
                     <td>: Dana Haji/Umroh</td>
                 </tr>
                 </table>
                 <br>
                 <div class="card">
                     <div class="card-body">
-                            <label for="">Jangka waktu pengembalian :</label>
+                            <label for=""> {{__('danum.pending')}} :</label>
                             <div class="form-group">
                                 <label for="">3 Tahun (36 bulan)</label> <br>
-                                <label for="">Ajukan Nomimal Pinjaman (Rp.)</label>
+                                <label for=""> {{__('danum.apply')}} (Rp.)</label>
                                 <input type="number" placeholder="Rp." name="nominal" class="form-control @error('nominal') is-invalid @enderror">
                                 @error('nominal')
                                     <span class="invalid-feedback" role="alert">

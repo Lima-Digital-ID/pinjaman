@@ -6,13 +6,13 @@
         @endforeach --}}
         <div class="d-flex align-items-center justify-content-between">
             <p class="">
-                <strong class="st-title">Pengembalian 1 Bulan</strong> <br>
-                <small>Pelunasan selama 30 x 24jam</small>
+                <strong class="st-title">{{__('jacep-index.return')}} 1 {{__('jacep-index.month')}}</strong> <br>
+                <small>{{__('jacep-index.payment-during')}} 30 x 24jam</small>
             </p>
             <p class="">
             </p>
             <p class="">
-                <strong class="termin">Termin 1x</strong>
+                <strong class="termin">{{__('jacep-index.term')}} 1x</strong>
             </p>
         </div>
     </div>
@@ -23,14 +23,14 @@
     <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
             <p class="">
-                <strong class="st-title">Pengembalian 2 Bulan</strong> <br>
-                <small>Pelunasan selama 60 x 24jam setelah pembayaran pertama</small>
+                <strong class="st-title">{{__('jacep-index.return')}} 2 {{__('jacep-index.month')}}</strong> <br>
+                <small>{{__('jacep-index.payment-during')}} 60 x 24jam {{__('jacep-index.after-first-payment')}}</small>
             </p>
             <p class="">
             
             </p>
             <p class="">
-                <strong class="termin">Termin 2x
+                <strong class="termin">{{__('jacep-index.term')}} 2x
                 </strong>
             </p>
         </div>
@@ -42,14 +42,14 @@
     <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
             <p class="">
-                <strong class="st-title">Pengembalian 3 Bulan</strong> <br>
-                <small>Pelunasan selama 90 x 24jam seteleah pembayaran kedua</small>
+                <strong class="st-title">{{__('jacep-index.return')}} 3 {{__('jacep-index.month')}}</strong> <br>
+                <small>{{__('jacep-index.payment-during')}} 90 x 24jam {{__('jacep-index.after-the-second-payment')}}</small>
             </p>
             <p class="">
             
             </p>
             <p class="">
-                <strong class="termin">Termin 3x</strong>
+                <strong class="termin">{{__('jacep-index.term')}} 3x</strong>
             </p>
         </div>
     </div>

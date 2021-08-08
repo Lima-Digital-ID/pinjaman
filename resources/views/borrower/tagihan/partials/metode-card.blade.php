@@ -9,14 +9,14 @@
       
       <div id="collapseBankUmkm" class="collapse show" aria-labelledby="headingBankUmkm" data-parent="#accordion">
         <div class="card-body">
-          <p class="text-dark">Langkah-langkah pembayaran Bank UMKM.</p>
-          <p class="text-muted">1. Masuk ke aplikasi Bank UMKM.</p>
-          <p class="text-muted">2. Pilih menu pembayaran.</p>
-          <p class="text-muted">3. Pilih tagihan yang akan dibayar.</p>
-          <p class="text-muted">4. Konfirmasi nominal pembayaran.</p>
-          <p class="text-muted">5. Tekan tombol 'Biaya'.</p>
-          <p class="text-muted">6. Masukkan password.</p>
-          <p class="text-muted">7. Pembayaran berhasil.</p>
+          <p class="text-dark">@lang('metode-tagihan.steps').</p>
+            <p class="text-muted">1. @lang('metode-tagihan.1').</p>
+            <p class="text-muted">2. @lang('metode-tagihan.2').</p>
+            <p class="text-muted">3. @lang('metode-tagihan.3').</p>
+            <p class="text-muted">4. @lang('metode-tagihan.4').</p>
+            <p class="text-muted">5. @lang('metode-tagihan.5').</p>
+            <p class="text-muted">6. @lang('metode-tagihan.6').</p>
+            <p class="text-muted">7. @lang('metode-tagihan.7').</p>
           <form action="{{ route('pembayaran') }}" method="post">
             @csrf
             <input type="hidden" name="id_pelunasan" value="{{ $id_pelunasan }}">
@@ -25,7 +25,7 @@
             <input type="hidden" name="nominal" value="{{ $nominal }}">
             <input type="hidden" name="metode_pembayaran" value="Bank UMKM">
             <button type="submit" class="btn btn-primary">
-                Bayar
+                @lang('metode-tagihan.btn')
             </button>
           </form>
         </div>
@@ -40,14 +40,14 @@
       </div>
       <div id="collapseAlfamart" class="collapse" aria-labelledby="headingAlfamart" data-parent="#accordion">
         <div class="card-body">
-            <p class="text-dark">Langkah-langkah pembayaran Bank UMKM.</p>
-            <p class="text-muted">1. Masuk ke aplikasi Bank UMKM.</p>
-            <p class="text-muted">2. Pilih menu pembayaran.</p>
-            <p class="text-muted">3. Pilih tagihan yang akan dibayar.</p>
-            <p class="text-muted">4. Konfirmasi nominal pembayaran.</p>
-            <p class="text-muted">5. Tekan tombol 'Biaya'.</p>
-            <p class="text-muted">6. Masukkan password.</p>
-            <p class="text-muted">7. Pembayaran berhasil.</p>
+            <p class="text-dark">@lang('metode-tagihan.steps').</p>
+            <p class="text-muted">1. @lang('metode-tagihan.1').</p>
+            <p class="text-muted">2. @lang('metode-tagihan.2').</p>
+            <p class="text-muted">3. @lang('metode-tagihan.3').</p>
+            <p class="text-muted">4. @lang('metode-tagihan.4').</p>
+            <p class="text-muted">5. @lang('metode-tagihan.5').</p>
+            <p class="text-muted">6. @lang('metode-tagihan.6').</p>
+            <p class="text-muted">7. @lang('metode-tagihan.7').</p>
             <form action="{{ route('pembayaran') }}" method="post">
                 @csrf
                 <input type="hidden" name="id_pelunasan" value="{{ $id_pelunasan }}">
@@ -56,7 +56,7 @@
                 <input type="hidden" name="nominal" value="{{ $nominal }}">
                 <input type="hidden" name="metode_pembayaran" value="Alfamart">
                 <button type="submit" class="btn btn-primary">
-                    Bayar
+                    @lang('metode-tagihan.btn')
                 </button>
             </form>
         </div>
@@ -71,14 +71,14 @@
       </div>
       <div id="collapseIndomaret" class="collapse" aria-labelledby="headingIndomaret" data-parent="#accordion">
         <div class="card-body">
-            <p class="text-dark">Langkah-langkah pembayaran Bank UMKM.</p>
-            <p class="text-muted">1. Masuk ke aplikasi Bank UMKM.</p>
-            <p class="text-muted">2. Pilih menu pembayaran.</p>
-            <p class="text-muted">3. Pilih tagihan yang akan dibayar.</p>
-            <p class="text-muted">4. Konfirmasi nominal pembayaran.</p>
-            <p class="text-muted">5. Tekan tombol 'Biaya'.</p>
-            <p class="text-muted">6. Masukkan password.</p>
-            <p class="text-muted">7. Pembayaran berhasil.</p>
+            <p class="text-dark">@lang('metode-tagihan.steps').</p>
+            <p class="text-muted">1. @lang('metode-tagihan.1').</p>
+            <p class="text-muted">2. @lang('metode-tagihan.2').</p>
+            <p class="text-muted">3. @lang('metode-tagihan.3').</p>
+            <p class="text-muted">4. @lang('metode-tagihan.4').</p>
+            <p class="text-muted">5. @lang('metode-tagihan.5').</p>
+            <p class="text-muted">6. @lang('metode-tagihan.6').</p>
+            <p class="text-muted">7. @lang('metode-tagihan.7').</p>
             <form action="{{ route('pembayaran') }}" method="post">
                 @csrf
                 <input type="hidden" name="id_pelunasan" value="{{ $id_pelunasan }}">
@@ -87,7 +87,7 @@
                 <input type="hidden" name="nominal" value="{{ $nominal }}">
                 <input type="hidden" name="metode_pembayaran" value="Indomaret">
                 <button type="submit" class="btn btn-primary">
-                    Bayar
+                    @lang('metode-tagihan.btn')
                 </button>
             </form>
         </div>

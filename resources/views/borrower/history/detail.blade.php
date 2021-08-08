@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="form-group">
-                    <label for="">Jumlah Pinjaman termasuk bunga</label>    
+                    <label for=""> {{__('detail-riwayat.loan-amount')}} </label>    
                     <p> <strong>
                         Rp.{{ number_format($nominal, 2, ',', '.') }}
                     </strong>
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Biaya Asuransi</label>
+                    <label for=""> {{__('detail-riwayat.insurance-fee')}} </label>
                     <p>
                         <strong>
                             Rp.{{ number_format($asuransi, 2, ',', '.') }}
@@ -24,9 +24,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Rencana Pembayaran</label>
+                    <label for=""> {{__('detail-riwayat.payment-plan')}} </label>
                     <p> 
-                        <strong>
+                        <strong>w
                             Rp.{{ number_format(($operational), 2, ',', '.').' x '.$jangka_waktu }}
                         </strong>
                     </p>
@@ -34,14 +34,14 @@
           
                 <hr>
                 <div class="form-group d-flex justify-content-between">
-                    <div class="label">Kode Pinjaman</div>
+                    <div class="label"> {{__('detail-riwayat.loan-kode')}} </div>
                     <p>
                         
                         {{$kode_pinjaman}}
                     </p>
                 </div>
                 <div class="form-group d-flex justify-content-between">
-                    <div class="label">Waktu Pengajuan</div>
+                    <div class="label"> {{__('detail-riwayat.submission-time')}} </div>
                     <p>
                         
                         {{$tanggal_pengajuan}}

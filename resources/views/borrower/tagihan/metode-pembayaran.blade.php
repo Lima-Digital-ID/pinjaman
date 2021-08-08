@@ -25,13 +25,13 @@
             <div class="col-xl-6 col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <span for="">Termin ke :</span>
+                        <span for="">@lang('metode-tagihan.term')  :</span>
                         <br>
                         <b>
                             {{$cicilan_ke}}
                         </b>
                         <br><br>
-                        <span for="">Nominal yang harus dibayar :</span>    
+                        <span for="">@lang('metode-tagihan.nominal-paid') :</span>    
                         <br>
                         <b>
                             Rp.{{ number_format($nominal, 2, ',', '.') }}

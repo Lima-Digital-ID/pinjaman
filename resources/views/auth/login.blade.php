@@ -29,8 +29,8 @@
 
                 <form action="{{route('api.login')}}" method="POST" autocomplete="on">
                     @csrf
-                    <h4>Selamat Datang</h4>
-                    <small>Silahkan login menggunakan akun anda</small>
+                    <h4>{{ __('login.welcome')}}</h4>
+                    <small>{{ __('login.desc-small')}}</small>
                     <br><br>
                     <div class="form-group">
                         <label for="">Email</label>
@@ -50,10 +50,10 @@
                             </small>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-danger">Login</button>
+                    <button type="submit" class="btn btn-danger">{{ __('login.btn-login')}}</button>
                 </form>
                 
-                <small>Anda belum meiliki akun? silahkan daftar <a href="{{route('register')}}">disini</a></small>
+                <small>{{ __('login.desc-small-footer')}} <a href="{{route('register')}}">{{__('login.here')}}</a></small>
             </div>
         </div>
     </div>

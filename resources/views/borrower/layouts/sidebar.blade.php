@@ -30,11 +30,11 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-hands-helping"></i>
-        <span>Pinjaman</span>
+        <span>{{__('sidebar.loan')}}</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Jenis Pinjaman</h6>
+          <h6 class="collapse-header">{{ __('sidebar.type-loan')}}</h6>
           @php
               $urlJenis = \Config::get('api_config.jenis_pinjaman');
               $jenisPinjaman = \Http::withToken(Session::get('token'))->get($urlJenis);
@@ -64,8 +64,6 @@
           @endphp
           <a class="collapse-item" href="{{ route($route) }}">{{ ucwords($item['jenis_pinjaman']) }}</a>
           @endforeach 
-          {{-- <a class="collapse-item" href="{{ route('pinjaman.modal') }}">Pinjaman Modal</a>
-          <a class="collapse-item" href="{{ route('pinjaman.dana.umroh') }}">Dana Umroh</a> --}}
         </div>
       </div>
     </li>
@@ -74,13 +72,13 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsedData" aria-expanded="true" aria-controls="collapsedData">
         <i class="fas fa-fw fa-user"></i>
-        <span>Kelengkapan Data</span>
+        <span>{{__('sidebar.completeness-of-data')}}</span>
       </a>
       <div id="collapsedData" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Verivikasi data</h6>
-          <a class="collapse-item" href="{{ route('personal.data') }}">Data Diri</a>
-          <a class="collapse-item" href="{{ route('scoring') }}">Data Lainnya</a>
+          <a class="collapse-item" href="{{ route('personal.data') }}">{{__('sidebar.personal-data')}}</a>
+          <a class="collapse-item" href="{{ route('scoring') }}">{{__('sidebar.more-data')}}</a>
         </div>
       </div>
     </li>
@@ -91,14 +89,14 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-wrench"></i>
-        <span>Pengaturan</span>
+        <span>{{__('sidebar.settings')}}</span>
       </a>
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Kelengkapan profile</h6>
-          <a class="collapse-item" href="{{ route('edit.profile') }}">Profil</a>
-          <a class="collapse-item" href="{{ route('riwayat') }}">Riwayat Pengajuan Pinjaman</a>
-          <a class="collapse-item" href="{{ route('tagihan') }}">Tagihan</a>
+          <h6 class="collapse-header">{{__('sidebar.profile-coplete')}}</h6>
+          <a class="collapse-item" href="{{ route('edit.profile') }}">{{__('sidebar.profile')}}</a>
+          <a class="collapse-item" href="{{ route('riwayat') }}">{{__('sidebar.loan-application-history')}}</a>
+          <a class="collapse-item" href="{{ route('tagihan') }}">{{__('sidebar.bill')}}</a>
         </div>
       </div>
     </li>
@@ -106,14 +104,14 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('kebijakan.privasi')}}">
         <i class="fas fa-book"></i>
-        <span>Kebijakan & Privasi</span></a>
+        <span>{{__('sidebar.policy-&-privacy')}}</span></a>
     </li>
 
   <form method="POST" action="#">
     <li class="nav-item">
       <a class="nav-link" href="#"data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt"></i>
-        <span>Keluar</span></a>
+        <span>{{__('sidebar.logout')}}</span></a>
     </li>
   </form>
     <!-- Sidebar Toggler (Sidebar) -->

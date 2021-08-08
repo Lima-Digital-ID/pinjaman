@@ -17,11 +17,11 @@
                 @endif
 
                 <form action="{{route('api.register')}}" method="POST" autocomplete="off">
-                    <h4>Form Daftar</h4>
-                    <small>Silahkan daftarkan akun anda</small>
+                    <h4>{{ __('register.register-form')}}</h4>
+                    <small>{{ __('register.desc-small')}}</small>
                     @csrf
                     <div class="form-group">
-                        <label for="">Nama Lengkap</label>
+                        <label for="">{{ __('register.nama-lengkap')}}</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}">
                         @error('nama')
                             <small class="text-danger">
@@ -56,9 +56,9 @@
                             </small>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-danger">Daftar</button>
+                    <button type="submit" class="btn btn-danger">{{__('register.btn-register')}}</button>
                 </form>
-                <small>Anda telah memiliki akun? silahkan <a href="{{ route('login')}}">login</a></small>
+                <small>{{__('register.desc-small-footer')}} <a href="{{ route('login')}}">{{__('register.login')}}</a></small>
             </div>
         </div>
     </div>

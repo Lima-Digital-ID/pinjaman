@@ -12,12 +12,12 @@
                 <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">Jenis Pinjaman</th>
-                        <th class="text-center">Nominal</th>
-                        <th class="text-center">Termin</th>
-                        <th class="text-center">Tanggal Pengajuan</th>
-                        <th class="text-center">Status Pinjaman</th>
-                        <th class="text-center">Aksi</th>
+                        <th class="text-center">{{__('riwayat.type-loan')}}</th>
+                        <th class="text-center">{{__('riwayat.nominal')}}</th>
+                        <th class="text-center">{{__('riwayat.term')}}</th>
+                        <th class="text-center">{{__('riwayat.date-of-filling')}}</th>
+                        <th class="text-center">{{__('riwayat.loan-status')}}</th>
+                        <th class="text-center"> {{__('riwayat.action')}} </th>
                     </tr>
                 </thead>
                 <tbody>
