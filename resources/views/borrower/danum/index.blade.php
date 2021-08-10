@@ -7,55 +7,54 @@
 <form action="{{ route('api.syarat.danum') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group row">
-        <label for="" class="col-md-2">File Suket Travel/KBIH</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.kbih')</label>
         <input type="file" name="suket" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File Selfie Usaha</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.selfie')</label>
         <input type="file" name="selfie" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File SIUP</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.SIUP')</label>
         <input type="file" name="siup" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File NIB</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.NIB')</label>
         <input type="file" name="nib" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File Scan Jaminan</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.scan')</label>
         <input type="file" name="jaminan" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File NPWP Usaha</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.tin')</label>
         <input type="file" name="npwp" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File Akta Usaha</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.deed')</label>
         <input type="file" name="akta" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File Domisili</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.domicile')</label>
         <input type="file" name="domisili" class="form-control col-md-4">
     </div>
     <div class="form-group row">
-        <label for="" class="col-md-2">File Laporan Keuangan 3 Bulan Terakhir</label>
+        <label for="" class="col-md-2">@lang('syarat-danum.financial')</label>
         <input type="file" name="keuangan" class="form-control col-md-4">
     </div>
     <div class="form-group row">
         <div class="col-md-2"></div>
         <div class="col-md-4 d-flex justify-content-end">
-            <input type="submit" class="btn btn-primary" value="Kirim" />
+            <input type="submit" class="btn btn-primary" value="@lang('syarat-danum.btn')" />
         </div>
     </div>
 </form>
 @elseif(\Session::get('syarat_pinjaman_umroh') == 2)
 <div class="alert alert-info" role="alert">
-    <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
-</div>
+    <strong>@lang('alert.information')</strong> @lang('alert.info-pending')
 @elseif(\Session::get('syarat_pinjaman_umroh') == 3)
 <div class="alert alert-danger" role="alert">
-    <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.
+    <strong>@lang('alert.warning')</strong> @lang('alert.info-reject')
 </div>
 @elseif(\Session::get('syarat_pinjaman_umroh') == 1)
 <p>
@@ -95,7 +94,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                <button class="btn btn-danger mt-2 ">Selanjutnya</button>
+                <button class="btn btn-danger mt-2 ">@lang('danum.btn')</button>
                 </div>
         </div>        
     </div>

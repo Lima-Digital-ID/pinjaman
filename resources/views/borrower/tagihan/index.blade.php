@@ -2,6 +2,7 @@
 
 @push('stylesheet')
     <style>
+        
         .active {
             color: white;
             background-color: #DC464F;
@@ -88,6 +89,19 @@
         </div>
     {{-- </div> --}}
 @endsection
+@push('script')
+<script type="text/javascript"
+src="https://app.sandbox.midtrans.com/snap/snap.js"
+data-client-key="SB-Mid-client-UBI-EXhIILNNWa_U">
+</script>
+<script type="text/javascript">
+    var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function () {
+            // alert('<?php echo $snapToken;?>');
+        snap.pay('<?php echo $snapToken; ?>');
+    });
+</script>
+@endpush
 
 {{-- @push('script')
     <script>

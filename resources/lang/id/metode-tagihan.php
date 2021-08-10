@@ -2,7 +2,7 @@
 
 return [
     'term'          => 'Termin',
-    'nominal-paid'  => 'ominal yang harus dibayar', //nominal yang harus dibayar
+    'nominal-paid'  => 'Nsominal yang harus dibayar', //nominal yang harus dibayar
     'steps'         => 'Langkah-langkah pembayaran Bank UMKM.',
     '1'             => 'Masuk ke aplikasi Bank UMKM.',
     '2'             => 'Pilih menu pembayaran.',

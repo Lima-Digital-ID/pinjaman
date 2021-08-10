@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Midtrans\Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use App\Http\Controllers\Midtrans\Snap;
+use Illuminate\Support\Facades\Auth;
 
 class TagihanController extends Controller
 {
@@ -30,8 +35,36 @@ class TagihanController extends Controller
 
                 $resCicilan = json_decode($cicilan, false);
 
+                Config::$serverKey = 'SB-Mid-server-eiuCtSPcL-uxgdvQkBSYaw66';
+                Config::$isSanitized = Config::$is3ds = true;
+
+                $transaction_details = [
+                    'order_id' => rand(),
+                    'gross_amount' => $resCicilan->data[0]->nominal_pembayaran,
+                ];
+
+                $item_details = array (
+                    array(
+                        'id' => 'a1',
+                        'price' => $resCicilan->data[0]->nominal_pembayaran,
+                        'quantity' => 1,
+                        'name' => "Apple"
+                    ),
+                );
+
+                // Optional
+                $customer_details = array(
+                    'first_name'    => \Session::get('nama'),
+                    'email'         => "tegar@gmail.com",
+                    'phone'         => "08222222",
+                );       
+
+                $snapToken = Snap::getSnapToken($transaction);
+
+
                 if($resCicilan->status == 'success') {
                     $this->params['cicilan'] = $resCicilan->data;
+                    $this->params['snapToken'] = $snapToken;
                 }
                 else {
                     $this->params['cicilan'] = null;
@@ -42,6 +75,7 @@ class TagihanController extends Controller
                 $this->params['asuransi'] = null;
             }
 
+            // dd($this->params['asuransi']);
             return view('borrower.tagihan.index', $this->params);
         }
         catch(\Exception $e) {

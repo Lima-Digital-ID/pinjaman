@@ -1,6 +1,6 @@
 
-<form action="{{ route('metode-pembayaran') }}" method="post">
-@csrf
+{{-- <form action="{{ route('metode-pembayaran') }}" method="post"> --}}
+{{-- @csrf --}}
 <div class="card termin-1 mb-2">
     <div class="card-body">
         <input type="hidden" name="id_pelunasan" value="{{ $item->id }}">
@@ -28,13 +28,14 @@
                 @else
                 @if ($key > 0)
                 @if ($cicilan[$key-1]->status == 'Lunas')
-                <button type="submit" class="btn btn-primary">
+                <button class="btn btn-primary" id="pay-button">
                     {{__('tagihan.pay')}}
+                    {{\Session::get('email')}}
                 </button>
                 @endif
                 @else
                 <button type="submit" class="btn btn-primary">
-                    Bayar
+                    {{-- Bayar --}}
                 </button>                    
                 @endif
                 @endif
@@ -42,4 +43,4 @@
         </div>
     </div>
 </div>
-</form>
+{{-- </form> --}}

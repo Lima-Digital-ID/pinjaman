@@ -103,6 +103,8 @@ class AuthController extends Controller
             // Session
             Session::put('token', $requestLogin->token);
             Session::put('nama', $login['data']['nama']);
+            Session::put('email', $login['data']['email']);
+            Session::put('no_hp', $login['data']['no_hp']);
             Session::put('tanggal_lahir', $login['data']['tanggal_lahir']);
             Session::put('tempat_lahir', $login['data']['tempat_lahir']);
             Session::put('alamat', $login['data']['alamat']);

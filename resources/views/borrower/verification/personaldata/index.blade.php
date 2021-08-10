@@ -4,13 +4,13 @@
 
 @if (\Session::get('is_verified') == 1)
 <div class="alert alert-success" role="alert">
-  <strong>Informasi!</strong> Verifikasi data anda telah diterima.
+  <strong> @lang('alert.information') </strong> @lang('alert.info-acc')
 </div>
 @endif
 
 @if (\Session::get('is_verified') == 2)
 <div class="alert alert-info" role="alert">
-  <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
+  <strong>@lang('alert.information')</strong> @lang('alert.info-pending')
 </div>
 @endif
 
@@ -18,7 +18,7 @@
 
 @if (\Session::get('is_verified') == 3)
 <div class="alert alert-danger" role="alert">
-  <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi dan mengirim ulang data.
+  <strong>@lang('alert.warning')</strong> @lang('alert.info-reject')
 </div>
 @endif
 
