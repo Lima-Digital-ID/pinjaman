@@ -9,7 +9,7 @@
         <input type="hidden" name="nominal" value="{{ $item->nominal_pembayaran }}">
         <div class="d-flex align-items-center justify-content-between">
             <p class="">
-                <strong class="st-title"> {{__('tagihan.term')}} ke-{{ $item->cicilan_ke }}</strong> <br>
+                <strong class="st-title">{{ $item->cicilan_ke == 1 ? $item->cicilan_ke.'st' : ($item->cicilan_ke == 2 ? $item->cicilan_ke.'nd' : $item->cicilan_ke.'rd') }} {{__('tagihan.term')}}</strong> <br>
                 <b>Rp. {{ number_format($item->nominal_pembayaran, 2, ',', '.') }}</b>
                 <br>
                 @if ($item->status == 'Belum')
@@ -33,8 +33,8 @@
                 </button>
                 @endif
                 @else
-                <button type="submit" class="btn btn-primary">
-                    {{-- Bayar --}}
+                <button class="btn btn-primary" id="pay-button">
+                    {{__('tagihan.pay')}}
                 </button>                    
                 @endif
                 @endif
