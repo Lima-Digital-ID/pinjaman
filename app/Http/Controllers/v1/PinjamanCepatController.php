@@ -12,15 +12,23 @@ class PinjamanCepatController extends Controller
 {
     public function index()
     {
-        $url = \Config::get('api_config.pinjaman');
-    
         $token = \Session::get('token');
-        $nasabah = Http::withToken($token)
-                        ->get($url);
 
-        $limit_pinjaman = \Session::get('limit_pinjaman');
+        $url_limit = \Config::get('api_config.limit_pinjaman');
+        $limit = Http::withToken($token)
+                        ->get($url_limit);
 
-        return view('borrower.jacep.index', compact('limit_pinjaman'));
+        $eLimit = json_decode($limit, false);
+
+        if($eLimit->status == 'success') {
+            $this->params['limit_pinjaman'] = $eLimit->data->limit_pinjaman;
+        }
+        else {
+            $this->params['limit_pinjaman'] = null;
+        }
+
+
+        return view('borrower.jacep.index', $this->params);
     }
     
     public function create(Request $request)
