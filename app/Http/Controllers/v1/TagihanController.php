@@ -43,21 +43,17 @@ class TagihanController extends Controller
                     'gross_amount' => $resCicilan->data[0]->nominal_pembayaran,
                 ];
 
-                $item_details = array (
-                    array(
-                        'id' => 'a1',
-                        'price' => $resCicilan->data[0]->nominal_pembayaran,
-                        'quantity' => 1,
-                        'name' => "Apple"
-                    ),
-                );
-
                 // Optional
                 $customer_details = array(
                     'first_name'    => \Session::get('nama'),
-                    'email'         => "tegar@gmail.com",
-                    'phone'         => "08222222",
+                    'email'         => \Session::get('email'),
+                    'phone'         => \Session::get('no_hp'),
                 );       
+
+                $transaction = array(
+                    'customer_details' => $customer_details,
+                    'transaction_details' => $transaction_details,
+                );
 
                 $snapToken = Snap::getSnapToken($transaction);
 

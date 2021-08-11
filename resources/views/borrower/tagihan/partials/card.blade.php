@@ -30,7 +30,6 @@
                 @if ($cicilan[$key-1]->status == 'Lunas')
                 <button class="btn btn-primary" id="pay-button">
                     {{__('tagihan.pay')}}
-                    {{\Session::get('email')}}
                 </button>
                 @endif
                 @else
