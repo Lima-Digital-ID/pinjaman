@@ -27,6 +27,18 @@ Route::get('locale/{locale}', function($locale) {
     return redirect()->back();
 });
 
+Route::prefix('pembayaran')->group(function() {
+    Route::get('finish', function () {
+        return view('borrower.payment.finish');
+    });
+    Route::get('unfinish', function () {
+        return view('borrower.payment.unfinish');
+    });
+    Route::get('error', function () {
+        return view('borrower.payment.error');
+    });
+});
+
 Route::group(['middleware' => AuthNoLogin::class], function(){
 
     /**
