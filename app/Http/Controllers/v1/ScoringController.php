@@ -13,9 +13,7 @@ class ScoringController extends Controller
     public function index()
     {
         try {
-
             $token = \Session::get('token');
-
 
             $url_nasabah = \Config::get('api_config.get_nasabah');
             $nasabah = Http::withToken($token)
@@ -42,19 +40,18 @@ class ScoringController extends Controller
                 $this->params['kategori'] = null;
             }
 
-
+            $url_score = \Config::get('api_config.get_scoring');
             $http_get_score_by_Id = Http::withToken($token)
-                                                ->get('http://127.0.0.1:8080/api/get-scoring-per-nasabah');
+                                                ->get($url_score);
 
             $json_get_Score = json_decode($http_get_score_by_Id, false);
-        
+
             if ($json_get_Score->status == 'success') {
                 $this->params['get_score'] = json_decode($http_get_score_by_Id, true);
             }else {
                 $this->params['get_score'] = null;
             }
-        
-
+            
             return view('borrower.verification.scoring.index', $this->params);
         }
         catch (\Exception $e) {
@@ -67,24 +64,26 @@ class ScoringController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'jenis-kelamin' => 'required',
-        //     'status-pernikahan' => 'required',
-        //     'jumlah-tanggungan' => 'required',
-        //     'pendidikan-tertanggung' => 'required',
-        //     'usia-peminjam' => 'required',
-        //     'pendidikan-terakhir-peminjam' => 'required',
-        //     'jenis-pekerjaan' => 'required',
-        //     'lama-bekerja' => 'required',
-        //     'status-pekerjaan' => 'required',
-        //     'tujuan-pinjaman' => 'required',
-        //     'nilai-aset' => 'required',
-        //     'penghasilan-gaji' => 'required',
-        //     'pengeluaran-biaya-rumah-tangga' => 'required',
-        //     'pinjaman-di-banklembaga-keuangan-lain' => 'required',
-        //     'kondisi-slik' => 'required',
-        //     'total-angsuran-banklembaga-keuangan-lain' => 'required',
-        // ]);
+        $this->validate($request, [
+            'apa-jenis-kelamin-anda' => 'required',
+            'apakah-status-pernikahan-anda-saat-ini' => 'required',
+            'berapa-jumlah-tanggungan-anda-saat-ini' => 'required',
+            'apa-pendidikan-tertanggung-saat-ini' => 'required',
+            'berapa-usia-peminjam-saat-ini' => 'required',
+            'apa-pendidikan-terakhir-anda' => 'required',
+            'apa-jenis-pekerjaan-saat-ini' => 'required',
+            'sudah-berapa-lama-anda-bekerja' => 'required',
+            'apa-status-pekerjaan-saat-ini' => 'required',
+            'apa-tujuan-pinjaman-anda' => 'required',
+            'berapa-nilai-aset-yang-anda-butuhkan' => 'required',
+            'berapa-penghasilan-gaji-yang-anda-dapatkan' => 'required',
+            'berapa-pengeluaran-biaya-rumah-tangga' => 'required',
+            'apakah-ada-pinjaman-di-banklembaga-keuangan-lain' => 'required',
+            'bagaimana-kondisi-kredit-saat-ini' => 'required',
+            'berapa-total-angsuran-banklembaga-keuangan-lain' => 'required',
+        ], [
+            'required' => 'Pertanyaan harus dijawab.',
+        ]);
 
         try {
             // return $request;
@@ -105,8 +104,6 @@ class ScoringController extends Controller
             $kondisiSlik = explode('-', $request->get('bagaimana-kondisi-kredit-saat-ini'));
             $totalAngsuran = explode('-', $request->get('berapa-total-angsuran-banklembaga-keuangan-lain'));
     
-            $url_kategori = \Config::get('api_config.kategori_kriteria');
-
             $data = [
                 $jenisKelamin[0],
                 $statusPernikahan[0],
@@ -155,8 +152,6 @@ class ScoringController extends Controller
                 'data' => $data,
                 'score' => $score
             );
-
-            // return $json;
             
             $url = \Config::get('api_config.prosess_skoring');
 
@@ -164,12 +159,16 @@ class ScoringController extends Controller
                                 ->post($url, $json);
                                 
             $res = json_decode($response, false);
-
+            $totalSkor = 0;
             if($res->status == 'success') {
-                return back()->withStatus('Berhasil');
+                for($i=0; $i<count($score); $i++){
+                    $totalSkor += $score[$i];
+                }
+                \Session::put('score', $totalSkor);
+                return redirect()->route('dashboard')->withStatus('Berhasil mengirim data. Verifikasi membutuhkan waktu sekitar 2-3 hari.');
             }
             else {
-                return back()->withError('Gagal');
+                return back()->withError('Gagal melakukan scoring');
             }
 
             // return view('borrower.verification.scoring.index', $this->params);

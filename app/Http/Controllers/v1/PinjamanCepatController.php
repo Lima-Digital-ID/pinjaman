@@ -44,7 +44,7 @@ class PinjamanCepatController extends Controller
                             'nominal'           => $limit_pinjaman
                         ]);
         $res = json_decode($response, false);
-
+                    
         if ($res->status ==  'success') {
             $idPinjaman =  $res->data;
 

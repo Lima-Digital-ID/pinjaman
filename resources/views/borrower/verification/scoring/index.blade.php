@@ -34,9 +34,7 @@
                                     <div class="form-group">
                                         <label for=""><strong> {{ $kriteria['nama_kriteria'] }} </strong></label>
                                         @foreach ($kriteria['option'] as $o => $options)
-                                            <p>
-                                                {{ in_array($options['id'], array_column($get_score['data'], 'id_option')) ? $options['option'] : '' }}
-                                            </p>
+                                        {{ in_array($options['id'], array_column($get_score['data'], 'id_option')) ? $options['option'] : '' }}
                                         @endforeach
                                     </div>
                                 </div>
@@ -60,15 +58,15 @@
         </div>
     @endif
 
-    @if ((\Session::get('is_verified') == 0 && \Session::get('score') == 0) || (\Session::get('is_verified') == 1 && \Session::get('score') == 0))
-    @endif
+    {{-- @if ((\Session::get('is_verified') == 0 && \Session::get('score') == 0) || (\Session::get('is_verified') == 1 && \Session::get('score') == 0))
+    @endif --}}
     @if (\Session::get('is_verified') == 3 && \Session::get('score') > 0)
         <div class="alert alert-danger" role="alert">
             <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.
         </div>
     @endif
 
-    @if (\Session::get('is_verified') == 1 && \Session::get('kelengkapan_data') == 0)
+    @if (\Session::get('is_verified') == 2 && \Session::get('score') == 0)
 
         <div class="card">
             <div class="card-body">
@@ -102,7 +100,8 @@
                                                         class="form control @error(\Str::slug($items['nama_kriteria'])) is-invalid @enderror"
                                                         name="{{ \Str::slug($items['nama_kriteria']) }}"
                                                         id="{{ $options['id'] }}"
-                                                        value="{{ $options['id'] . '-' . $options['skor'] }}">
+                                                        value="{{ $options['id'] . '-' . $options['skor'] }}"
+                                                        required>
                                                     <label for="{{ $options['id'] }}">{{ $options['option'] }}</label>
                                                     <br>
                                                     <br>
