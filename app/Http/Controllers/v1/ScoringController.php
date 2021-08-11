@@ -88,22 +88,22 @@ class ScoringController extends Controller
 
         try {
             // return $request;
-            $jenisKelamin = explode('-', $request->get('jenis-kelamin'));
-            $statusPernikahan = explode('-', $request->get('status-pernikahan'));
-            $jumlahTangguan = explode('-', $request->get('jumlah-tanggungan'));
-            $pendidikanTertanggung = explode('-', $request->get('pendidikan-tertanggung'));
-            $usiaPeminjam = explode('-', $request->get('usia-peminjam'));
-            $pendidikanTerakhir = explode('-', $request->get('pendidikan-terakhir-peminjam'));
-            $jenisPekerjaan = explode('-', $request->get('jenis-pekerjaan'));
-            $lamaPekerjaan = explode('-', $request->get('lama-bekerja'));
-            $statusPekerjaan = explode('-', $request->get('status-pekerjaan'));
-            $tujuanPinjaman = explode('-', $request->get('tujuan-pinjaman'));
-            $nilaiAset = explode('-', $request->get('nilai-aset'));
-            $penghasilanGaji = explode('-', $request->get('penghasilan-gaji'));
-            $pengeluaranBiaya = explode('-', $request->get('pengeluaran-biaya-rumah-tangga'));
-            $pinjamanDiBank = explode('-', $request->get('pinjaman-di-banklembaga-keuangan-lain'));
-            $kondisiSlik = explode('-', $request->get('kondisi-slik'));
-            $totalAngsuran = explode('-', $request->get('total-angsuran-banklembaga-keuangan-lain'));
+            $jenisKelamin = explode('-', $request->get('apa-jenis-kelamin-anda'));
+            $statusPernikahan = explode('-', $request->get('apakah-status-pernikahan-anda-saat-ini'));
+            $jumlahTangguan = explode('-', $request->get('berapa-jumlah-tanggungan-anda-saat-ini'));
+            $pendidikanTertanggung = explode('-', $request->get('apa-pendidikan-tertanggung-saat-ini'));
+            $usiaPeminjam = explode('-', $request->get('berapa-usia-peminjam-saat-ini'));
+            $pendidikanTerakhir = explode('-', $request->get('apa-pendidikan-terakhir-anda'));
+            $jenisPekerjaan = explode('-', $request->get('apa-jenis-pekerjaan-saat-ini'));
+            $lamaPekerjaan = explode('-', $request->get('sudah-berapa-lama-anda-bekerja'));
+            $statusPekerjaan = explode('-', $request->get('apa-status-pekerjaan-saat-ini'));
+            $tujuanPinjaman = explode('-', $request->get('apa-tujuan-pinjaman-anda'));
+            $nilaiAset = explode('-', $request->get('berapa-nilai-aset-yang-anda-butuhkan'));
+            $penghasilanGaji = explode('-', $request->get('berapa-penghasilan-gaji-yang-anda-dapatkan'));
+            $pengeluaranBiaya = explode('-', $request->get('berapa-pengeluaran-biaya-rumah-tangga'));
+            $pinjamanDiBank = explode('-', $request->get('apakah-ada-pinjaman-di-banklembaga-keuangan-lain'));
+            $kondisiSlik = explode('-', $request->get('bagaimana-kondisi-kredit-saat-ini'));
+            $totalAngsuran = explode('-', $request->get('berapa-total-angsuran-banklembaga-keuangan-lain'));
     
             $url_kategori = \Config::get('api_config.kategori_kriteria');
 
@@ -124,9 +124,9 @@ class ScoringController extends Controller
                 $pinjamanDiBank[0],
                 $kondisiSlik[0],
                 $totalAngsuran[0],
-                35, // DER
-                40, // ROA
-                45, // ROE
+                '35', // DER
+                '40', // ROA
+                '45', // ROE
             ];
 
             $score = [
@@ -146,17 +146,19 @@ class ScoringController extends Controller
                 $pinjamanDiBank[1],
                 $kondisiSlik[1],
                 $totalAngsuran[1],
-                5, // DER
-                5, // ROA
-                5, // ROE
+                '5', // DER
+                '5', // ROA
+                '5', // ROE
             ];
 
             $json = array(
                 'data' => $data,
                 'score' => $score
             );
+
+            // return $json;
             
-            $url = \Config::get('api_config.proses_skoring');
+            $url = \Config::get('api_config.prosess_skoring');
 
             $response = Http::withToken(\Session::get('token'))
                                 ->post($url, $json);

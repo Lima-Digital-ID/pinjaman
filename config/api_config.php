@@ -39,5 +39,6 @@ return [
     'detail_notification'   => $base_url. 'detail-notification/',
     'read_notification'     => $base_url. 'read-notification/',
     'get_scoring'           => $base_url. 'get-scoring-per-nasabah',
+    'prosess_skoring'       => $base_url. 'prosess-skoring',
     'update_notification'   => $base_url. 'update-notification-sended',
 ];
