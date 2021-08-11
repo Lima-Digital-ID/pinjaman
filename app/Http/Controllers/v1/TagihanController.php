@@ -23,53 +23,69 @@ class TagihanController extends Controller
                             ->get($url_tagihan);
 
             $response = json_decode($tagihan, false);
-
-            if($response->status == 'success') {
-                $this->params['data'] = $response->data;
-                
-                $this->params['asuransi'] = $response->asuransi;
-
-                $url_cicilan = \Config::get('api_config.get_cicilan');
-                $cicilan = Http::withToken($token)
-                                ->get($url_cicilan.$response->data[0]->id);
-
-                $resCicilan = json_decode($cicilan, false);
-
-                Config::$serverKey = 'SB-Mid-server-eiuCtSPcL-uxgdvQkBSYaw66';
-                Config::$isSanitized = Config::$is3ds = true;
-
-                $transaction_details = [
-                    'order_id' => rand(),
-                    'gross_amount' => $resCicilan->data[0]->nominal_pembayaran,
-                ];
-
-                // Optional
-                $customer_details = array(
-                    'first_name'    => \Session::get('nama'),
-                    'email'         => \Session::get('email'),
-                    'phone'         => \Session::get('no_hp'),
-                );       
-
-                $transaction = array(
-                    'customer_details' => $customer_details,
-                    'transaction_details' => $transaction_details,
-                );
-
-                $snapToken = Snap::getSnapToken($transaction);
-
-
-                if($resCicilan->status == 'success') {
-                    $this->params['cicilan'] = $resCicilan->data;
-                    $this->params['snapToken'] = $snapToken;
+            if(count($response->data) > 0){
+                $idNasabah = $response->data[0]->id_nasabah;
+                if($response->status == 'success') {
+                    $this->params['data'] = $response->data;
+                    
+                    $this->params['asuransi'] = $response->asuransi;
+    
+                    $url_cicilan = \Config::get('api_config.get_cicilan');
+                    $cicilan = Http::withToken($token)
+                                    ->get($url_cicilan.$response->data[0]->id);
+    
+                    $resCicilan = json_decode($cicilan, false);
+                    $kodePelunasan = '';
+                    // return $resCicilan;
+                    if($resCicilan->status == 'success') {
+                        for ($i=0; $i < count($resCicilan->data); $i++) { 
+                            if($resCicilan->data[$i]->status == 'Belum') {
+                                $kodePelunasan = $resCicilan->data[$i]->kode_pelunasan.'-'.$idNasabah;
+                                break;
+                            }
+                            // echo $resCicilan->data[$i]->status.'<br>';
+                        }
+                    }
+                    // return $kodePelunasan;
+                    
+                    Config::$serverKey = 'SB-Mid-server-eiuCtSPcL-uxgdvQkBSYaw66';
+                    Config::$isSanitized = Config::$is3ds = true;
+    
+                    $transaction_details = [
+                        'order_id' => $kodePelunasan,
+                        'gross_amount' => $resCicilan->data[0]->nominal_pembayaran,
+                    ];
+    
+                    // Optional
+                    $customer_details = array(
+                        'first_name'    => \Session::get('nama'),
+                        'email'         => \Session::get('email'),
+                        'phone'         => \Session::get('no_hp'),
+                    );       
+    
+                    $transaction = array(
+                        'customer_details' => $customer_details,
+                        'transaction_details' => $transaction_details,
+                    );
+    
+                    $snapToken = Snap::getSnapToken($transaction);
+    
+    
+                    if($resCicilan->status == 'success') {
+                        $this->params['cicilan'] = $resCicilan->data;
+                        $this->params['snapToken'] = $snapToken;
+                    }
+                    else {
+                        $this->params['cicilan'] = null;
+                    }
                 }
                 else {
-                    $this->params['cicilan'] = null;
+                    $this->params['data'] = null;
+                    $this->params['asuransi'] = null;
                 }
-            }
-            else {
-                $this->params['data'] = null;
-                $this->params['asuransi'] = null;
-            }
+            }else {
+                return back()->withError('Belum ada tagihan.');
+            }            
 
             // dd($this->params['asuransi']);
             return view('borrower.tagihan.index', $this->params);
