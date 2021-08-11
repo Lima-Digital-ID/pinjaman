@@ -7,7 +7,7 @@
     'date-of-receipt'   => 'Tanggal terima', //tanggal terima
     'insurance-fee'     => 'Biaya asuransi', //Biaya Asuransi
     'payback-time'      => 'Jangka waktu pengembalian', //jangka waktu pengembalian
-    'term'              => 'Termin',
+    'term'              => 'Termin ke-',
     'paid-on'           => 'Dibayar pada', // dibayar pada
     'pay-before'        => 'Bayar sebelum', //Bayar sebelum
     'paid-off'          => 'Terbayar', //terbayar
