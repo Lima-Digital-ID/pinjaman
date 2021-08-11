@@ -1,0 +1,41 @@
+/* 
+    Bg-left
+*/
+
+:root {
+    --login: #DC464F;
+    --white: #ffffff;
+    --register:#f3f3f3 ;
+}
+
+.bg-left {
+    width: 600px;
+    float: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.bg-left img{
+    width: 100%;
+    height: 100vh;
+}
+
+.bg-right {
+    background-color: #f3f3f3;
+    height: 100vh;
+}
+
+/* Btn */
+.btn-primary-login {
+    background-color: var(--login);
+    color: var(--white);
+    padding: 12px;
+}
+.btn-primary-login:hover {
+    color: var(--white);
+}
+
+.btn-primary-register {
+    background-color: var(--register);
+    color: var(--login);
+}
