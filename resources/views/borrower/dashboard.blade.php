@@ -164,7 +164,7 @@
                                     
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td class="text-center">{{ ucwords($item['id_jenis_pinjaman']) }}</td>
+                                        <td class="text-center">{{ ucwords($item['jenis_pinjaman']) }}</td>
                                         <td class="text-right">{{ 'Rp.'.number_format($item['nominal'], 2, '.', ',') }}</td>
                                         <td class="text-center">{{ $item['jangka_waktu'] }} bulan</td>
                                         <td class="text-center">{{ $item['tanggal_pengajuan'] }}</td>
@@ -252,8 +252,8 @@
                         <img
                             src="{{\Session::get('foto_profil') != null ? \Config::get('api_config.domain').\Session::get('foto_profil') : 'https://ui-avatars.com/api/?name='.\Session::get('nama').'&length=2'}}"
                             class="rounded"
-                            width="120"
-                            height="120">
+                            width="100"
+                            height="100">
                     </div>
                     <div class="col">
                         <table>

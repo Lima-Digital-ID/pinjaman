@@ -63,6 +63,7 @@
                                 {{$norek}}
                             </p>
                         </div>
+                        <a href="{{route('dashboard')}}" class="btn btn-outline-primary">Kembali ke dashboard</a>
                     </div>    
                 </div>     
             </div>

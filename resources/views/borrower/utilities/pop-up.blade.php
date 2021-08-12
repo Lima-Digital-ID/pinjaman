@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="myModalLabel">History Pinjaman {{$loop->iteration}}</h5>
+          <h5 class="modal-title" id="myModalLabel">Riwayat Pinjaman</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -18,7 +18,18 @@
                     <div class="form-group">
                         <label for=""> {{__('detail-riwayat.loan-amount')}} </label>    
                         <p> <strong>
-                            Rp.{{ number_format($nominal, 2, ',', '.') }}
+                            Rp.{{ number_format($item['nominal'], 2, ',', '.') }}
+                        </strong>
+                        </p>
+                    </div>
+                    @php
+                        $bunga = $item['nominal'] * 9 / 109;
+                        $danaCair = $item['nominal'] - $bunga - $riwayat['asuransi'];
+                    @endphp
+                    <div class="form-group">
+                        <label for=""> {{__('detail-riwayat.funds')}} </label>    
+                        <p> <strong>
+                            Rp.{{ number_format($danaCair, 2, ',', '.') }}
                         </strong>
                         </p>
                     </div>
@@ -27,7 +38,7 @@
                         <label for=""> {{__('detail-riwayat.insurance-fee')}} </label>
                         <p>
                             <strong>
-                                Rp.{{ number_format($asuransi, 2, ',', '.') }}
+                                Rp.{{ number_format($riwayat['asuransi'], 2, ',', '.') }}
                             </strong>
                         </p>
                     </div>
@@ -36,7 +47,7 @@
                         <label for=""> {{__('detail-riwayat.payment-plan')}} </label>
                         <p> 
                             <strong>
-                                Rp.{{ number_format(($operational), 2, ',', '.').' x '.$jangka_waktu }}
+                                Rp.{{ number_format(($item['nominal'] / 2), 2, ',', '.').' x '.$item['jangka_waktu'] }}
                             </strong>
                         </p>
                     </div>
@@ -46,14 +57,14 @@
                         <div class="label"> {{__('detail-riwayat.loan-kode')}} </div>
                         <p>
                             
-                            {{$kode_pinjaman}}
+                            {{$item['kode_pinjaman']}}
                         </p>
                     </div>
                     <div class="form-group d-flex justify-content-between">
                         <div class="label"> {{__('detail-riwayat.submission-time')}} </div>
                         <p>
                             
-                            {{$tanggal_pengajuan}}
+                            {{$item['tanggal_pengajuan']}}
                         </p>
                     </div>
                 </div> 

@@ -30,13 +30,13 @@ class RiwayatPengajuanController extends Controller
 
         return view('borrower.history.index', $this->params);
     }
-    public function detail()
+    public function detail($id)
     {
         $token = Session::get('token');
 
-        $url = \Config::get('api_config.riwayat');
+        $url = \Config::get('api_config.detail_pinjaman');
 
-        $riwayat = Http::withToken($token)->get($url);
+        $riwayat = Http::withToken($token)->get($url.$id);
 
         $json = json_decode($riwayat, false);
 

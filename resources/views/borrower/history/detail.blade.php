@@ -15,6 +15,17 @@
                     </strong>
                     </p>
                 </div>
+                @php
+                    $bunga = $nominal * 9 / 109;
+                    $danaCair = $nominal - $bunga - $asuransi;
+                @endphp
+                <div class="form-group">
+                    <label for=""> {{__('detail-riwayat.funds')}} </label>    
+                    <p> <strong>
+                        Rp.{{ number_format($danaCair, 2, ',', '.') }}
+                    </strong>
+                    </p>
+                </div>
 
                 <div class="form-group">
                     <label for=""> {{__('detail-riwayat.insurance-fee')}} </label>
@@ -49,7 +60,7 @@
                         {{$tanggal_pengajuan}}
                     </p>
                 </div>
-                <a href="{{route('dashboard')}}" class="btn btn-outline-primary">Kembali</a>
+                <a href="{{route('riwayat')}}" class="btn btn-outline-primary">Kembali</a>
             </div> 
         </div>     
     </div>

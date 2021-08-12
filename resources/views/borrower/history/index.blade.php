@@ -29,7 +29,7 @@
                         
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ ucwords($item['id_jenis_pinjaman']) }}</td>
+                            <td class="text-center">{{ ucwords($item['jenis_pinjaman']) }}</td>
                             <td class="text-right">{{ 'Rp.'.number_format($item['nominal'], 2, '.', ',') }}</td>
                             <td class="text-center">{{ $item['jangka_waktu'] }} bulan</td>
                             <td class="text-center">{{ $item['tanggal_pengajuan'] }}</td>

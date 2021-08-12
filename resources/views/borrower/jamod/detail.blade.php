@@ -68,6 +68,7 @@
                         {{$data[0]->no_rekening}}
                     </p>
                 </div>
+                <a href="{{route('dashboard')}}" class="btn btn-outline-primary">Kembali ke dashboard</a>
             </div>    
         </div>     
     </div>
