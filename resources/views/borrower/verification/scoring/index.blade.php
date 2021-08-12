@@ -66,7 +66,7 @@
         </div>
     @endif
 
-    @if (\Session::get('is_verified') == 2 && \Session::get('score') == 0)
+    @if ((\Session::get('is_verified') == 2 && \Session::get('score') == 0))
 
     <div class="col-md-10">
         <div class="card">

@@ -38,7 +38,7 @@
                         @endif
 
                         @if($syarat_umroh == 2 )
-                            <p class="text-info">Persyaratan anda telah di cek</p>
+                            <p class="text-info">Persyaratan anda dalam proses pengecekan.</p>
                         @endif
 
                         @if($syarat_umroh != 1 && $syarat_umroh != 2)
@@ -82,7 +82,7 @@
                         @endif
 
                         @if($kelengkapan_data == 2)
-                            <p class="text-info">Persyaratan anda telah di cek</p>
+                            <p class="text-info">Persyaratan anda dalam proses pengecekan.</p>
                         @endif
 
                         @if($kelengkapan_data != 1 && $kelengkapan_data != 2)
@@ -196,20 +196,35 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
             </div>
-            <div class="card-body">
-                <img src="{{\Config::get('api_config.domain').\Session::get('foto_profil')}}" width="150" height="150">
-                <button class="btn btn-({{\Session::get('is_verified')}} == 0 ) ? danger : success"></button>
-                <table>
-                    <tr>
-                        <td>{{\Session::get('nama')}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{\Session::get('tempat_lahir')}}/{{\Session::get('tanggal_lahir')}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{\Session::get('alamat')}}</td>
-                    </tr>
-                </table>
+            <div class="card-body px-2">
+                <div class="row col-lg-12">
+                    <div class="col-lg-4 col-md-4">
+                        <img
+                            src="{{\Session::get('foto_profil') != null ? \Config::get('api_config.domain').\Session::get('foto_profil') : 'https://ui-avatars.com/api/?name='.\Session::get('nama').'&length=2'}}"
+                            class="rounded"
+                            width="120"
+                            height="120">
+                    </div>
+                    <div class="col-lg-8 col-md-8">
+                        <table>
+                            <tr>
+                                <td>{{\Session::get('nama')}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{\Session::get('no_hp')}}</td>
+                            </tr>
+                            {{-- <tr>
+                                <td>{{\Session::get('tanggal_lahir')}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{\Session::get('tempat_lahir')}}</td>
+                            </tr> --}}
+                            <tr>
+                                <td>{{\Session::get('alamat')}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="card-footer justify-content-between">
                 <a href=" {{route('edit.profile')}} " class="btn btn-warning mb-2">
