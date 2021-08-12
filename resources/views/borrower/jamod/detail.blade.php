@@ -12,6 +12,14 @@
                     </strong>
                     </p>
                 </div>
+                
+                <div class="form-group">
+                    <label for="">Jumlah Dana yang dicairkan</label>    
+                    <p> <strong>
+                        Rp.{{ number_format($nominal - $asuransi, 2, ',', '.') }}
+                    </strong>
+                    </p>
+                </div>
 
                 <div class="form-group">
                     <label for="">Biaya Asuransi</label>

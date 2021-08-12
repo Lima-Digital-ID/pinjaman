@@ -58,7 +58,8 @@ class PinjamanModalController extends Controller
             if ($res->status =='success') {
                 return view('borrower.jamod.detail',[
                     'data' => $res->data,
-                    'asuransi' => $res->asuransi
+                    'asuransi' => $res->asuransi,
+                    'nominal' => $request->nominal
                     ]);    
             }else{
                 return back()

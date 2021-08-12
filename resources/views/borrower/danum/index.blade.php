@@ -13,39 +13,39 @@
             @csrf
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.kbih')</label>
-                <input type="file" name="suket" class="form-control col-md-4" required>
+                <input type="file" id="suket" name="suket" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateSuket()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.selfie')</label>
-                <input type="file" name="selfie" class="form-control col-md-4" required>
+                <input type="file" id="selfie" name="selfie" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateSelfie()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.SIUP')</label>
-                <input type="file" name="siup" class="form-control col-md-4" required>
+                <input type="file" id="siup" name="siup" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateSiup()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.NIB')</label>
-                <input type="file" name="nib" class="form-control col-md-4" required>
+                <input type="file" id="nib" name="nib" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateNIB()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.scan')</label>
-                <input type="file" name="jaminan" class="form-control col-md-4" required>
+                <input type="file" id="jaminan" name="jaminan" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateJaminan()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.tin')</label>
-                <input type="file" name="npwp" class="form-control col-md-4" required>
+                <input type="file" id="npwp" name="npwp" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateNPWP()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.deed')</label>
-                <input type="file" name="akta" class="form-control col-md-4" required>
+                <input type="file" id="akta" name="akta" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateAkta()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.domicile')</label>
-                <input type="file" name="domisili" class="form-control col-md-4" required>
+                <input type="file" id="domisili" name="domisili" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateDomisili()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.financial')</label>
-                <input type="file" name="keuangan" class="form-control col-md-4" required>
+                <input type="file" id="keuangan" name="keuangan" class="form-control col-md-4" accept="application/pdf" onchange="validateKeuangan()" required>
             </div>
             <div class="form-group">
                 <div class="">
@@ -72,39 +72,39 @@
             @csrf
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.kbih')</label>
-                <input type="file" name="suket" class="form-control col-md-4" required>
+                <input type="file" id="suket" name="suket" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateSuket()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.selfie')</label>
-                <input type="file" name="selfie" class="form-control col-md-4" required>
+                <input type="file" id="selfie" name="selfie" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateSelfie()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.SIUP')</label>
-                <input type="file" name="siup" class="form-control col-md-4" required>
+                <input type="file" id="siup" name="siup" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateSiup()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.NIB')</label>
-                <input type="file" name="nib" class="form-control col-md-4" required>
+                <input type="file" id="nib" name="nib" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateNIB()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.scan')</label>
-                <input type="file" name="jaminan" class="form-control col-md-4" required>
+                <input type="file" id="jaminan" name="jaminan" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateJaminan()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.tin')</label>
-                <input type="file" name="npwp" class="form-control col-md-4" required>
+                <input type="file" id="npwp" name="npwp" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateNPWP()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.deed')</label>
-                <input type="file" name="akta" class="form-control col-md-4" required>
+                <input type="file" id="akta" name="akta" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateAkta()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.domicile')</label>
-                <input type="file" name="domisili" class="form-control col-md-4" required>
+                <input type="file" id="domisili" name="domisili" class="form-control col-md-4" accept=".png, .jpeg" onchange="validateDomisili()" required>
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.financial')</label>
-                <input type="file" name="keuangan" class="form-control col-md-4" required>
+                <input type="file" id="keuangan" name="keuangan" class="form-control col-md-4" accept="application/pdf" onchange="validateKeuangan()" required>
             </div>
             <div class="form-group">
                 <div class="">
@@ -168,3 +168,116 @@
 @endif
 
 @endsection
+
+@push('script')
+<script type="text/javascript">
+    function validateSuket(){
+        var fileName = document.getElementById("suket").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("suket").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateSelfie(){
+        var fileName = document.getElementById("selfie").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("selfie").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateSiup(){
+        var fileName = document.getElementById("siup").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("siup").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateNIB(){
+        var fileName = document.getElementById("nib").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("nib").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateJaminan(){
+        var fileName = document.getElementById("jaminan").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("jaminan").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateNPWP(){
+        var fileName = document.getElementById("npwp").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("npwp").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateAkta(){
+        var fileName = document.getElementById("akta").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("akta").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateDomisili(){
+        var fileName = document.getElementById("domisili").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("domisili").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateKeuangan(){
+        var fileName = document.getElementById("keuangan").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="pdf"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("keuangan").value = '';
+            alert("Hanya file pdf dan png yang diperbolehkan!");
+        }   
+    }
+</script>
+@endpush
