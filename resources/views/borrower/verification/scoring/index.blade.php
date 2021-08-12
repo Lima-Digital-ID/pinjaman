@@ -1,4 +1,4 @@
-@extends('borrower.app', ['jumbotron' => 'Scoring'])
+@extends('borrower.app', ['jumbotron' => ''])
 
 @section('body')
 

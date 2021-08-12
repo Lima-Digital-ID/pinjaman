@@ -1,19 +1,11 @@
 @extends('borrower.app', ['jumbotron' => 'Dashboard'])
 
-@push('stylesheet')
-    <style>
-        .card-pinjaman:hover {
-            color: blue;
-        }
-    </style>
-@endpush
-
 @section('body')
 <div class="row">
     <div class="col-xl-12 col-md-12">
         @if (\Session::get('is_verified') == 0)
         <div class="alert alert-warning" role="alert">
-            <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('personal.data') }}" class="alert-link"> disini.</a> Untuk melengkapi data diri anda
+            <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('personal.data') }}" class="alert-link text-uppercase" style="color:blue;"> disini.</a> Untuk melengkapi data diri anda
         </div>
         @elseif (\Session::get('is_verified') == 2)
         <div class="alert alert-info" role="alert">

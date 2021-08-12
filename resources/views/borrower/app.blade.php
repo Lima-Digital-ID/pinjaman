@@ -64,7 +64,15 @@
                   </button>
               </div>
           @endif
-          @yield('body')
+          
+          @if (request()->is('dashboard'))
+              @yield('body')
+          @else
+            <div class="row justify-content-center">
+              @yield('body')
+            </div>
+          @endif
+
 
         </div>
         <!-- /.container-fluid -->

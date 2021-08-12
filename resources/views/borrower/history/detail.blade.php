@@ -1,10 +1,12 @@
-@extends('borrower.app', ['jumbotron' => 'Detail Riwayat'])
+@extends('borrower.app', ['jumbotron' => ''])
 
 
 @section('body')
-<div class="row">
     <div class="col-xl-6">
         <div class="card">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Detail Riwayat</h6>
+            </div>
             <div class="card-body">
                 <div class="form-group">
                     <label for=""> {{__('detail-riwayat.loan-amount')}} </label>    
@@ -50,5 +52,4 @@
             </div> 
         </div>     
     </div>
-</div>
 @endsection
