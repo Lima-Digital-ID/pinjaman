@@ -153,9 +153,17 @@
                                         <td class="text-center">{{ $item['tanggal_pengajuan'] }}</td>
                                         <td class="text-center">{{ ucwords($item['status']) }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('api.riwayat.detail', $item['id']) }}" class="btn btn-info mr-2" title="Detail" data-toggle="tooltip">
+                                            <!-- Button trigger modal -->
+                                            {{-- <a href="{{ route('api.riwayat.detail', $item['id']) }}" class="btn btn-info mr-2" title="Detail" data-toggle="tooltip">
                                                 <span class="fa fa-eye"></span>
-                                            </a>
+                                            </a> --}}
+                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#message<?php echo $item['id'];?>" >
+                                                <span class="fa fa-eye"></span>
+                                            </button>
+                                            {{-- data-toggle="modal" data-target="#exampleModalCentered" --}}
+                                            {{-- modal --}}
+                                            @include('borrower.utilities.pop-up')
+                                          
                                         </td>
                                     </tr>
                                     @endforeach
@@ -349,6 +357,7 @@
 
   <script>
     $(document).ready(function() {
+        // DataTabel
         $('#riwayatTable').DataTable();
     });
   </script>
