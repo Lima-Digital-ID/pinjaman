@@ -1,7 +1,7 @@
 <?php 
 
 return [
-    'type-of-residence' => 'Type of residence', // Jenis tempat tingggal
+    'type-of-residence' => 'Type of residence', // Jenis tempat tinggal
     'household'         => 'Household', // Rumah tangga
     'cost'              => 'Cost', // Kos
     'rent'              => 'Rent',

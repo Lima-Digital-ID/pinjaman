@@ -42,7 +42,7 @@
                         @endif
 
                         @if($syarat_umroh != 1 && $syarat_umroh != 2)
-                        <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
+                        <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary ">
                             Upload Persyaratan
                         </a>
 
@@ -197,7 +197,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
             </div>
             <div class="card-body">
-                <img src="{{\Session::get('foto_profil')}}" alt="">
+                <img src="{{\Config::get('api_config.domain').\Session::get('foto_profil')}}" width="150" height="150">
                 <button class="btn btn-({{\Session::get('is_verified')}} == 0 ) ? danger : success"></button>
                 <table>
                     <tr>

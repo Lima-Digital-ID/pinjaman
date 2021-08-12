@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label for=""> {{__('detail-riwayat.payment-plan')}} </label>
                     <p> 
-                        <strong>w
+                        <strong>
                             Rp.{{ number_format(($operational), 2, ',', '.').' x '.$jangka_waktu }}
                         </strong>
                     </p>
