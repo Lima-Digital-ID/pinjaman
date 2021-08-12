@@ -15,6 +15,8 @@
     <title>Bank BPR Jatim - {{ $title ?? '' }}</title>
   </head>
   <body>
+
+    @include('sweetalert::alert')
     @yield('body')
 
     <!-- Optional JavaScript; choose one of the two! -->
