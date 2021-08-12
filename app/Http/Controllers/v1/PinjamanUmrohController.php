@@ -32,7 +32,7 @@ class PinjamanUmrohController extends Controller
     {
 
         $validated = $request->validate([
-            'nominal' => 'required|numeric|max:5000000'
+            'nominal' => 'required|numeric|max:50000000'
         ],[
             'max' => ':attribute tidak boleh lebih dari Rp.50.000.000,00.',
             'required' => ':attribute harus diisi.'
@@ -40,7 +40,6 @@ class PinjamanUmrohController extends Controller
             'nominal' => 'Nominal',
         ]);
 
-        return 'success';
         $url = \Config::get('api_config.pinjaman');
 
         $response = Http::withToken(\Session::get('token'))

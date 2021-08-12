@@ -8,39 +8,39 @@
     @csrf
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.kbih')</label>
-        <input type="file" name="suket" class="form-control col-md-4">
+        <input type="file" name="suket" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.selfie')</label>
-        <input type="file" name="selfie" class="form-control col-md-4">
+        <input type="file" name="selfie" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.SIUP')</label>
-        <input type="file" name="siup" class="form-control col-md-4">
+        <input type="file" name="siup" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.NIB')</label>
-        <input type="file" name="nib" class="form-control col-md-4">
+        <input type="file" name="nib" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.scan')</label>
-        <input type="file" name="jaminan" class="form-control col-md-4">
+        <input type="file" name="jaminan" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.tin')</label>
-        <input type="file" name="npwp" class="form-control col-md-4">
+        <input type="file" name="npwp" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.deed')</label>
-        <input type="file" name="akta" class="form-control col-md-4">
+        <input type="file" name="akta" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.domicile')</label>
-        <input type="file" name="domisili" class="form-control col-md-4">
+        <input type="file" name="domisili" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-2">@lang('syarat-danum.financial')</label>
-        <input type="file" name="keuangan" class="form-control col-md-4">
+        <input type="file" name="keuangan" class="form-control col-md-4" required>
     </div>
     <div class="form-group row">
         <div class="col-md-2"></div>

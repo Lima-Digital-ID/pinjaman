@@ -33,7 +33,7 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Lang
+          @lang('nav.language')
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           @if (app()->getLocale() == 'id')
@@ -48,28 +48,30 @@
       </li>
 
       <!-- Nav Item - Alerts -->
-      {{-- @php
+      @php
         $url_notif = \Config::get('api_config.get_new_notification');
         $notifikasi = Http::withToken(\Session::get('token'))
                         ->get($url_notif);
 
         $eNotif = json_decode($notifikasi, false);
-
-        $notifLength = count($eNotif->data);
-
-      @endphp --}}
+        $notifLength = 0;
+        if($eNotif->status == 'success') {
+          $notifLength = count($eNotif->data);
+        }
+        
+      @endphp
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
           <!-- Counter - Alerts -->
-          {{-- <span class="badge badge-danger badge-counter">{{ $notifLength }}</span> --}}
+          <span class="badge badge-danger badge-counter">{{ $notifLength }}</span>
         </a>
         <!-- Dropdown - Alerts -->
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
           <h6 class="dropdown-header">
             {{__('nav.notification')}}
           </h6>
-          {{-- @forelse ($eNotif->data as $key => $value)
+          @forelse ($eNotif->data as $key => $value)
             <a class="dropdown-item d-flex align-items-center" href="{{ route('detail-notifikasi', $value->id) }}">
               <div class="mr-3">
                 <div class="icon-circle bg-primary">
@@ -83,7 +85,7 @@
             </a>
           @empty
               belum ada notifikasi.
-          @endforelse --}}
+          @endforelse
           <a class="dropdown-item text-center small text-gray-500" href="{{ route('notifikasi') }}">{{__('nav.show-all-notification')}}</a>
         </div>
       </li>

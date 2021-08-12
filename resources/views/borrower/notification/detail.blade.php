@@ -8,7 +8,7 @@
                 <div class="col">
                     <div class="card-body">
                         <h4 class="text-dark">{{ $notifikasi->title }}</h4>
-                        <p>{{ $notifikasi->message }}</p>
+                        <p>{!! str_replace('\n', '<br>', $notifikasi->message) !!}</p>
                     </div>
                 </div>
             </div>                
