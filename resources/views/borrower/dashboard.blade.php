@@ -35,7 +35,7 @@
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
                         <p><strong>Pinjaman Umroh</strong> <br>
-                        <small>Limit Pinjaman : {{$limit}} </small> </p>
+                        {{-- <small>Limit Pinjaman :  </small> </p> --}}
                         <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
                             Ajukan
                         </a>
@@ -47,7 +47,7 @@
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/> <br>
                         <p><strong>Pinjaman Cepat</strong> <br>
-                        <small>Limit Pinjaman : </small></p>
+                        <small>Limit Pinjaman : Rp.{{number_format($limit, 2, ',', '.')}} </small></p>
                         <a href=" {{route('pinjaman.cepat')}} " class="btn btn-primary">
                             Pinjam
                         </a>
@@ -59,7 +59,7 @@
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/> <br>
                         <p><strong>Pinjaman Modal</strong> <br>
-                        <small>Limit Pinjaman : {{$temp_limit}} </small></p>
+                        {{-- <small>Limit Pinjaman : {{$temp_limit}} </small></p> --}}
                         <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
                             Ajukan
                         </a>
@@ -150,8 +150,8 @@
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pinjaman Telah dibayar</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($limit, 2, ',', '.') }}</div>
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pinjaman Belum dibayar</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($sisa_pinjaman, 2, ',', '.') }}</div>
                         </div>
                         <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>

@@ -92,7 +92,7 @@
 @push('script')
 <script type="text/javascript"
 src="https://app.sandbox.midtrans.com/snap/snap.js"
-data-client-key="SB-Mid-client-UBI-EXhIILNNWa_U">
+data-client-key="SB-Mid-client-lFnEK49zkLgsTBmW">
 </script>
 <script type="text/javascript">
     var payButton = document.getElementById('pay-button');
