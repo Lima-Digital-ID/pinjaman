@@ -2,7 +2,7 @@
 
 @section('body')
     {{-- <div class="container"> --}}
-        <div class="row">
+        {{-- <div class="row"> --}}
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body">
@@ -10,6 +10,12 @@
                         <br>
                         <b>
                             Rp.{{ number_format($data[0]->nominal, 2, ',', '.') }}
+                        </b>
+                        <br>
+                        <label for="">Jumlah Dana yang dicairkan</label>    
+                        <br>
+                        <b>
+                            Rp.{{ number_format($nominal - $asuransi, 2, ',', '.') }}
                         </b>
                         <br>
                         <label for="">Biaya Asuransi</label>
@@ -60,6 +66,6 @@
                     </div>    
                 </div>     
             </div>
-        </div>
+        {{-- </div> --}}
     {{-- </div> --}}
 @endsection

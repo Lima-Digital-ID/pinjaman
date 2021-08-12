@@ -59,3 +59,30 @@
 @endif
 @endsection
 
+@push('script')
+<script type="text/javascript">
+    function validateKtp(){
+        var fileName = document.getElementById("scan_ktp").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("scan_ktp").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+    function validateSelfie(){
+        var fileName = document.getElementById("selfie_ktp").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("selfie_ktp").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
+@endpush

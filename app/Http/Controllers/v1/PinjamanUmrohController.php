@@ -62,15 +62,16 @@ class PinjamanUmrohController extends Controller
             if ($res->status =='success') {
                 return view('borrower.danum.detail',[
                     'data' => $res->data,
-                    'asuransi' => $res->asuransi
+                    'asuransi' => $res->asuransi,
+                    'nominal' => $request->nominal,
                 ]);    
             }else{
                 return back()
                         ->withError($res->message);
             }
 
-            return redirect()
-                        ->route('api.pinjaman.cepat.detail');
+            // return redirect()
+            //             ->route('api.pinjaman.cepat.detail');
         }else{
             return back()
                     ->withError($res->message);

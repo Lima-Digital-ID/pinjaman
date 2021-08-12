@@ -1,11 +1,11 @@
 <div class="tab-pane fade show active" id="pills-ktp" role="tabpanel" aria-labelledby="pills-ktp-tab">
     <div class="form-group ">
         <label for="" class=""> {{__('data-diri.photo-id')}} </label>
-        <input type="file" name="scan_ktp" class="form-control " required>
+        <input type="file" id="scan_ktp" name="scan_ktp" class="form-control " accept=".png, .jpeg" onchange="validateKtp()" required>
     </div>
     <div class="form-group ">
         <label for="" class=""> {{__('data-diri.photo-holding-id-card')}} </label>
-        <input type="file" name="selfie_ktp" class="form-control " required>
+        <input type="file" id="selfie_ktp" name="selfie_ktp" class="form-control " accept=".png, .jpeg" onchange="validateSelfie()" required>
     </div>
     <div class="form-group ">
         <label for="" class=""> {{__('data-diri.full-name')}} </label>

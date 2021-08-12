@@ -52,7 +52,7 @@ class AuthController extends Controller
 
             Alert::success('Success Title', 'Success Message');
             return redirect()
-                        ->route('login');
+                        ->route('login')->withStatus('Berhasil mendaftar, silahkan login.');
         }
         else if (strpos($requestRegister->message, 'nasabah_email_unique') !== false) {
             return back()->withError('Email telah digunakan');
