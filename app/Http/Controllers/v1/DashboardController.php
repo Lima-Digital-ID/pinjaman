@@ -34,9 +34,14 @@ class DashboardController extends Controller
         if($eLimit->status == 'success') {
             $this->params['limit'] = $eLimit->data->limit_pinjaman;
             $this->params['temp_limit'] = $eNasabah->data->temp_limit;
+            $this->params['is_verified'] = $eNasabah->data->is_verified;
             $this->params['kelengkapan_data'] = $eNasabah->data->kelengkapan_data;
             $this->params['syarat_umroh'] = $eNasabah->data->syarat_pinjaman_umroh;
             $this->params['sisa_pinjaman'] = $eNasabah->data->hutang;
+            Session::put('is_verified', $eNasabah->data->is_verified);
+            Session::put('score', $eNasabah->data->skor);
+            Session::put('syarat_pinjaman_umroh', $eNasabah->data->syarat_pinjaman_umroh);
+            Session::put('kelengkapan_data', $eNasabah->data->kelengkapan_data);
         }
         else {
             $this->params['limit'] = null;

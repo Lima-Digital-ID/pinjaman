@@ -27,98 +27,113 @@
             @endphp --}}
             <div class="col-md-4 d-flex">
                 <div class="card flex-fill mb-2">
-                    <div class="card-body text-center">
-                        <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
-                        <p><strong>Pinjaman Umroh</strong> <br>
-                            {{-- @php
-                                {{dd(Session::get('kelengkapan_data'));}}
-                            @endphp --}}
-                        {{-- <small>Limit Pinjaman :  </small> </p> --}}
-
-                        @if ($kelengkapan_data == 0)
-                            <p>
-                                Silahkan lengkapi data terlebih dahulu
-                            </p>
-                        @else
-
-                            @if ($syarat_umroh == 1)
-                                <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
-                                    Ajukan
-                                </a>
+                    <div class="card-body text-center d-flex flex-column justify-content-between">
+                        <div class="align-self-center">
+                            <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/>
+                            <p class="mt-2"><strong>Pinjaman Cepat</strong></p>
+                            @if (\Session::get('is_verified') == 1)
+                            <small class="mb-2">Limit Pinjaman : 
+                                    Rp.{{number_format($limit, 2, ',', '.')}}
+                            </small>
                             @endif
-
-                            @if($syarat_umroh == 2)
-                                <p class="text-info">Persyaratan anda telah di cek</p>
-                            @endif
-
-                            @if($syarat_umroh != 1 && $syarat_umroh != 2)
-                            <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
-                                Upload Persyaratan
-                            </a>
+                        </div>
+                        @if (\Session::get('is_verified') == 1 && !$sisa_pinjaman > 0)
+                        <a href=" {{route('pinjaman.cepat')}} " class="btn btn-primary mt-3">
+                            Ajukan
+                        </a>
                         @endif
-
-                        @if($syarat_umroh == 2 )
-                            <p class="text-info">Persyaratan anda dalam proses pengecekan.</p>
-                        @endif
-
-                            @endif
-
+                        @if (\Session::get('is_verified') == 0)
+                        <p>Silahkan lengkapi data terlebih dahulu</p>
                         @endif
 
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
-                <div class="card flex-fill  mb-2">
-                    <div class="card-body text-center">
-                        <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/> <br>
-                        @if (\Session::get('is_verified') == 1)
-                        <p><strong>Pinjaman Cepat</strong> <br>
-                        <small>Limit Pinjaman : 
-                                Rp.{{number_format($limit, 2, ',', '.')}}
-                         </small></p>
-                        <a href=" {{route('pinjaman.cepat')}} " class="btn btn-primary">
-                            Ajukan
-                        </a>
+                <div class="card flex-fill mb-2">
+                    <div class="card-body text-center d-flex flex-column justify-content-between">
+                        <div class="align-self-center">
+                            <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/>
+                            <p class="mt-2"><strong>Pinjaman Umroh</strong></p>
+                        </div>
+                        @if ($is_verified == 0)
+                            <p>
+                                Silahkan lengkapi data terlebih dahulu.
+                            </p>
+                        @elseif($is_verified == 2)
+                            
+                        @elseif($is_verified == 3)
+
                         @else
-                        <strong>Pinjaman Cepat</strong> <br>
-                        <br>
-                            <p>Silahkan lengkapi data terlebih dahulu</p>
+                        @if ($syarat_umroh == 1)
+                            <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary mt-3">
+                                Ajukan
+                            </a>
                         @endif
+                        
+                        @if ($syarat_umroh == 0)
+                            <span class="text-info mb-2">Silahkan upload persyaratan terlebih dahulu.</span>
+                        @endif
+
+                        @if ($syarat_umroh == 3)
+                            <span class="text-danger mb-2">Persyaratan anda ditolak, silahkan upload ulang.</span>
+                        @endif
+                        
+                        @if($syarat_umroh != 1 && $syarat_umroh != 2)
+                        <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary mt-3">
+                            Upload Persyaratan
+                        </a>
+                        @endif
+                        @endif
+
+                        @if($is_verified != 0 && $syarat_umroh == 2)
+                            <p class="text-info">Persyaratan anda dalam proses pengecekan.</p>
+                        @endif
+
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex" class="card-pinjaman">
                 <div class="card flex-fill mb-2">
-                    <div class="card-body text-center">
-                        <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/> <br>
-                        <p><strong>Pinjaman Modal</strong> <br>
+                    <div class="card-body text-center d-flex flex-column justify-content-between">
+                        <div class="align-self-center">
+                            <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/>
+                            <p class="mt-2"><strong>Pinjaman Modal</strong></p>
+                        </div>
 
-                            @if ($kelengkapan_data == 0)
-                                <p>
-                                    Silahkan melengkapi data terlebih dahulu
-                                </p>
-                            @endif
+                        @if ($is_verified == 0)
+                            <p>
+                                Silahkan lengkapi data terlebih dahulu.
+                            </p>
+                        @elseif($is_verified == 2)
+                            
+                        @elseif($is_verified == 3)
 
-                            @if ($kelengkapan_data == 1)
-                            <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
+                        @else
+                        @if ($kelengkapan_data == 1)
+                            <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary mt-3">
                                 Ajukan
                             </a>
-                            @endif
-                        @if($kelengkapan_data == 2)
-                            <p class="text-info">Persyaratan anda dalam proses pengecekan.</p>
+                        @endif
+                        
+                        @if ($kelengkapan_data == 0)
+                            <span class="text-info mb-2">Silahkan upload persyaratan terlebih dahulu.</span>
                         @endif
 
-                            @if($kelengkapan_data == 2)
-                                <p class="text-info">Persyaratan anda telah di cek</p>
-                            @endif
+                        @if ($kelengkapan_data == 3)
+                            <span class="text-danger mb-2">Persyaratan anda ditolak, silahkan upload ulang.</span>
+                        @endif
+                        
+                        @if($kelengkapan_data != 1 && $kelengkapan_data != 2)
+                        <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary mt-3">
+                            Upload Persyaratan
+                        </a>
+                        @endif
+                        @endif
 
-                            @if($kelengkapan_data > 0 && $kelengkapan_data != 1 && $kelengkapan_data != 2)
-                            <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
-                                Upload Persyaratan
-                            </a>
-
-                            @endif
+                        @if($is_verified != 0 && $syarat_umroh == 2)
+                            <p class="text-info">Persyaratan anda dalam proses pengecekan.</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -223,16 +238,16 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
             </div>
-            <div class="card-body px-2">
-                <div class="row col-lg-12">
-                    <div class="col-lg-4 col-md-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
                         <img
                             src="{{\Session::get('foto_profil') != null ? \Config::get('api_config.domain').\Session::get('foto_profil') : 'https://ui-avatars.com/api/?name='.\Session::get('nama').'&length=2'}}"
                             class="rounded"
                             width="120"
                             height="120">
                     </div>
-                    <div class="col-lg-8 col-md-8">
+                    <div class="col">
                         <table>
                             <tr>
                                 <td>{{\Session::get('nama')}}</td>
