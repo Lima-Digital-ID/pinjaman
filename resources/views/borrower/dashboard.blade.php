@@ -27,10 +27,26 @@
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
                         <p><strong>Pinjaman Umroh</strong> <br>
+                            {{-- @php
+                                {{dd(\Session::get('kelengkapan_data'));}}
+                            @endphp --}}
                         {{-- <small>Limit Pinjaman :  </small> </p> --}}
+                        @if ($kelengkapan_data == 1)
+                            <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
+                                Ajukan
+                            </a>
+                        @endif
+
+                        @if($kelengkapan_data == 2)
+                            <p class="text-info">Persyaratan anda telah di cek</p>
+                        @endif
+
+                        @if($kelengkapan_data != 1 && $kelengkapan_data != 2)
                         <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
-                            Ajukan
+                            Upload Persyaratan
                         </a>
+
+                        @endif
                     </div>
                 </div>
             </div>
@@ -38,11 +54,18 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/> <br>
+                        @if (\Session::get('is_verified') == 1)
                         <p><strong>Pinjaman Cepat</strong> <br>
-                        <small>Limit Pinjaman : Rp.{{number_format($limit, 2, ',', '.')}} </small></p>
+                        <small>Limit Pinjaman : 
+                                Rp.{{number_format($limit, 2, ',', '.')}}
+                         </small></p>
                         <a href=" {{route('pinjaman.cepat')}} " class="btn btn-primary">
                             Pinjam
                         </a>
+                        @else
+                        <strong>Pinjaman Cepat</strong> <br>
+                            <p>Silahkan lengkapi data terlebih dahulu</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -51,10 +74,24 @@
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/> <br>
                         <p><strong>Pinjaman Modal</strong> <br>
-                        {{-- <small>Limit Pinjaman : {{$temp_limit}} </small></p> --}}
+
+                        @if ($kelengkapan_data == 1)
                         <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
                             Ajukan
                         </a>
+                        @endif
+
+                        @if($kelengkapan_data == 2)
+                            <p class="text-info">Persyaratan anda telah di cek</p>
+                        @endif
+
+                        @if($kelengkapan_data != 1 && $kelengkapan_data != 2)
+                        <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
+                            Upload Persyaratan
+                        </a>
+
+                        @endif
+
                     </div>
                 </div>
             </div>

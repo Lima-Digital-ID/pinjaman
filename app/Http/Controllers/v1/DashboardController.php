@@ -34,6 +34,7 @@ class DashboardController extends Controller
         if($eLimit->status == 'success') {
             $this->params['limit'] = $eLimit->data->limit_pinjaman;
             $this->params['temp_limit'] = $eNasabah->data->temp_limit;
+            $this->params['kelengkapan_data'] = $eNasabah->data->kelengkapan_data;
             $this->params['sisa_pinjaman'] = $eNasabah->data->hutang;
         }
         else {
