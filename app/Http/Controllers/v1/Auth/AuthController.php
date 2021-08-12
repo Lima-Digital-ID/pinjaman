@@ -50,9 +50,9 @@ class AuthController extends Controller
 
         if ($requestRegister->status == 'success') {
 
-            Alert::success('Success Title', 'Success Message');
+            Alert::success('Berhasil Mendaftar', 'Silahkan Login.');
             return redirect()
-                        ->route('login')->withStatus('Berhasil mendaftar, silahkan login.');
+                        ->route('login');
         }
         else if (strpos($requestRegister->message, 'nasabah_email_unique') !== false) {
             return back()->withError('Email telah digunakan');
