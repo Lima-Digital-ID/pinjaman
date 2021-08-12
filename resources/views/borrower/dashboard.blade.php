@@ -28,7 +28,7 @@
                         <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
                         <p><strong>Pinjaman Umroh</strong> <br>
                             {{-- @php
-                                {{dd(\Session::get('kelengkapan_data'));}}
+                                {{dd(Session::get('kelengkapan_data'));}}
                             @endphp --}}
                         {{-- <small>Limit Pinjaman :  </small> </p> --}}
                         @if ($syarat_umroh == 1)
@@ -149,7 +149,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Operasi Pinjaman</h6>
             </div>
             <div class="card-body">
-                <div class="card border-left-primary  h-100 py-2 mb-2">
+                {{-- <div class="card border-left-primary  h-100 py-2 mb-2">
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -161,12 +161,12 @@
                         </div>
                       </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="card border-left-info  h-100 py-2 mb-2">
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Sisa Pinjaman</div>
+                          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pinjaman belum dibayar</div>
                           <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($sisa_pinjaman, 2, ',', '.') }}</div>
                         </div>
                         <div class="col-auto">
@@ -179,8 +179,8 @@
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pinjaman Belum dibayar</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($hutang, 2, ',', '.') }}</div>
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pinjaman telah dibayar</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($sisa_pinjaman, 2, ',', '.') }}</div>
                         </div>
                         <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>

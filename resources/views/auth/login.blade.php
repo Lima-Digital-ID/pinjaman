@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                        <input type="password" value="123456" class="form-control @error('password') is-invalid @enderror" name="password">
                         @error('password')
                             <small class="text-danger">
                                 {{$message}}

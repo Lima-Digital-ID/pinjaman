@@ -1,8 +1,8 @@
-@extends('borrower.app', ['jumbotron' => 'Notifikasi'])
+@extends('borrower.app', ['jumbotron' => ''])
 
 @push('stylesheet')
     <style>
-        .link-notif {
+        /* .link-notif {
             color: black;
             text-decoration: none;
         }
@@ -15,15 +15,19 @@
             background-color: rgb(155, 151, 151);
             color: black !important;
             text-decoration: none !important;
-        }
+        } */
 
     </style>
 @endpush
 
 @section('body')
-<div class="row">
+
     <div class="col-xl-8 col-md-8">
-        <div class="card p-4">
+        <div class="card">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Notifikasi</h6>
+            </div>
+            <div class="card-body">
             @forelse ($notifikasi as $key => $item)
             <div class="row mb-2">
                 <div class="col">
@@ -46,7 +50,8 @@
                     </div>
                 </div>                    
             @endforelse
+            </div>
         </div>
     </div>
-</div>
+
 @endsection
