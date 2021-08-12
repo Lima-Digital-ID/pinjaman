@@ -37,7 +37,7 @@
                             </a>
                         @endif
 
-                        @if($syarat_umroh == 2)
+                        @if($syarat_umroh == 2 )
                             <p class="text-info">Persyaratan anda telah di cek</p>
                         @endif
 
