@@ -27,6 +27,7 @@ class PinjamanCepatController extends Controller
             $this->params['limit_pinjaman'] = null;
         }
 
+        \Session::put('limit_pinjaman', $this->params['limit_pinjaman']);
 
         return view('borrower.jacep.index', $this->params);
     }
@@ -65,7 +66,7 @@ class PinjamanCepatController extends Controller
                                 ->get($url.'/'.$id );
 
             $res = json_decode($response, false);
-
+// return $res;
             if ($res->status =='success') {
                 return view('borrower.jacep.detail',[
                     'data' => $res->data,

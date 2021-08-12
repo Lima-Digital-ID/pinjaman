@@ -23,7 +23,7 @@
     <div class="col-xl-8">
         <div class="row">
             <div class="col-md-4 mb-2">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
                         <p><strong>Pinjaman Umroh</strong> <br>
@@ -42,7 +42,7 @@
                         @endif
 
                         @if($syarat_umroh != 1 && $syarat_umroh != 2)
-                        <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
+                        <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary ">
                             Upload Persyaratan
                         </a>
 
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="col-md-4 mb-2">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/> <br>
                         @if (\Session::get('is_verified') == 1)
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="col-md-4 mb-2" class="card-pinjaman">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/> <br>
                         <p><strong>Pinjaman Modal</strong> <br>
@@ -180,7 +180,7 @@
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pinjaman Belum dibayar</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($sisa_pinjaman, 2, ',', '.') }}</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($hutang, 2, ',', '.') }}</div>
                         </div>
                         <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -197,7 +197,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
             </div>
             <div class="card-body">
-                <img src="{{\Session::get('foto_profil')}}" alt="">
+                <img src="{{\Config::get('api_config.domain').\Session::get('foto_profil')}}" width="150" height="150">
                 <button class="btn btn-({{\Session::get('is_verified')}} == 0 ) ? danger : success"></button>
                 <table>
                     <tr>

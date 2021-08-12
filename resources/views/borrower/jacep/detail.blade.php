@@ -18,6 +18,12 @@
                             Rp.{{ number_format($data[0]->nominal, 2, ',', '.') }}
                         </b>
                         <br>
+                        <label for="">Jumlah Dana yang dicairkan</label>    
+                        <br>
+                        <b>
+                            Rp.{{ number_format(\Session::get('limit_pinjaman') - $asuransi, 2, ',', '.') }}
+                        </b>
+                        <br>
                         <label for="">Biaya Asuransi</label>
                         <br>
                         <b>
