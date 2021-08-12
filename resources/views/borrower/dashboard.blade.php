@@ -3,10 +3,10 @@
 @section('body')
 <div class="row">
     <div class="col-xl-12 col-md-12">
-        @if (\Session::get('is_verified') == 0)
-        <div class="alert alert-warning" role="alert">
-            <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('personal.data') }}" class="alert-link text-uppercase" style="color:blue;"> disini.</a> Untuk melengkapi data diri anda
-        </div>
+        @if (\Session::get('is_verified') == 0 )
+                <div class="alert alert-warning" role="alert">
+                    <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('personal.data') }}" class="alert-link text-uppercase" style="color:blue;"> disini.</a> Untuk melengkapi data diri anda
+                </div>
         @elseif (\Session::get('is_verified') == 2)
         <div class="alert alert-info" role="alert">
             <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
@@ -22,8 +22,11 @@
 <div class="row">
     <div class="col-xl-8">
         <div class="row">
+            {{-- @php
+                dd($kelengkapan_data)
+            @endphp --}}
             <div class="col-md-4 d-flex">
-                <div class="card flex-fill">
+                <div class="card flex-fill mb-2">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
                         <p><strong>Pinjaman Umroh</strong> <br>
@@ -31,27 +34,37 @@
                                 {{dd(Session::get('kelengkapan_data'));}}
                             @endphp --}}
                         {{-- <small>Limit Pinjaman :  </small> </p> --}}
-                        @if ($syarat_umroh == 1)
+
+                        @if ($kelengkapan_data == 0)
+                            <p>
+                                Silahkan lengkapi data terlebih dahulu
+                            </p>
+                        @else
+
+                            @if ($syarat_umroh == 1)
+                                <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
+                                    Ajukan
+                                </a>
+                            @endif
+
+                            @if($syarat_umroh == 2)
+                                <p class="text-info">Persyaratan anda telah di cek</p>
+                            @endif
+
+                            @if($syarat_umroh != 1 && $syarat_umroh != 2)
                             <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
-                                Ajukan
+                                Upload Persyaratan
                             </a>
-                        @endif
 
-                        @if($syarat_umroh == 2 )
-                            <p class="text-info">Persyaratan anda telah di cek</p>
-                        @endif
-
-                        @if($syarat_umroh != 1 && $syarat_umroh != 2)
-                        <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary ">
-                            Upload Persyaratan
-                        </a>
+                            @endif
 
                         @endif
+
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
-                <div class="card flex-fill">
+                <div class="card flex-fill  mb-2">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/> <br>
                         @if (\Session::get('is_verified') == 1)
@@ -64,34 +77,40 @@
                         </a>
                         @else
                         <strong>Pinjaman Cepat</strong> <br>
+                        <br>
                             <p>Silahkan lengkapi data terlebih dahulu</p>
                         @endif
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex" class="card-pinjaman">
-                <div class="card flex-fill">
+                <div class="card flex-fill mb-2">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/> <br>
                         <p><strong>Pinjaman Modal</strong> <br>
 
-                        @if ($kelengkapan_data == 1)
-                        <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
-                            Ajukan
-                        </a>
-                        @endif
+                            @if ($kelengkapan_data == 0)
+                                <p>
+                                    Silahkan melengkapi data terlebih dahulu
+                                </p>
+                            @endif
 
-                        @if($kelengkapan_data == 2)
-                            <p class="text-info">Persyaratan anda telah di cek</p>
-                        @endif
+                            @if ($kelengkapan_data == 1)
+                            <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
+                                Ajukan
+                            </a>
+                            @endif
 
-                        @if($kelengkapan_data != 1 && $kelengkapan_data != 2)
-                        <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
-                            Upload Persyaratan
-                        </a>
+                            @if($kelengkapan_data == 2)
+                                <p class="text-info">Persyaratan anda telah di cek</p>
+                            @endif
 
-                        @endif
+                            @if($kelengkapan_data > 0 && $kelengkapan_data != 1 && $kelengkapan_data != 2)
+                            <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary">
+                                Upload Persyaratan
+                            </a>
 
+                            @endif
                     </div>
                 </div>
             </div>
