@@ -34,6 +34,7 @@ class DashboardController extends Controller
         if($eLimit->status == 'success') {
             $this->params['limit'] = $eLimit->data->limit_pinjaman;
             $this->params['temp_limit'] = $eNasabah->data->temp_limit;
+            $this->params['sisa_pinjaman'] = $this->params['temp_limit'] - $this->params['limit'];
         }
         else {
             $this->params['limit'] = null;
@@ -50,6 +51,19 @@ class DashboardController extends Controller
         }
         else {
             $this->params['hutang'] = null;
+        }
+
+        $url = \Config::get('api_config.riwayat');
+
+        $riwayat = Http::withToken($token)->get($url);
+
+        $eRiwayat = json_decode($riwayat, false);
+
+        if($eRiwayat->status == 'success') {
+            $this->params['riwayat'] = json_decode($riwayat, true);
+        }
+        else {
+            $this->params['riwayat'] = null;
         }
 
         return view('borrower.dashboard', $this->params);
