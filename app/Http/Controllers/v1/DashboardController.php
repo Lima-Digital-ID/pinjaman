@@ -73,6 +73,23 @@ class DashboardController extends Controller
             $this->params['riwayat'] = null;
         }
 
+        $url = \Config::get('api_config.riwayat');
+
+        $riwayat = Http::withToken($token)->get($url);
+
+        $json = json_decode($riwayat, false);
+
+        $jangka_waktu = $json->data[0]->jangka_waktu;
+        $nominal = $json->data[0]->nominal;
+
+
+        $this->params['jangka_waktu'] = $jangka_waktu;
+        $this->params['nominal']      = $nominal;
+        $this->params['asuransi']      = $json->asuransi;
+        $this->params['operational']   = $nominal / $jangka_waktu;
+        $this->params['kode_pinjaman'] = $json->data[0]->kode_pinjaman;
+        $this->params['tanggal_pengajuan'] = $json->data[0]->tanggal_pengajuan;
+
         return view('borrower.dashboard', $this->params);
     }
 
