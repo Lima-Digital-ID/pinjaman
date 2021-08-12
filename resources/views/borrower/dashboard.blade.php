@@ -63,8 +63,6 @@
 
                             @endif
 
-                        @endif
-
                     </div>
                 </div>
             </div>

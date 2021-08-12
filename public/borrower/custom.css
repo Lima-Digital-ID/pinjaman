@@ -118,7 +118,7 @@
 	}
 
 	.sidebar.toggled {
-		width: 40% !important;
+		/* width: 40% !important; */
 		overflow: inherit !important;
 	}
 }
