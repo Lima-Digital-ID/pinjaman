@@ -1,11 +1,17 @@
-@extends('borrower.app', ['jumbotron' => 'Detail Pinjaman'])
+@extends('borrower.app', ['jumbotron' => ''])
 
 @section('body')
-    {{-- <div class="container"> --}}
+    <div class="container">
         <div class="row">
-            <div class="col-xl-6">
+            <div class="col-xl-10 col-md-10">
                 <div class="card">
                     <div class="card-body">
+                        <h1 class="h3 mb-3 text-gray-800">Detail Pinjaman</h1>
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6">
+
+                            </div>
+                        </div>
                         <label for="">Jumlah Pinjaman termasuk bunga</label>    
                         <br>
                         <b>
@@ -61,5 +67,5 @@
                 </div>     
             </div>
         </div>
-    {{-- </div> --}}
+    </div>
 @endsection

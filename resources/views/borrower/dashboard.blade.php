@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-xl-8">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-2">
                 <div class="card">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
@@ -31,17 +31,17 @@
                                 {{dd(\Session::get('kelengkapan_data'));}}
                             @endphp --}}
                         {{-- <small>Limit Pinjaman :  </small> </p> --}}
-                        @if ($kelengkapan_data == 1)
+                        @if ($syarat_umroh == 1)
                             <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
                                 Ajukan
                             </a>
                         @endif
 
-                        @if($kelengkapan_data == 2)
+                        @if($syarat_umroh == 2)
                             <p class="text-info">Persyaratan anda telah di cek</p>
                         @endif
 
-                        @if($kelengkapan_data != 1 && $kelengkapan_data != 2)
+                        @if($syarat_umroh != 1 && $syarat_umroh != 2)
                         <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary">
                             Upload Persyaratan
                         </a>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-2">
                 <div class="card">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/> <br>
@@ -60,7 +60,7 @@
                                 Rp.{{number_format($limit, 2, ',', '.')}}
                          </small></p>
                         <a href=" {{route('pinjaman.cepat')}} " class="btn btn-primary">
-                            Pinjam
+                            Ajukan
                         </a>
                         @else
                         <strong>Pinjaman Cepat</strong> <br>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4" class="card-pinjaman">
+            <div class="col-md-4 mb-2" class="card-pinjaman">
                 <div class="card">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/> <br>
@@ -154,7 +154,7 @@
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nominal Awal Pinjaman</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($temp_limit, 2, ',', '.') }}</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($temp_limit > 0 ? $temp_limit : $limit, 2, ',', '.') }}</div>
                         </div>
                         <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -212,11 +212,11 @@
                 </table>
             </div>
             <div class="card-footer justify-content-between">
-                <a href=" {{route('edit.profile')}} " class="btn btn-warning">
+                <a href=" {{route('edit.profile')}} " class="btn btn-warning mb-2">
                 Edit Profil</a>
-                <button class=" btn btn-primary">
+                <a href="{{ route('tagihan') }}" class="btn btn-primary">
                     Cek Tagihan anda
-                </button>
+                </a>
             </div>
         </div>
 

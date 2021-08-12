@@ -1,4 +1,4 @@
-@extends('borrower.app', ['jumbotron' => 'Tagihan'])
+@extends('borrower.app', ['jumbotron' => ''])
 
 @push('stylesheet')
     <style>
@@ -22,10 +22,11 @@
 
 @section('body')
     {{-- <div class="container"> --}}
-        <div class="row">
-            <div class="col-xl-6 col-md-6">
-                <div class="card">
+        <div class="row mb-4">
+            <div class="col-xl-10 col-md-10">
+                <div class="card">                    
                     <div class="card-body">
+                        <h1 class="h3 mb-3 text-gray-800">Tagihan</h1>
                         <div class="row">
                             <div class="col-xl-6 col-md-6">
                                 <span for=""> {{__('tagihan.loan-code')}} </span>

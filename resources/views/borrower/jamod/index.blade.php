@@ -121,7 +121,7 @@
                                 <div class="form-group">
                                     <label for="">3 Tahun (36 bulan)</label> <br>
                                     <label for="">@lang('jamod-index.apply') (Rp.)</label>
-                                    <input type="number" placeholder="Rp." class="form-control @error('nominal') is-invalid @enderror" name="nominal">
+                                    <input type="number" placeholder="Rp." class="form-control @error('nominal') is-invalid @enderror" name="nominal" required>
                                     @error('nominal')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>
