@@ -68,7 +68,11 @@
 
     @if (\Session::get('is_verified') == 2 && \Session::get('score') == 0)
 
+    <div class="col-md-10">
         <div class="card">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Scoring</h6>
+              </div>
             <div class="card-body">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     @foreach ($kategori['data'] as $key => $item)
@@ -129,6 +133,6 @@
                 </form>
             </div>
         </div>
-
+    </div>
     @endif
 @endsection

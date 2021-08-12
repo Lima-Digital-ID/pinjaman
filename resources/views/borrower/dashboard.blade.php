@@ -22,8 +22,8 @@
 <div class="row">
     <div class="col-xl-8">
         <div class="row">
-            <div class="col-md-4 mb-2">
-                <div class="card h-100">
+            <div class="col-md-4 d-flex">
+                <div class="card flex-fill">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/color/50/000000/qibla-direction.png"/> <br>
                         <p><strong>Pinjaman Umroh</strong> <br>
@@ -37,7 +37,7 @@
                             </a>
                         @endif
 
-                        @if($syarat_umroh == 2)
+                        @if($syarat_umroh == 2 )
                             <p class="text-info">Persyaratan anda telah di cek</p>
                         @endif
 
@@ -50,8 +50,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-2">
-                <div class="card h-100">
+            <div class="col-md-4 d-flex">
+                <div class="card flex-fill">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/fluency/50/000000/mortgage.png"/> <br>
                         @if (\Session::get('is_verified') == 1)
@@ -69,8 +69,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-2" class="card-pinjaman">
-                <div class="card h-100">
+            <div class="col-md-4 d-flex" class="card-pinjaman">
+                <div class="card flex-fill">
                     <div class="card-body text-center">
                         <img src="https://img.icons8.com/plasticine/50/000000/sort-window.png"/> <br>
                         <p><strong>Pinjaman Modal</strong> <br>

@@ -49,6 +49,7 @@
                         {{$tanggal_pengajuan}}
                     </p>
                 </div>
+                <a href="{{route('dashboard')}}" class="btn btn-outline-primary">Kembali</a>
             </div> 
         </div>     
     </div>

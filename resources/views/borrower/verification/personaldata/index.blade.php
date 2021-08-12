@@ -22,28 +22,40 @@
 </div>
 @endif
 
-  @include('borrower.verification.personalData.partials.tabs')
+<div class="col-md-10 mb-2">
+  <div class="card">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Data diri</h6>
+    </div>
+      <div class="card-body">
+      @include('borrower.verification.personalData.partials.tabs')
 
-<form action="{{ route('personal.store-data') }}" method="POST" enctype="multipart/form-data">
-  <div class="tab-content" id="pills-tabContent">
-  
-      @csrf
+    <form action="{{ route('personal.store-data') }}" method="POST" enctype="multipart/form-data">
 
-        {{-- pills ktp --}}
-        @include('borrower.verification.personalData.utilities.pillsKTP')
+      <div class="tab-content" id="pills-tabContent">
+      
+          @csrf
 
-        {{-- pills bank --}}
-        @include('borrower.verification.personalData.utilities.pillsBank')
+            {{-- pills ktp --}}
+            @include('borrower.verification.personalData.utilities.pillsKTP')
 
-        {{-- pills work --}}
-        @include('borrower.verification.personalData.utilities.pillsWork')
+            {{-- pills bank --}}
+            @include('borrower.verification.personalData.utilities.pillsBank')
 
-        {{-- pills work --}}
-        @include('borrower.verification.personalData.utilities.pillsContact')
-        
+            {{-- pills work --}}
+            @include('borrower.verification.personalData.utilities.pillsWork')
 
-      </div>
-  </form>
+            {{-- pills work --}}
+            @include('borrower.verification.personalData.utilities.pillsContact')
+            
+
+          </div>
+    </form>
+
+    </div>
+  </div>
+</div>
+
 @endif
 @endsection
 
