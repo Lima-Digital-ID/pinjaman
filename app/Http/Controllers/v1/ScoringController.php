@@ -24,6 +24,7 @@ class ScoringController extends Controller
             if($eNasabah->status == 'success') {
                 \Session::put('nama', $eNasabah->data->nama);
                 \Session::put('is_verified', $eNasabah->data->is_verified);
+                \Session::put('score', $eNasabah->data->skor);
             }
 
             $url_kategori = \Config::get('api_config.kategori_kriteria');
@@ -174,11 +175,11 @@ class ScoringController extends Controller
             // return view('borrower.verification.scoring.index', $this->params);
         }
         catch (\Exception $e) {
-            return $e->getMessage();
+            // return $e->getMessage();
             return back()->withError($e->getMessage());
         }
         catch (\Illuminate\Database\QueryException $e) {
-            return $e->getMessage();
+            // return $e->getMessage();
             return back()->withError($e->getMessage());
         }
     }
