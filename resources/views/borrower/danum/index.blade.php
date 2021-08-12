@@ -96,7 +96,7 @@
                                 <div class="form-group">
                                     <label for="">3 Tahun (36 bulan)</label> <br>
                                     <label for=""> {{__('danum.apply')}} (Rp.)</label>
-                                    <input type="number" placeholder="Rp." name="nominal" class="form-control @error('nominal') is-invalid @enderror">
+                                    <input type="number" placeholder="Rp." name="nominal" class="form-control @error('nominal') is-invalid @enderror" required>
                                     @error('nominal')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>

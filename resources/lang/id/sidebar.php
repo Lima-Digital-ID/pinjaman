@@ -7,7 +7,7 @@ return [
     // 'fast-loan' => 'Pinjaman cepat', // pinjaman cepat
     // 'capital-loan' => 'pinjaman modal', //pinjaman modal
     'completeness-of-data' => 'Kelengkapan data', // kelengkapan data
-    'personal-data' => 'Data diri',
+    'personal-data' => 'Data Diri',
     'more-data' => 'Data Lainnya',
     'settings' => 'Pengaturan',
     'profile-coplete' => 'Kelengkapan profile', //kelengkapan profile
