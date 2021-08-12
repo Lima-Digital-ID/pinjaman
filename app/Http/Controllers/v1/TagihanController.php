@@ -48,7 +48,7 @@ class TagihanController extends Controller
                     }
                     // return $kodePelunasan;
                     
-                    Config::$serverKey = 'SB-Mid-server-eiuCtSPcL-uxgdvQkBSYaw66';
+                    Config::$serverKey = 'SB-Mid-server-PPVxA0uMYzPO8ii9Bivp7mJ-';
                     Config::$isSanitized = Config::$is3ds = true;
     
                     $transaction_details = [

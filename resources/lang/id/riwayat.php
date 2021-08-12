@@ -4,7 +4,7 @@
     'type-loan'         => 'Jenis Pinjaman',
     'nominal'           => 'Nominal',
     'term'              => 'Termim',
-    'date-of-filling'   => 'Tamggal pengajuan',
+    'date-of-filling'   => 'Tanggal pengajuan',
     'loan-status'       => 'Status pinjaman',
     'action'            => 'Aksi'
  ];
