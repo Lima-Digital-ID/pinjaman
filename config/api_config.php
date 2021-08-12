@@ -2,8 +2,8 @@
 
 /* Api Configuration */
 
-$domain = 'http://127.0.0.1:8080/';
-// $domain = 'http://demoumkm.tech/backup/';
+// $domain = 'http://127.0.0.1:8888/';
+$domain = 'http://demoumkm.tech/backup/';
 $base_url = $domain.'api/';
 
 return [
@@ -24,6 +24,7 @@ return [
     'kategori_kriteria'     => $base_url.'kategori-kriteria',
     'options'               => $base_url.'get-option-by-kriteria',
     'riwayat'               => $base_url.'pinjaman-pending',
+    'detail_pinjaman'       => $base_url.'pinjaman/',
     'tagihan'               => $base_url.'pinjaman-per-nasabah',
     'get_cicilan'           => $base_url.'get-cicilan/',
     'pembayaran'            => $base_url.'pembayaran',
