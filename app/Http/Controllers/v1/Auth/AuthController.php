@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -48,6 +49,8 @@ class AuthController extends Controller
         $requestRegister = json_decode($response, false);
 
         if ($requestRegister->status == 'success') {
+
+            Alert::success('Success Title', 'Success Message');
             return redirect()
                         ->route('login')->withStatus('Berhasil mendaftar, silahkan login.');
         }

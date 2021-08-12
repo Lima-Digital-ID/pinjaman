@@ -50,7 +50,7 @@
         <textarea name="alamat_penjamin2" id="" cols="30" rows="10" class="form-control " required>{{old('alamat_penjamin2')}}</textarea>
     </div>
     <div class="form-group ">
-        <label for="" class="">{{__('third-relationship')}} </label>
+        <label for="" class="">{{__('data-diri.third-relationship')}} </label>
         <select name="hubungan3" id="" class="form-control " required>
             <option value="">Pilih Hubungan</option>
             <option value="Keluarga" {{old('hubungan3') == 'Keluarga' ? 'selected' : ''}}>Keluarga</option>
