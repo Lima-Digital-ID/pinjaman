@@ -49,7 +49,7 @@ class AuthController extends Controller
 
         if ($requestRegister->status == 'success') {
             return redirect()
-                        ->route('login');
+                        ->route('login')->withStatus('Berhasil mendaftar, silahkan login.');
         }
         else if (strpos($requestRegister->message, 'nasabah_email_unique') !== false) {
             return back()->withError('Email telah digunakan');
