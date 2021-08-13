@@ -127,7 +127,7 @@
                     {{__('danum.desc')}}
                 </p>
                 
-                <form action="{{route('api.pinjaman.umroh')}}" method="POST" autocomplete="off">
+                <form action="{{route('api.pinjaman.umroh')}}" enctype="multipart/form-data" method="POST" autocomplete="off">
                     @csrf
                 <strong>{{__('danum.with-this')}} :</strong>
                     <table>
