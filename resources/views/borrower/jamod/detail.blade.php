@@ -1,7 +1,7 @@
 @extends('borrower.app', ['jumbotron' => 'Detail Pinjaman Modal'])
 
 @section('body')
-<div class="row">
+{{-- <div class="row"> --}}
     <div class="col-xl-6">
         <div class="card">
             <div class="card-body">
@@ -72,5 +72,5 @@
             </div>    
         </div>     
     </div>
-</div>
+{{-- </div> --}}
 @endsection
