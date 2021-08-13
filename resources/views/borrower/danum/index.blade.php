@@ -45,7 +45,7 @@
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.financial')</label>
-                <input type="file" id="keuangan" name="keuangan" class="form-control col-md-4" accept="application/pdf" onchange="validateKeuangan()" required>
+                <input type="file" id="keuangan" name="keuangan" class="form-control col-md-4" required>
             </div>
             <div class="form-group">
                 <div class="">
@@ -104,7 +104,7 @@
             </div>
             <div class="form-group row">
                 <label for="" class="col-md-6">@lang('syarat-danum.financial')</label>
-                <input type="file" id="keuangan" name="keuangan" class="form-control col-md-4" accept="application/pdf" onchange="validateKeuangan()" required>
+                <input type="file" id="keuangan" name="keuangan" class="form-control col-md-4"  required>
             </div>
             <div class="form-group">
                 <div class="">
