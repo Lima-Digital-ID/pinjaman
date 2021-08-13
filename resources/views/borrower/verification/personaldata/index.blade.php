@@ -28,7 +28,7 @@
       <h6 class="m-0 font-weight-bold text-primary">Data diri</h6>
     </div>
       <div class="card-body">
-      @include('borrower.verification.personalData.partials.tabs')
+      @include('borrower.verification.personaldata.partials.tabs')
 
     <form action="{{ route('personal.store-data') }}" method="POST" enctype="multipart/form-data">
 
@@ -37,16 +37,16 @@
           @csrf
 
             {{-- pills ktp --}}
-            @include('borrower.verification.personalData.utilities.pillsKTP')
+            @include('borrower.verification.personaldata.utilities.pillsKTP')
 
             {{-- pills bank --}}
-            @include('borrower.verification.personalData.utilities.pillsBank')
+            @include('borrower.verification.personaldata.utilities.pillsBank')
 
             {{-- pills work --}}
-            @include('borrower.verification.personalData.utilities.pillsWork')
+            @include('borrower.verification.personaldata.utilities.pillsWork')
 
             {{-- pills work --}}
-            @include('borrower.verification.personalData.utilities.pillsContact')
+            @include('borrower.verification.personaldata.utilities.pillsContact')
             
 
           </div>
