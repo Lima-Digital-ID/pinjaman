@@ -13,20 +13,31 @@ class PinjamanUmrohController extends Controller
 
     public function index()
     {
-        $url_nasabah = \Config::get('api_config.get_nasabah');
-        $nasabah = Http::withToken(\Session::get('token'))
-                        ->get($url_nasabah);
+        if(\Session::get('is_verified') == 1) {
+            $url_nasabah = \Config::get('api_config.get_nasabah');
+            $nasabah = Http::withToken(\Session::get('token'))
+                            ->get($url_nasabah);
 
-        $eNasabah = json_decode($nasabah, false);
+            $eNasabah = json_decode($nasabah, false);
 
-        if($eNasabah->status == 'success') {
-            \Session::put('nama', $eNasabah->data->nama);
-            \Session::put('syarat_pinjaman_umroh', $eNasabah->data->syarat_pinjaman_umroh);
+            if($eNasabah->status == 'success') {
+                \Session::put('nama', $eNasabah->data->nama);
+                \Session::put('syarat_pinjaman_umroh', $eNasabah->data->syarat_pinjaman_umroh);
+            }
+
+            $user = \Session::get('nama');
+            
+            return view('borrower.danum.index', compact('user'));
         }
-
-        $user = \Session::get('nama');
-        
-        return view('borrower.danum.index', compact('user'));
+        else if(\Session::get('is_verified') == 2) {
+            return back()->withError('Data anda sedang dalam proses pengecekan.');
+        }
+        else if(\Session::get('is_verified') == 3) {
+            return back()->withError('Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.');
+        }
+        else {
+            return back()->withError('Harap untuk melakukan verifikasi data terlebih dahulu.');
+        }
     }
     public function store(Request $request)
     {

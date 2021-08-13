@@ -12,24 +12,35 @@ class PinjamanCepatController extends Controller
 {
     public function index()
     {
-        $token = \Session::get('token');
-
-        $url_limit = \Config::get('api_config.limit_pinjaman');
-        $limit = Http::withToken($token)
-                        ->get($url_limit);
-
-        $eLimit = json_decode($limit, false);
-
-        if($eLimit->status == 'success') {
-            $this->params['limit_pinjaman'] = $eLimit->data->limit_pinjaman;
+        if(\Session::get('is_verified') == 1) {
+            $token = \Session::get('token');
+    
+            $url_limit = \Config::get('api_config.limit_pinjaman');
+            $limit = Http::withToken($token)
+                            ->get($url_limit);
+    
+            $eLimit = json_decode($limit, false);
+    
+            if($eLimit->status == 'success') {
+                $this->params['limit_pinjaman'] = $eLimit->data->limit_pinjaman;
+            }
+            else {
+                $this->params['limit_pinjaman'] = null;
+            }
+    
+            \Session::put('limit_pinjaman', $this->params['limit_pinjaman']);
+    
+            return view('borrower.jacep.index', $this->params);
+        }
+        else if(\Session::get('is_verified') == 2) {
+            return back()->withError('Data anda sedang dalam proses pengecekan.');
+        }
+        else if(\Session::get('is_verified') == 3) {
+            return back()->withError('Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.');
         }
         else {
-            $this->params['limit_pinjaman'] = null;
+            return back()->withError('Harap untuk melakukan verifikasi data terlebih dahulu.');
         }
-
-        \Session::put('limit_pinjaman', $this->params['limit_pinjaman']);
-
-        return view('borrower.jacep.index', $this->params);
     }
     
     public function create(Request $request)
