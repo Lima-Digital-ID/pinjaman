@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="">@lang('syarat-jamod.financial')</label>
-                        <input type="file" class="form-control" id="keuangan" name="keuangan" accept="application/pdf" onchange="validateKeuangan()" required>
+                        <input type="file" class="form-control" id="keuangan" name="keuangan" required>
                     </div>
                 </div>
             </div>
