@@ -63,7 +63,7 @@ class VerificationController extends Controller
             $this->params['bank'] = null;
         }
 
-        return view('borrower.verification.personalData.index', $this->params);
+        return view('borrower.verification.personaldata.index', $this->params);
     }
 
     public function getKabupaten(Request $request)
