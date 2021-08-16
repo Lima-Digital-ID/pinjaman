@@ -40,7 +40,7 @@
     <div class="form-group ">
         <label for="" class=""> {{__('data-diri.branch-office')}} </label>
         <select name="id_kantor_cabang" id="id_kantor_cabang" class="form-control select2 " required>
-            <option value="" selected readonly disabled>Pilih Kantor Cabang</option>
+            <option value="" selected readonly disabled>Pilih Kantor cabang pencairan dana</option>
             @foreach ($kantorCabang as $item)
                 <option value="{{ $item->id }}">{{ $item->kecamatan }}</option>
             @endforeach

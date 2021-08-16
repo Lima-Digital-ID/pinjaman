@@ -3,9 +3,8 @@
         <label for="" class=""> {{__('data-diri.relationship-to-one')}} </label>
         <select name="hubungan" id="" class="form-control " required>
             <option value="">Pilih Hubungan</option>
-            <option value="Keluarga" {{old('hubungan') == 'Keluarga' ? 'selected' : ''}}>Keluarga</option>
-            <option value="Saudara" {{old('hubungan') == 'Saudara' ? 'selected' : ''}}>Saudara</option>
-            <option value="Teman" {{old('hubungan') == 'Teman' ? 'selected' : ''}}>Teman</option>
+            <option value="Keluarga" {{old('hubungan') == 'Kerabat' ? 'selected' : ''}}>Hubungan kerabat</option>
+            <option value="Saudara" {{old('hubungan') == 'Keluarga' ? 'selected' : ''}}>Keluarga terdekat</option>
         </select>
     </div>
     <div class="form-group ">
@@ -28,9 +27,8 @@
         <label for="" class="">Hubungan ke dua </label>
         <select name="hubungan2" id="" class="form-control " required>
             <option value="">Pilih Hubungan</option>
-            <option value="Keluarga" {{old('hubungan2') == 'Keluarga' ? 'selected' : ''}}>Keluarga</option>
-            <option value="Saudara" {{old('hubungan2') == 'Saudara' ? 'selected' : ''}}>Saudara</option>
-            <option value="Teman" {{old('hubungan2') == 'Teman' ? 'selected' : ''}}>Teman</option>
+            <option value="Keluarga" {{old('hubungan') == 'Kerabat' ? 'selected' : ''}}>Hubungan kerabat</option>
+            <option value="Saudara" {{old('hubungan') == 'Keluarga' ? 'selected' : ''}}>Keluarga terdekat</option>
         </select>
     </div>
     <div class="form-group ">

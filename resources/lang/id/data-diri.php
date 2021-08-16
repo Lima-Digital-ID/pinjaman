@@ -10,13 +10,13 @@ return [
     'province'              => 'Provinsi', //provinsi
     'district'              => 'Kabupaten', //kabupaten
     'subdistrict'           => 'Kecamatan', //kecamatan
-    'branch-office'         => 'Kantor Cabang', //kantor cabang
+    'branch-office'         => 'Kantor Cabang Pencairan Dana', //kantor cabang
     'place-of-birth'        => 'Tempat Lahir', 
     'date-of-birth'         => 'Tanggal Lahir',
     'address'               => 'Alamat',
 
     // Bank
-    'bank-account-name'     => 'Nama Akun Bank',
+    'bank-account-name'     => 'Riwayat Kepemilikan Rekening',
     'bank'                  => 'Bank',
     'bank-account-number'   => 'No.Rekening Bank',
 
@@ -30,7 +30,7 @@ return [
     'relationship-to-one'   => 'Hubungan ke satu',
     'second-relationship'   => 'Hubungan ke dua',
 
-    'guarantor-name'        => 'Nama Penjamin', //nama penjamin
+    'guarantor-name'        => 'Pemilik Jaminan', //nama penjamin
     'guarantor-nik'         => 'NIK Penjamin', //nik penjamin'
     'guarantor-handphone'   => 'No.Handphone Penjamin',
 
