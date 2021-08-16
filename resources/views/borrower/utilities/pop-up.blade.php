@@ -65,7 +65,7 @@
                         <label for=""> {{__('detail-riwayat.status')}} </label>
                         <p> 
                             <strong>
-                                {{ $item['status'] }}
+                                {{ $item['status'] == 'Terima' && $item['status_pencairan'] == 'Terima' ? 'Sedang Berjalan' : $item['status'] }}
                             </strong>
                         </p>
                     </div>

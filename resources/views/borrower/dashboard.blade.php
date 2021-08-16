@@ -36,9 +36,6 @@
 <div class="row">
     <div class="col-xl-8">
         <div class="row">
-            {{-- @php
-                dd($kelengkapan_data)
-            @endphp --}}
             <div class="col-md-4 d-flex">
                 <div class="card flex-fill mb-2">
                     <div class="card-body text-center d-flex flex-column justify-content-between">
@@ -182,17 +179,15 @@
                                         <td class="text-right">{{ 'Rp.'.number_format($item['nominal'], 2, '.', ',') }}</td>
                                         <td class="text-center">{{ $item['jangka_waktu'] }} bulan</td>
                                         <td class="text-center">{{ $item['tanggal_pengajuan'] }}</td>
-                                        <td class="text-center">{{ ucwords($item['status']) }}</td>
+                                        <td class="text-center">
+                                            {{ $item['status'] == 'Terima' && $item['status_pencairan'] == 'Terima' ? 'Sedang Berjalan' : $item['status'] }}
+                                        </td>
                                         <td class="text-center">
                                             <!-- Button trigger modal -->
-                                            {{-- <a href="{{ route('api.riwayat.detail', $item['id']) }}" class="btn btn-info mr-2" title="Detail" data-toggle="tooltip">
-                                                <span class="fa fa-eye"></span>
-                                            </a> --}}
                                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#message<?php echo $item['id'];?>" >
                                                 <span class="fa fa-eye"></span>
                                             </button>
-                                            {{-- data-toggle="modal" data-target="#exampleModalCentered" --}}
-                                            {{-- modal --}}
+                                            <!-- end modal -->
                                             @include('borrower.utilities.pop-up')
                                           
                                         </td>
@@ -213,19 +208,6 @@
                 <h6 class="m-0 font-weight-bold text-primary">Operasi Pinjaman</h6>
             </div>
             <div class="card-body">
-                {{-- <div class="card border-left-primary  h-100 py-2 mb-2">
-                    <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nominal Awal Pinjaman</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($temp_limit > 0 ? $temp_limit : $limit, 2, ',', '.') }}</div>
-                        </div>
-                        <div class="col-auto">
-                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                      </div>
-                    </div>
-                </div> --}}
                 <div class="card border-left-info  h-100 py-2 mb-2">
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
@@ -277,12 +259,6 @@
                             <tr>
                                 <td>{{\Session::get('no_hp')}}</td>
                             </tr>
-                            {{-- <tr>
-                                <td>{{\Session::get('tanggal_lahir')}}</td>
-                            </tr>
-                            <tr>
-                                <td>{{\Session::get('tempat_lahir')}}</td>
-                            </tr> --}}
                             <tr>
                                 <td>{{\Session::get('alamat')}}</td>
                             </tr>
@@ -301,53 +277,6 @@
 
     </div>
 </div>
-{{-- <div class="row">
-    <div class="col-xl-4 col-md-4 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('dashboard.initial-loan-nominal')}}</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($temp_limit, 2, ',', '.') }}</div>
-            </div>
-            <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <div class="col-xl-4 col-md-4 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('dashboard.loan-limit')}}</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $limit != null && \Session::get('is_verified') == 1 ? 'Rp.'.number_format($limit, 2, ',', '.') : 'Rp.0,00' }}</div>
-            </div>
-            <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <div class="col-xl-4 col-md-4 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('dashboard.unpaid-loan')}}</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $hutang != null ? 'Rp.'.number_format($hutang, 2, ',', '.') : 'Rp.0,00' }}</div>
-            </div>
-            <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-</div> --}}
 @php
     $urlJenis = \Config::get('api_config.jenis_pinjaman');
     $jenisPinjaman = \Http::withToken(Session::get('token'))->get($urlJenis);
@@ -360,26 +289,6 @@
     }
     $jenisPinjaman = json_decode($jenisPinjaman, true);
 @endphp
-{{-- <div class="row">
-    <div class="col-xl-12 col-md-12">
-        <div class="card p-4">
-            <h3>{{__('dashboard.loan')}}</h3>
-            <div class="row">
-                @foreach ($jenisPinjaman['data'] as $i => $item)
-                <div class="col-md-4">
-                    <a href="{{ $item['id'] == 1 ? route('pinjaman.umroh') : ($item['id'] == 2 ? route('pinjaman.cepat') : route('pinjaman.modal')) }}" style="text-decoration:none">
-                    <div class="card">
-                        <div class="card-body">
-                            <p>{{ ucwords($item['jenis_pinjaman']) }}</p>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</div> --}}
 @endsection
 
 @push('script')
