@@ -49,31 +49,6 @@
         <label for="" class="">{{__('data-diri.address')}} </label>
         <textarea name="alamat_penjamin2" id="" cols="30" rows="10" class="form-control " required>{{old('alamat_penjamin2')}}</textarea>
     </div>
-    <div class="form-group ">
-        <label for="" class="">{{__('data-diri.third-relationship')}} </label>
-        <select name="hubungan3" id="" class="form-control " required>
-            <option value="">Pilih Hubungan</option>
-            <option value="Keluarga" {{old('hubungan3') == 'Keluarga' ? 'selected' : ''}}>Keluarga</option>
-            <option value="Saudara" {{old('hubungan3') == 'Saudara' ? 'selected' : ''}}>Saudara</option>
-            <option value="Teman" {{old('hubungan3') == 'Teman' ? 'selected' : ''}}>Teman</option>
-        </select>
-    </div>
-    <div class="form-group ">
-        <label for="" class="">{{__('data-diri.guarantor-name')}} </label>
-        <input name="nama_penjamin3" value="{{old('nama_penjamin3')}}" type="text" class="form-control " required>
-    </div>
-    <div class="form-group ">
-        <label for="" class="">{{__('data-diri.guarantor-nik')}} </label>
-        <input name="nik_penjamin3" value="{{old('nik_penjamin3')}}" type="number" class="form-control " required>
-    </div>
-    <div class="form-group ">
-        <label for="" class="">{{__('data-diri.guarantor-handphone')}} </label>
-        <input name="no_hp_penjamin3" value="{{old('no_hp_penjamin3')}}" type="number" class="form-control " required>
-    </div>
-    <div class="form-group ">
-        <label for="" class="">{{__('data-diri.address')}} </label>
-        <textarea name="alamat_penjamin3" id="" cols="30" rows="10" class="form-control " required>{{old('alamat_penjamin3')}}</textarea>
-    </div>
 
 {{-- button --}}
 <div class="form-group ">

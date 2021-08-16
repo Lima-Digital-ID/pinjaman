@@ -3,18 +3,7 @@
 @section('body')
 
     @if (\Session::get('score') > 0 && \Session::get('is_verified') == 1)
-        {{-- <div class="alert alert-success" role="alert">
-  <strong>Informasi!</strong> Verifikasi data diri anda terlebih dahulu.
-</div> --}}
-        {{-- @php
-            
-            echo '<pre>';
-            print_r($kategori['data']);
-            echo '</pre>';
-            
-        @endphp --}}
         <div class="accordion" id="accordionExample">
-            {{-- {{$getScore}} --}}
             @foreach ($kategori['data'] as $key => $item)
                 <div class="card mt-2">
                     <div class="card-header" id="heading{{ $item['id'] }}">

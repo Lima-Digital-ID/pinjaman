@@ -29,7 +29,6 @@ return [
     // Kontak
     'relationship-to-one'   => 'Hubungan ke satu',
     'second-relationship'   => 'Hubungan ke dua',
-    'third-relationship'    => 'Hubungan ke tiga',
 
     'guarantor-name'        => 'Nama Penjamin', //nama penjamin
     'guarantor-nik'         => 'NIK Penjamin', //nik penjamin'

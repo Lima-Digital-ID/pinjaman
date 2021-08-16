@@ -29,7 +29,6 @@ return [
     // Kontak
     'relationship-to-one'   => 'Relationship to one',
     'second-relationship'   => 'Second relationship',
-    'third-relationship'    => 'Third relationship',
 
     'guarantor-name'        => 'Guarantor name', //nama penjamin
     'guarantor-nik'         => 'Guarantor nik', //nik penjamin'
