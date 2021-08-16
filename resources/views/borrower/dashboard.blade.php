@@ -1,6 +1,14 @@
 @extends('borrower.app', ['jumbotron' => 'Dashboard'])
 
 @section('body')
+@php
+    $sedangMelakukanPinjaman = false;
+    foreach ($riwayat['data'] as $key => $item) {
+        if ($item['status'] == 'Pending' || $item['status'] == 'Terima') {
+            $sedangMelakukanPinjaman = true;
+        }
+    }
+@endphp
 <div class="row">
     <div class="col-xl-12 col-md-12">
         @if (\Session::get('is_verified') == 0 )
@@ -37,7 +45,7 @@
                             </small>
                             @endif
                         </div>
-                        @if (\Session::get('is_verified') == 1 && !$sisa_pinjaman > 0)
+                        @if (\Session::get('is_verified') == 1 && !$sedangMelakukanPinjaman)
                         <a href=" {{route('pinjaman.cepat')}} " class="btn btn-primary mt-3">
                             Ajukan
                         </a>
@@ -65,7 +73,7 @@
                         @elseif($is_verified == 3)
 
                         @else
-                        @if ($syarat_umroh == 1)
+                        @if ($syarat_umroh == 1 && !$sedangMelakukanPinjaman)
                             <a href=" {{route('pinjaman.umroh')}} " class="btn btn-primary mt-3">
                                 Ajukan
                             </a>
@@ -110,7 +118,7 @@
                         @elseif($is_verified == 3)
 
                         @else
-                        @if ($kelengkapan_data == 1)
+                        @if ($kelengkapan_data == 1 && !$sedangMelakukanPinjaman)
                             <a href=" {{route('pinjaman.modal')}} " class="btn btn-primary mt-3">
                                 Ajukan
                             </a>
