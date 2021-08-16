@@ -3,9 +3,15 @@
 @section('body')
 @php
     $sedangMelakukanPinjaman = false;
+    $nominalBelumDibayar = 0;
+    $nominalTelahDibayar = 0;
     foreach ($riwayat['data'] as $key => $item) {
         if ($item['status'] == 'Pending' || $item['status'] == 'Terima') {
             $sedangMelakukanPinjaman = true;
+        }
+        if($item['status'] == 'Terima') {
+            $nominalBelumDibayar = $item['nominal'] - $item['terbayar'];
+            $nominalTelahDibayar = $item['terbayar'];
         }
     }
 @endphp
@@ -225,7 +231,7 @@
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Pinjaman belum dibayar</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($sisa_pinjaman, 2, ',', '.') }}</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($nominalBelumDibayar, 2, ',', '.') }}</div>
                         </div>
                         <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -238,7 +244,7 @@
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pinjaman telah dibayar</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($sisa_pinjaman, 2, ',', '.') }}</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 'Rp.'.number_format($nominalTelahDibayar, 2, ',', '.') }}</div>
                         </div>
                         <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>

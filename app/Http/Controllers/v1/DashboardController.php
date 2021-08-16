@@ -37,7 +37,6 @@ class DashboardController extends Controller
             $this->params['is_verified'] = $eNasabah->data->is_verified;
             $this->params['kelengkapan_data'] = $eNasabah->data->kelengkapan_data;
             $this->params['syarat_umroh'] = $eNasabah->data->syarat_pinjaman_umroh;
-            $this->params['sisa_pinjaman'] = $eNasabah->data->hutang;
             Session::put('is_verified', $eNasabah->data->is_verified);
             Session::put('score', $eNasabah->data->skor);
             Session::put('syarat_pinjaman_umroh', $eNasabah->data->syarat_pinjaman_umroh);
@@ -45,19 +44,6 @@ class DashboardController extends Controller
         }
         else {
             $this->params['limit'] = null;
-        }
-
-        $url_hutang = \Config::get('api_config.get_hutang');
-        $hutang = Http::withToken($token)
-                        ->get($url_hutang);
-
-        $eHutang = json_decode($hutang, false);
-
-        if($eHutang->status == 'success') {
-            $this->params['hutang'] = $eHutang->data->hutang;
-        }
-        else {
-            $this->params['hutang'] = null;
         }
 
         $url = \Config::get('api_config.riwayat');
