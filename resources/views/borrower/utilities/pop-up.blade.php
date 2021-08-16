@@ -69,6 +69,15 @@
                             </strong>
                         </p>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for=""> {{__('detail-riwayat.status-pencairan')}} </label>
+                        <p> 
+                            <strong>
+                                {{ $item['status_pencairan'] }}
+                            </strong>
+                        </p>
+                    </div>
               
                     <hr>
                     <div class="form-group d-flex justify-content-between">

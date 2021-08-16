@@ -7,7 +7,8 @@ return [
     'payment-plan'  => 'Payment plan',
     'loan-kode'     => 'Loan kode',
     'submission-time' => 'Submission Time',
-    'status' => 'Status',
+    'status' => 'Loan Status',
+    'status-pencairan' => 'Disbursement Status',
     'type' => 'Type of Loan'
 ];
 

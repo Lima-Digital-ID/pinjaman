@@ -7,7 +7,8 @@ return [
     'payment-plan'  => 'Rencana Pembayaran',
     'loan-kode'     => 'Kode Pinjaman',
     'submission-time' => 'Waktu Pengajuan',
-    'status' => 'Status',
+    'status' => 'Status Pinjaman',
+    'status-pencairan' => 'Status Pencairan',
     'type' => 'Jenis Pinjaman'
 ];
 
