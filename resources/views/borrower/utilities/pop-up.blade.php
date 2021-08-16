@@ -16,6 +16,15 @@
                 </div>
                 <div class="card-body text-left">
                     <div class="form-group">
+                        <label for=""> {{__('detail-riwayat.type')}} </label>
+                        <p> 
+                            <strong>
+                                {{ $item['jenis_pinjaman'] }}
+                            </strong>
+                        </p>
+                    </div>
+
+                    <div class="form-group">
                         <label for=""> {{__('detail-riwayat.loan-amount')}} </label>    
                         <p> <strong>
                             Rp.{{ number_format($item['nominal'], 2, ',', '.') }}
@@ -48,6 +57,15 @@
                         <p> 
                             <strong>
                                 Rp.{{ number_format(($item['nominal'] / 2), 2, ',', '.').' x '.$item['jangka_waktu'] }}
+                            </strong>
+                        </p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for=""> {{__('detail-riwayat.status')}} </label>
+                        <p> 
+                            <strong>
+                                {{ $item['status'] }}
                             </strong>
                         </p>
                     </div>

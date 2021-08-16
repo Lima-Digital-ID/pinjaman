@@ -6,7 +6,9 @@ return [
     'insurance-fee' => 'Insurance fee',
     'payment-plan'  => 'Payment plan',
     'loan-kode'     => 'Loan kode',
-    'submission-time' => 'Submission Time'
+    'submission-time' => 'Submission Time',
+    'status' => 'Status',
+    'type' => 'Type of Loan'
 ];
 
 ?>

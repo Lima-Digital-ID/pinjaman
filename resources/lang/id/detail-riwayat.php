@@ -6,7 +6,9 @@ return [
     'insurance-fee' => 'Biaya Asuransi',
     'payment-plan'  => 'Rencana Pembayaran',
     'loan-kode'     => 'Kode Pinjaman',
-    'submission-time' => 'Waktu Pengajuan'
+    'submission-time' => 'Waktu Pengajuan',
+    'status' => 'Status',
+    'type' => 'Jenis Pinjaman'
 ];
 
 ?>
