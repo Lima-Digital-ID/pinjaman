@@ -100,7 +100,7 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     Route::get('/get-kabupaten', [VerificationController::class, 'getKabupaten']);
     Route::get('/get-kecamatan', [VerificationController::class, 'getKecamatan']);
 
-    Route::get('/scoring', [ScoringController::class, 'index'])->name('scoring');
+    Route::get('/lengkapi-data-diri', [ScoringController::class, 'index'])->name('scoring');
 
     /**
      * Syarat Pinjaman
