@@ -156,6 +156,7 @@
             </div>
         </div>
 
+        @if (\Session::get('score') > 0)
         <div class="row mt-4">
             <div class="col-md-12">
                 <div class="card shadow mb-4">
@@ -206,6 +207,20 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Riwayat Pinjaman Anda</h6>
+                    </div>
+                    <div class="card-body">
+                        Belum ada riwayat pinjaman.
+                    </div>
+                </div>
+            </div>
+        </div> 
+        @endif
     </div>
     <div class="col-xl-4">
         <!-- Illustrations -->
