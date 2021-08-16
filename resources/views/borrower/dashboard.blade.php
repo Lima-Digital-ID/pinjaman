@@ -17,15 +17,21 @@
 @endphp
 <div class="row">
     <div class="col-xl-12 col-md-12">
-        @if (\Session::get('is_verified') == 0 )
-                <div class="alert alert-warning" role="alert">
-                    <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('personal.data') }}" class="alert-link text-uppercase" style="color:blue;"> disini.</a> Untuk melengkapi data diri anda
-                </div>
-        @elseif (\Session::get('is_verified') == 2)
-        <div class="alert alert-info" role="alert">
-            <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
+        @if (\Session::get('is_verified') == 0)
+        <div class="alert alert-warning" role="alert">
+            <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('personal.data') }}" class="alert-link text-uppercase" style="color:blue;"> disini.</a> Untuk melengkapi data diri anda
         </div>
-        @elseif (\Session::get('is_verified') == 3)
+        @elseif (\Session::get('is_verified') == 2)
+            @if (\Session::get('score') > 0)
+            <div class="alert alert-info" role="alert">
+                <strong>Informasi!</strong> Verifikasi data anda sedang di proses. Verifikasi membutuhkan waktu sekitar 2-3 hari.
+            </div>
+            @else
+            <div class="alert alert-warning" role="alert">
+                <strong>Peringatan!</strong> Akun anda belum lengkap, silahkan klik <a href="{{ route('scoring') }}" class="alert-link text-uppercase" style="color:blue;"> disini.</a> Untuk melengkapi data diri anda
+            </div>  
+            @endif
+        @elseif (\Session::get('is_verified') == 3 && \Session::get('score') > 0)
         <div class="alert alert-danger" role="alert">
             <strong>Peringatan!</strong> Verifikasi data anda ditolak. Silahkan lihat alasan penolakan di notifikasi.
         </div>
@@ -176,7 +182,7 @@
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td class="text-center">{{ ucwords($item['jenis_pinjaman']) }}</td>
-                                        <td class="text-right">{{ 'Rp.'.number_format($item['nominal'], 2, '.', ',') }}</td>
+                                        <td class="text-right">{{ 'Rp.'.number_format($item['nominal'], 2, ',', '.') }}</td>
                                         <td class="text-center">{{ $item['jangka_waktu'] }} bulan</td>
                                         <td class="text-center">{{ $item['tanggal_pengajuan'] }}</td>
                                         <td class="text-center">
