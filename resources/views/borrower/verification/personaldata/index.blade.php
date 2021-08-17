@@ -677,5 +677,36 @@
             event.target.value = '';
         }
     });
+
+    // Geolocation using javascript
+    $(document).ready(function(){
+     var getPosition = {
+       enableHighAccuracy: false,
+       timeout: 9000,
+       maximumAge: 0
+     };
+     
+     function success(gotPosition) {
+        var uLat = gotPosition.coords.latitude;
+        var uLon = gotPosition.coords.longitude;
+
+        // $.ajax({
+        //     url : "https://maps.googleapis.com/maps/api/geocode/json?latlng="+uLat+","+uLon+"&key=AIzaSyAEI4oQnAA5ZfvwniJ6YVyHdAZ0CfA7_1w",
+        //     success: function (data) {
+        //         console.log(data.results[0]);
+        //         // console.log(data.results[0].formatted_address);
+
+        //         // $('#alamat').val(data.results[0].formatted_address);
+        //     }
+        // });
+        
+        };
+        
+        function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+        };
+        
+        navigator.geolocation.getCurrentPosition(success, error, getPosition);
+     });
 </script>
 @endpush
