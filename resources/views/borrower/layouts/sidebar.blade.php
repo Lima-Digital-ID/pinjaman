@@ -4,7 +4,7 @@
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
       <div class="sidebar-brand-icon pl-3 pt-4">
         {{-- <i class="fas fa-money-check"></i> --}}
-        <img src="{{asset('img/logo.jpg')}}" alt="" width="50vh" class="mb-4">
+        <img src="{{asset('img/logo.jpg')}}" alt="" width="50vh" class="mb-4" class="icon-logo">
 
       </div>
       <div class="sidebar-brand-text mx-3">BPR Apps </div>
