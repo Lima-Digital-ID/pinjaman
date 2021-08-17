@@ -33,6 +33,7 @@ return [
     'guarantor-name'        => 'Pemilik Jaminan', //nama penjamin
     'guarantor-nik'         => 'NIK Penjamin', //nik penjamin'
     'guarantor-handphone'   => 'No.Handphone Penjamin',
+    'ibu-kandung'           => 'Ibu Kandung',
 
     'btn'                   => 'Simpan'
 ];

@@ -141,6 +141,7 @@ class VerificationController extends Controller
                 'nik_penjamin2' => 'required',
                 'no_hp_penjamin2' => 'required',
                 'alamat_penjamin2' => 'required',
+                'ibu_kandung'   => 'required'
             ],
             [
                 'required' => ':attribute tidak boleh kosong.',
@@ -175,6 +176,7 @@ class VerificationController extends Controller
                 'nik_penjamin2' => 'NIK Kerabat',
                 'no_hp_penjamin2' => 'No. Handphone Kerabat',
                 'alamat_penjamin2' => 'Alamat Kerabat',
+                'ibu_kandung'   => 'ibu_kandung'
             ]
         );
 
@@ -222,6 +224,7 @@ class VerificationController extends Controller
                 'nik_penjamin3' => $request->get('nik_penjamin3'),
                 'no_hp_penjamin3' => $request->get('no_hp_penjamin3'),
                 'alamat_penjamin3' => $request->get('alamat_penjamin3'),
+                'ibu_kandung' => $request->get('ibu_kandung'),
             ]);
         $res = json_decode($response, false);
         if($res->message == "Success update data") {
