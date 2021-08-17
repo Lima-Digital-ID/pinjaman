@@ -108,6 +108,19 @@
     </span>
     @enderror
 </div>
+<div class="form-group row">
+    <div class="col-md-2">
+        {{-- <div class="form-check"> --}}
+            <input class="" type="checkbox" value="" id="defaultCheck1" required>
+            
+          {{-- </div> --}}
+    </div>
+    <div class="col-md-10">
+        <label class="" for="defaultCheck1">
+            Saya telah membaca dan menyetujui <a href="javascript:void(0)"> <strong>Syarat & Ketentuan</strong></a> serta <a href="{{route('kebijakan.privasi')}}" target="_blank"><strong>Kebijakan Privasi</strong></a>
+        </label>
+    </div>
+</div>
 
 {{-- button --}}
 {{-- <div class="form-group ">

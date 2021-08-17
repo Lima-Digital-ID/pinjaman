@@ -47,6 +47,7 @@
                               <div class="form-card">
                                   <h2 class="fs-title">Data KTP</h2> 
                                   <!-- pills ktp -->
+                                  
                                   @include('borrower.verification.personaldata.utilities.pillsKTP')
                               </div>
                               <input type="button" name="next" class="next action-button" value="Selanjutnya" />
