@@ -1,10 +1,20 @@
 <div class="form-group ">
+    <label for="" class=""> {{__('data-diri.ibu-kandung')}} </label>
+    <input name="ibu_kandung" id="ibu-kandung" value="{{old('ibu_kandung')}}" type="text" class="form-control @error('ibu_kandung') is-invalid @enderror" required>
+    <div class="nama-penjamin-error invisible"></div>
+    @error('ibu_kandung')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
+</div>
+<div class="form-group ">
     <label for="" class=""> {{__('data-diri.relationship-to-one')}} </label>
     <select name="hubungan" id="hubungan" class="form-control @error('hubungan') is-invalid @enderror" required>
         <option value="">Pilih Hubungan</option>
         <option value="Keluarga" {{old('hubungan') == 'Keluarga' ? 'selected' : ''}}>Keluarga</option>
         <option value="Saudara" {{old('hubungan') == 'Saudara' ? 'selected' : ''}}>Saudara</option>
-        <option value="Teman" {{old('hubungan') == 'Teman' ? 'selected' : ''}}>Teman</option>
+        {{-- <option value="Teman" {{old('hubungan') == 'Teman' ? 'selected' : ''}}>Teman</option> --}}
     </select>
     <div class="hubungan-error invisible"></div>
     @error('hubungan')
@@ -59,7 +69,7 @@
         <option value="">Pilih Hubungan</option>
         <option value="Keluarga" {{old('hubungan2') == 'Keluarga' ? 'selected' : ''}}>Keluarga</option>
         <option value="Saudara" {{old('hubungan2') == 'Saudara' ? 'selected' : ''}}>Saudara</option>
-        <option value="Teman" {{old('hubungan2') == 'Teman' ? 'selected' : ''}}>Teman</option>
+        {{-- <option value="Teman" {{old('hubungan2') == 'Teman' ? 'selected' : ''}}>Teman</option> --}}
     </select>
     <div class="hubungan2-error invisible"></div>
     @error('hubungan2')
@@ -107,6 +117,19 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
+</div>
+<div class="form-group row">
+    <div class="col-md-2">
+        {{-- <div class="form-check"> --}}
+            <input class="" type="checkbox" value="" id="defaultCheck1" required>
+            
+          {{-- </div> --}}
+    </div>
+    <div class="col-md-10">
+        <label class="" for="defaultCheck1">
+            Saya telah membaca dan menyetujui <a href="javascript:void(0)"> <strong>Syarat & Ketentuan</strong></a> serta <a href="{{route('kebijakan.privasi')}}" target="_blank"><strong>Kebijakan Privasi</strong></a>
+        </label>
+    </div>
 </div>
 
 {{-- button --}}
