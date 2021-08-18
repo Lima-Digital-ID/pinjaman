@@ -52,14 +52,14 @@ class AuthController extends Controller
 
             // Alert::success('Berhasil Mendaftar', 'Silahkan Login.');
             return redirect()
-                        ->route('login')->withStatus('Berhasil mendaftar, silahkan login.');
+                        ->route('login')->withStatus($requestRegister->message);
         }
         else if (strpos($requestRegister->message, 'nasabah_email_unique') !== false) {
             return back()->withError('Email telah digunakan');
         }
         else {
             // gagal
-            return back()->withError('Gagal mendaftar');
+            return back()->withError('Gagal mendaftar'. $requestRegister->message);
         }
     }
     
@@ -124,6 +124,10 @@ class AuthController extends Controller
         else if($requestLogin->status == 'Unauthorized') {
             // return 'password salah';
             return redirect()->back()->withError('password salah');
+        }
+        else if($requestLogin->status == 'not_verified') {
+            // return 'password salah';
+            return redirect()->back()->withError('Email anda belum terverifikasi. Mohon verifikasi email anda terlebih dahulu.');
         }
         else if($requestLogin->status == 'failed' && strpos(strtolower($requestLogin->message), 'akun tidak ditemukan') !== false) {
             // return 'akun tidak ditemukan';
