@@ -7,6 +7,7 @@ return [
     'photo-holding-id-card' => 'Foto memegang KTP',
     'full-name'             => 'Nama Lengkap',
     'NIK'                   => 'NIK',
+    'NIP'                   => 'NIP',
     'province'              => 'Provinsi', //provinsi
     'district'              => 'Kabupaten', //kabupaten
     'subdistrict'           => 'Kecamatan', //kecamatan

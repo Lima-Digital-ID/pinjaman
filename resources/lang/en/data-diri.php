@@ -7,6 +7,7 @@ return [
     'photo-holding-id-card' => 'Photo holding ID card',
     'full-name'             => 'Full name',
     'NIK'                   => 'NIK',
+    'NIP'                   => 'NIP',
     'province'              => 'Province', //provinsi
     'district'              => 'District', //kabupaten
     'subdistrict'           => 'Subdistrict', //kecamatan

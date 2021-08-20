@@ -39,6 +39,16 @@
     @enderror
 </div>
 <div class="form-group ">
+    <label for="" class=""> {{__('data-diri.NIP')}} </label>
+    <input type="text" id="nip" name="nip" value="{{old('nip')}}" class="form-control @error('nip') is-invalid @enderror" maxlength="16" onkeypress="return onlyNumberKey(event)" required>
+    <div class="nip-error invisible"></div>
+    @error('nip')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
+</div>
+<div class="form-group ">
     <label for="" class=""> {{__('data-diri.province')}} </label>
     <select name="id_provinsi" id="id_provinsi" class="form-control select2 @error('id_provinsi') is-invalid @enderror"
         data-url="{{ url('get-kabupaten') }}" required>
