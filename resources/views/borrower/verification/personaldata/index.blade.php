@@ -53,7 +53,7 @@
                               <input type="button" name="next" class="next action-button" value="Selanjutnya" />
                           </fieldset>
                           <fieldset>
-                              <div class="form-card">
+                              <div class="form-card">a
                                   <h2 class="fs-title">Data Akun Bank</h2> 
                                   <!-- pills bank -->
                                   @include('borrower.verification.personaldata.utilities.pillsBank')
