@@ -9,6 +9,7 @@ return [
     'etc'               => 'Lain-lain', // Lain-lain
     
     'npwp-attachment'       => 'Lampiran NPWP',
+    'family-card'           => 'Kartu Keluarga',
     'husband-Attachment'    => 'Lampiran KTP Suami',
     'wife-attachment'       => 'Lampiran KTP Istri',
     'marriage-certificate'  => 'Lampiran Surat Nikah',

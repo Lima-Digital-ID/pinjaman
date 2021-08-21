@@ -3,6 +3,7 @@
 
 @section('body')
 @if (\Session::get('kelengkapan_data') == 0)
+
 @include('borrower.loanterms.jamod.index')
 
 @elseif(\Session::get('kelengkapan_data') == 2)

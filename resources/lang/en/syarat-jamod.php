@@ -9,6 +9,7 @@ return [
     'etc'               => 'Etc', // Lain-lain
     
     'npwp-attachment'       => 'NPWP attachment',
+    'family-card'           => 'Family Card',
     'husband-Attachment'    => 'Husband`s ID Card Attachment',
     'wife-attachment'       => 'Wife`s ID card attachment',
     'marriage-certificate'  => 'Attachment of Marriage Certificate',

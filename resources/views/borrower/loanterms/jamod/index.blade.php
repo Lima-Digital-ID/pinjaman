@@ -18,6 +18,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="" class="">@lang('syarat-jamod.family-card')</label>
+                        <input type="file" class="form-control" id="kartu_keluarga" name="kartu_keluarga" accept=".png, .jpeg" onchange="validateScanKK()" required>
+                    </div>
+                    <div class="form-group">
                         <label for="" class="">@lang('syarat-jamod.npwp-attachment')</label>
                         <input type="file" class="form-control" id="scan_npwp" name="scan_npwp" accept=".png, .jpeg" onchange="validateScanNPWP()" required>
                     </div>
@@ -37,12 +41,12 @@
                         <label for="" class="">@lang('syarat-jamod.BPKB')</label>
                         <input type="file" class="form-control" id="bpkb" name="bpkb" accept=".png, .jpeg" onchange="validateBpkb()" required>
                     </div>
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="" class="">@lang('syarat-jamod.domicile')</label>
                         <input type="file" class="form-control" id="domisili_usaha" name="domisili_usaha" accept=".png, .jpeg" onchange="validateDomisili()" required>
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="form-group">
                         <label for="" class="">@lang('syarat-jamod.business-NPWP')</label>
                         <input type="file" class="form-control" id="npwp_usaha" name="npwp_usaha" accept=".png, .jpeg" onchange="validateScanNPWPUsaha()" required>
@@ -76,6 +80,18 @@
 
 @push('script')
 <script type="text/javascript">
+    function validateScanKK(){
+        var fileName = document.getElementById("kartu_keluarga").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            // alert("Only jpg/jpeg and png files are allowed!");
+            document.getElementById("scan_npwp").value = '';
+            alert("Hanya file jpg/jpeg dan png yang diperbolehkan!");
+        }   
+    }
     function validateScanNPWP(){
         var fileName = document.getElementById("scan_npwp").value;
         var idxDot = fileName.lastIndexOf(".") + 1;
