@@ -7,6 +7,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PinjamanCepatController extends Controller
 {
@@ -53,7 +54,7 @@ class PinjamanCepatController extends Controller
                         ->post($url,[
                             'id_jenis_pinjaman' => 2,
                             'jangka_waktu'      => $request->selected,
-                            'nominal'           => $limit_pinjaman
+                            'nominal'           => $request->req_nominal
                         ]);
         $res = json_decode($response, false);
                     
@@ -63,8 +64,10 @@ class PinjamanCepatController extends Controller
             return redirect()
                         ->route('api.pinjaman.cepat.detail', ['id' => $idPinjaman]);
         }else{
-            return back()
-                    ->withError($res->message);
+
+            Alert::info('Informasi', 'Pilih jangka waktu pengembalian');
+            return back();
+                    // ->withError($res->message);
         }
     }
 

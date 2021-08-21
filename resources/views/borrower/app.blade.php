@@ -67,6 +67,7 @@
               </div>
           @endif
           
+          @include('sweetalert::alert')
           @if (request()->is('dashboard'))
               @yield('body')
           @else
