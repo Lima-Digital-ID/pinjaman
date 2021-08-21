@@ -19,6 +19,7 @@ class SyaratPinjamanModalController extends Controller
         $url = \Config::get('api_config.syarat_modal');
         $token = \Session::get('token');
 
+        $kartu_keluarga     = base64_encode(file_get_contents($request->file('kartu_keluarga')));
         $scan_npwp          = base64_encode(file_get_contents($request->file('scan_npwp')));
         $ktp_suami          = base64_encode(file_get_contents($request->file('ktp_suami')));
         $ktp_istri          = base64_encode(file_get_contents($request->file('ktp_istri')));
@@ -34,6 +35,7 @@ class SyaratPinjamanModalController extends Controller
         $response = Http::withToken($token)->post($url, [
             'tempat_tinggal'    => $request->tempat_tinggal,
             'scan_npwp'         => $scan_npwp,
+            'kartu_keluarga'    => $kartu_keluarga,
             'ktp_suami'         => $ktp_suami,
             'ktp_istri'         => $ktp_istri,
             'surat_nikah'       => $surat_nikah,
@@ -45,6 +47,7 @@ class SyaratPinjamanModalController extends Controller
             'jaminan'           => $scan_jaminan,
             'keuangan'          => $keuangan,
             
+            'kartu_keluarga_filename'    => $request->file('kartu_keluarga')->getClientOriginalName(),
             'npwp_filename'              => $request->file('scan_npwp')->getClientOriginalName(),
             'ktp_suami_filename'         => $request->file('ktp_suami')->getClientOriginalName(),
             'ktp_istri_filename'         => $request->file('ktp_istri')->getClientOriginalName(),
