@@ -5,13 +5,13 @@
 <div class="col-md-6">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Update profile</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Profil</h6>
         </div>
         <div class="card-body">
             <form action="{{ route('update.profile') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                         <div class="form-group">
-                            <label for="">Upload Images</label>
+                            <label for="">Foto Profil</label>
                             @if($data->foto_profil != null)
                             <br>
                             <img class="mb-2" src="{{ \Config::get('api_config.domain').$data->foto_profil }}" alt="{{ $data->nama }}" width="100" height="100">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group">
                             <p></p>
-                            <button class="btn btn-dark">{{__('update-profile.btn')}}</button>
+                            <button class="btn btn-primary">{{__('update-profile.btn')}}</button>
                         </div>
             </form>
         </div>

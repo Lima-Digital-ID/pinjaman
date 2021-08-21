@@ -126,6 +126,8 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     // Route::get('/profile', [AuthController::class, 'edit'])->name('edit.profile');
     Route::get('/profile', [DashboardController::class, 'profile'])->name('edit.profile');
     Route::post('/profile', [DashboardController::class, 'updateProfile'])->name('update.profile');
+    Route::get('/edit-password', [DashboardController::class, 'editPassword'])->name('edit.password');
+    Route::post('/edit-password', [DashboardController::class, 'updatePassword'])->name('update.password');
 
 });
     /**

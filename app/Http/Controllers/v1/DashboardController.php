@@ -158,4 +158,86 @@ class DashboardController extends Controller
             return back()->withError($e->getMessage());
         }
     }
+
+    public function editPassword()
+    {
+        return view('auth.edit-password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $this->validate($request, 
+        [
+            'current_password' => 'required',            
+            'password' => 'required|same:confirmation',            
+            'confirmation' => 'required',  
+        ],
+        [
+            'required' => ':attribute '.__('update-password.required'),
+            'same' => __('update-password.confirmation-password-msg'),
+        ],
+        [
+            'current_password' => __('update-password.current-password'),
+            'password' => __('update-password.new-password'),
+            'confirmation' => __('update-password.confirm-password'),
+        ]);
+        try {
+            $token = Session::get('token');
+
+            $url_nasabah = \Config::get('api_config.get_nasabah');
+            $nasabah = Http::withToken($token)
+                            ->get($url_nasabah);
+
+            $eNasabah = json_decode($nasabah, false);
+
+            if($eNasabah != null) {
+                if($eNasabah->status == 'success') {
+                    if(\Hash::check($request->get('current_password'), $eNasabah->data->password)) {
+                        // jika password sebelumnya sesuai dengan yang ada pada database
+                        $url = \Config::get('api_config.update_password');
+                        $updatePassword = Http::withToken($token)
+                                                ->post($url, [
+                                                    'password' => $request->get('password')
+                                                ]);
+    
+                        $requestUpdate = json_decode($updatePassword, false);
+
+                        if($requestUpdate != null) {
+                            if($requestUpdate->status == 'success') {
+                                // request berhasil
+                                return redirect('/dashboard')->withStatus(__('update-password.password-success'));
+                            }
+                            else {
+                                // request gagal
+                                return back()->withError(__('update-password.password-failed'));
+                            }
+                        }
+                        else {
+                            // request gagal
+                            return back()->withError(__('update-password.password-failed'));                        
+                        }
+    
+                    }
+                    else {
+                        // jika password sebelumnya tidak sesuai dengan yang ada pada database
+                        return back()->withError(__('update-password.current-password-msg'));
+                    }
+                }
+                else {
+                    // request gagal
+                    return back()->withError(__('update-password.password-failed'));
+                }
+            }
+            else {
+                // request gagal
+                return back()->withError(__('update-password.password-failed'));
+            }
+        }
+        catch(\Exception $e) {
+            return back()->withError($e->getMessage());
+        }
+        catch (\Illuminate\Database\QueryException $e) {
+            return back()->withError($e->getMessage());
+        }
+    }
 }
