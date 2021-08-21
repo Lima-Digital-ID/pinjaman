@@ -290,7 +290,9 @@
             <div class="card-footer justify-content-between">
                 <a href=" {{route('edit.profile')}} " class="btn btn-warning mb-2">
                 Edit Profil</a>
-                <a href="{{ route('tagihan') }}" class="btn btn-primary">
+                <a href=" {{route('edit.password')}} " class="btn btn-info mb-2">
+                    Ganti Password</a>
+                <a href="{{ route('tagihan') }}" class="btn btn-primary mb-2">
                     Cek Tagihan anda
                 </a>
             </div>
