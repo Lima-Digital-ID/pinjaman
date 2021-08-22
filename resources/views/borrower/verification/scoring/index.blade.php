@@ -3,39 +3,41 @@
 @section('body')
 
     @if (\Session::get('score') > 0 && \Session::get('is_verified') == 1)
-        <div class="accordion" id="accordionExample">
-            @foreach ($kategori['data'] as $key => $item)
-                <div class="card mt-2">
-                    <div class="card-header" id="heading{{ $item['id'] }}">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                data-target="#collapse{{ $item['id'] }}" aria-expanded="true"
-                                aria-controls="collapse{{ $item['id'] }}">
-                                {{ $item['nama_kategori'] }}
-                        </h2>
-                    </div>
+        <div class="col-md-10">
+            <div class="accordion" id="accordionExample">
+                @foreach ($kategori['data'] as $key => $item)
+                    <div class="card mt-2">
+                        <div class="card-header" id="heading{{ $item['id'] }}">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                    data-target="#collapse{{ $item['id'] }}" aria-expanded="true"
+                                    aria-controls="collapse{{ $item['id'] }}">
+                                    {{ $item['nama_kategori'] }}
+                            </h2>
+                        </div>
 
-                    <div id="collapse{{ $item['id'] }}" class="collapse" aria-labelledby="heading{{ $item['id'] }}"
-                        data-parent="#accordionExample">
-                        <div class="card-body">
-                            @foreach ($item['kriteria'] as $i => $kriteria)
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for=""><strong> {{ $kriteria['nama_kriteria'] }} </strong></label>
-                                        @foreach ($kriteria['option'] as $o => $options)
-                                        {{ in_array($options['id'], array_column($get_score['data'], 'id_option')) ? $options['option'] : '' }}
-                                        @endforeach
+                        <div id="collapse{{ $item['id'] }}" class="collapse" aria-labelledby="heading{{ $item['id'] }}"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                @foreach ($item['kriteria'] as $i => $kriteria)
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for=""><strong> {{ $kriteria['nama_kriteria'] }} </strong></label>
+                                            @foreach ($kriteria['option'] as $o => $options)
+                                            {{ in_array($options['id'], array_column($get_score['data'], 'id_option')) ? $options['option'] : '' }}
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
 
-                                </div>
-                            @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
 
+            </div>
         </div>
 
     @endif
