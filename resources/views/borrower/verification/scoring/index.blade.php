@@ -1,5 +1,9 @@
 @extends('borrower.app', ['jumbotron' => ''])
 
+@push('stylesheet')
+    <link href="{{ asset('borrower/vendor/form-wizard/style.css') }}" rel="stylesheet">
+@endpush
+
 @section('body')
 
     @if (\Session::get('score') > 0 && \Session::get('is_verified') == 1)
@@ -59,6 +63,112 @@
 
     @if ((\Session::get('is_verified') == 2 && \Session::get('score') == 0))
 
+    <!-- MultiStep Form -->
+        {{--  <div class="container-fluid">
+            <div class="row justify-content-center mt-0">
+                <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                        <h2><strong>Lengkapi Data Diri Anda</strong></h2>
+                        <p>Isi semua form untuk melanjutkan ke tahap selanjutnya</p>
+                        <div class="row">
+                            <div class="col-md-12 mx-0">
+                                <form id="msform" action="{{ route('personal.store-data') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <!-- progressbar -->
+                                    <ul id="progressbar">
+                                        <li class="active" id="account"><strong>KTP</strong></li>
+                                        <li id="personal"><strong>Bank</strong></li>
+                                        <li id="payment"><strong>Pekerjaan</strong></li>
+                                        <li id="confirm"><strong>Kontak</strong></li>
+                                    </ul>
+                                    <!-- fieldsets -->
+                                    @foreach ($kategori['data'] as $key => $item)
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <h2 class="fs-title">Data KTP</h2>
+                                                <!-- pills ktp -->
+                                                @foreach ($kategori['data'] as $key => $item)
+                                                    @foreach ($item['kriteria'] as $i => $items)
+                                                        @if ($items['nama_kriteria'] != 'Debt to Equity Ratio' && $items['nama_kriteria'] != 'ROA (Return on Asset)' && $items['nama_kriteria'] != 'ROE (Return on Equity)')
+                                                            <div class="form-group row">
+                                                                <label for="" class="col-md-7">{{ $items['nama_kriteria'] }}</label>
+                                                                <div class="col-md-5">
+                                                                    @foreach ($items['option'] as $o => $options)
+                                                                        <input type="radio"
+                                                                            class="form control @error(\Str::slug($items['nama_kriteria'])) is-invalid @enderror"
+                                                                            name="{{ \Str::slug($items['nama_kriteria']) }}"
+                                                                            id="{{ $options['id'] }}"
+                                                                            value="{{ $options['id'] . '-' . $options['skor'] }}"
+                                                                            required>
+                                                                        <label for="{{ $options['id'] }}">{{ $options['option'] }}</label>
+                                                                        <br>
+                                                                        <br>
+                                                                        @error(\Str::slug($items['nama_kriteria']))
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    @endforeach
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+                                                ktp
+                                            </div>
+                                            <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+                                        </fieldset>
+                                    @endforeach
+                                    <fieldset>
+                                        <div class="form-card">
+                                            <h2 class="fs-title">Data KTP</h2>
+                                            <!-- pills ktp -->
+
+                                            //@include('borrower.verification.personaldata.utilities.pillsKTP')
+                                            ktp
+                                        </div>
+                                        <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-card">
+                                            <h2 class="fs-title">Data Akun Bank</h2>
+                                            <!-- pills bank -->
+                                            bank
+                                        </div>
+                                        <input type="button" name="previous" class="previous action-button-previous"
+                                            value="Kembali" />
+                                        <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-card">
+                                            <h2 class="fs-title">Data Pekerjaan</h2>
+                                            <!-- pills work -->
+                                            kerja
+                                        </div>
+                                        <input type="button" name="previous" class="previous action-button-previous"
+                                            value="Kembali" />
+                                        <input type="button" name="next" class="next action-button" value="Selanjutnya" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-card">
+                                            <h2 class="fs-title text-center">Data Kontak</h2>
+
+                                            <!-- pills contact -->
+                                            kontak
+                                        </div>
+                                        <input type="button" name="previous" class="previous action-button-previous"
+                                            value="Kembali" />
+                                        <input type="submit" name="make_payment" class="next action-button" value="Kirim" />
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  --}}
+        <!-- End MultiStep Form -->
     <div class="col-md-10">
         <div class="card">
             <div class="card-header py-3">
@@ -127,3 +237,7 @@
     </div>
     @endif
 @endsection
+
+@push('script')
+<script src="{{ asset('borrower/vendor/form-wizard/main.js') }}"></script>
+@endpush

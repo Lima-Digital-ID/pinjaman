@@ -102,6 +102,7 @@ $(document).ready(function(){
                 if(index < 3) {
                     index = 1;
                     console.log('position : '+ index);
+                    return;
                 }
             }
         }
@@ -111,6 +112,7 @@ $(document).ready(function(){
                 if(index < 3) {
                     index = 2;
                     console.log('position : '+ index);
+                    return;
                 }
             }
         }
@@ -120,6 +122,7 @@ $(document).ready(function(){
                 if(index < 3) {
                     index = 3;
                     console.log('position : '+ index);
+                    return;
                 }
             }
         }

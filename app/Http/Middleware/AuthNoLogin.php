@@ -17,7 +17,7 @@ class AuthNoLogin
     public function handle(Request $request, Closure $next)
     {
         if (!\Session::has('token')) {
-            return redirect('/')->withStatus('Garap login terlebih dahulu.');
+            return redirect('/')->withStatus('Harap login terlebih dahulu.');
         }
         return $next($request);
     }

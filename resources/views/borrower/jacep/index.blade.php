@@ -50,10 +50,10 @@
                     <br> 
                     <form action="{{route('api.pinjaman.cepat')}}" method="POST">
                         @csrf
-                    <div class="form-group">
+                    {{--  <div class="form-group">
                         <label for="" class="" >Nominal sesuai keinginan anda</label>
                         <input type="text" class="form-control col-sm-6" name="req_nominal" value="" id="req_nominal" required>
-                    </div>
+                    </div>  --}}
                     <br>
                     <label for="">{{__('jacep-index.pending')}} :</label>
                         <input type="hidden" name="selected" id="selected">

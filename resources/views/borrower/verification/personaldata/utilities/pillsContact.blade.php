@@ -25,7 +25,7 @@
 </div>
 <div class="form-group ">
     <label for="" class=""> {{__('data-diri.guarantor-name')}} </label>
-    <input name="nama_penjamin" id="nama_penjamin" value="{{old('nama_peminjam')}}" type="text" class="form-control @error('nama_penjamin') is-invalid @enderror" required>
+    <input name="nama_penjamin" id="nama_penjamin" value="{{old('nama_penjamin')}}" type="text" class="form-control @error('nama_penjamin') is-invalid @enderror" required>
     <div class="nama-penjamin-error invisible"></div>
     @error('nama_penjamin')
     <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
 </div>
 <div class="form-group ">
     <label for="" class=""> {{__('data-diri.guarantor-nik')}} </label>
-    <input name="nik_penjamin" id="nik_penjamin" value="{{old('nik_peminjam')}}" onkeypress="return onlyNumberNikPenjamin(event)" maxlength="16" type="text" class="form-control @error('nik_penjamin') is-invalid @enderror" required>
+    <input name="nik_penjamin" id="nik_penjamin" value="{{old('nik_penjamin')}}" onkeypress="return onlyNumberNikPenjamin(event)" maxlength="16" type="text" class="form-control @error('nik_penjamin') is-invalid @enderror" required>
     <div class="nik-penjamin-error invisible"></div>
     @error('nik_penjamin')
     <span class="invalid-feedback" role="alert">

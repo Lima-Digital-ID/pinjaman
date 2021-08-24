@@ -76,7 +76,7 @@ class ScoringController extends Controller
             'sudah-berapa-lama-anda-bekerja' => 'required',
             'apa-status-pekerjaan-saat-ini' => 'required',
             'apa-tujuan-pinjaman-anda' => 'required',
-            'berapa-nilai-aset-yang-anda-butuhkan' => 'required',
+            'berapa-nilai-aset-yang-anda-miliki' => 'required',
             'berapa-penghasilan-gaji-yang-anda-dapatkan' => 'required',
             'berapa-pengeluaran-biaya-rumah-tangga' => 'required',
             'apakah-ada-pinjaman-di-banklembaga-keuangan-lain' => 'required',
@@ -98,7 +98,7 @@ class ScoringController extends Controller
             $lamaPekerjaan = explode('-', $request->get('sudah-berapa-lama-anda-bekerja'));
             $statusPekerjaan = explode('-', $request->get('apa-status-pekerjaan-saat-ini'));
             $tujuanPinjaman = explode('-', $request->get('apa-tujuan-pinjaman-anda'));
-            $nilaiAset = explode('-', $request->get('berapa-nilai-aset-yang-anda-butuhkan'));
+            $nilaiAset = explode('-', $request->get('berapa-nilai-aset-yang-anda-miliki'));
             $penghasilanGaji = explode('-', $request->get('berapa-penghasilan-gaji-yang-anda-dapatkan'));
             $pengeluaranBiaya = explode('-', $request->get('berapa-pengeluaran-biaya-rumah-tangga'));
             $pinjamanDiBank = explode('-', $request->get('apakah-ada-pinjaman-di-banklembaga-keuangan-lain'));

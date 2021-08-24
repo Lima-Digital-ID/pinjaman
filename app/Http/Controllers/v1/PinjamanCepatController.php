@@ -54,7 +54,8 @@ class PinjamanCepatController extends Controller
                         ->post($url,[
                             'id_jenis_pinjaman' => 2,
                             'jangka_waktu'      => $request->selected,
-                            'nominal'           => $request->req_nominal,
+                            // 'nominal'           => $request->req_nominal,
+                            'nominal'           => $limit_pinjaman,
                             'limit'             => $request->limit
                         ]);
         $res = json_decode($response, false);
