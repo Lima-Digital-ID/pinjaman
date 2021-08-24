@@ -1,5 +1,19 @@
 @extends('auth.app', ['title' => 'Masuk'])
-
+@push('stylesheet')
+    <style>
+        .btn-resend {
+            background: none!important;
+            border: none;
+            padding: 0!important;
+            /*optional*/
+            font-family: arial, sans-serif;
+            /*input has OS specific font-family*/
+            color: #bd3d31;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+    </style>
+@endpush
 @section('body')
 <div class="bg-left">
     <img src="/img/bg-left.jpg" alt="">
@@ -21,7 +35,17 @@
                 @endif
                 @if (session('error'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ session('error') }}
+                        @if (session('error') == 'Email anda belum terverifikasi. Mohon verifikasi email anda terlebih dahulu.' || session('error') == 'Gagal mengirim email.')
+                            {{ session('error') }}
+                            <form action="{{ route('api.resend.email') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ \Session::get('id') }}">
+                                <input type="hidden" name="email" value="{{ \Session::get('email') }}">
+                                <button type="submit" formtarget="_blank" class="btn-resend">Kirim Ulang</button>
+                            </form>
+                        @else
+                        {{ session('error') }}                            
+                        @endif
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

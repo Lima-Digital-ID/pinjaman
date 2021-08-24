@@ -12,6 +12,7 @@ return [
     'login'                 => $base_url.'login',
     'logout'                => $base_url.'logout',
     'register'              => $base_url.'register',
+    'resend_verification'   => $base_url.'resend-verification',
     'get_provinsi'          => $base_url.'get-provinsi',
     'get_kabupaten'         => $base_url.'get-kabupaten',
     'get_kecamatan'         => $base_url.'get-kecamatan',

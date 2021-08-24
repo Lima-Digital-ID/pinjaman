@@ -15,6 +15,7 @@
     <link rel="stylesheet" href=" {{asset('css/auth.css')}} ">
     <link rel="stylesheet" href=" {{asset('borrower/css/custom.css')}} ">
     <title>Bank BPR Jatim - {{ $title ?? '' }}</title>
+    @stack('stylesheet')
   </head>
   <body>
 

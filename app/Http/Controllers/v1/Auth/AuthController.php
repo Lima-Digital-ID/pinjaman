@@ -122,20 +122,38 @@ class AuthController extends Controller
                         ->route('dashboard');
         }
         else if($requestLogin->status == 'Unauthorized') {
-            // return 'password salah';
             return redirect()->back()->withError('password salah');
         }
         else if($requestLogin->status == 'not_verified') {
-            // return 'password salah';
-            return redirect()->back()->withError('Email anda belum terverifikasi. Mohon verifikasi email anda terlebih dahulu.');
+            return redirect()
+                    ->back()
+                    ->withError('Email anda belum terverifikasi. Mohon verifikasi email anda terlebih dahulu.')
+                    ->with('email', $login['data']['email'])
+                    ->with('id',$login['data']['id']);
         }
         else if($requestLogin->status == 'failed' && strpos(strtolower($requestLogin->message), 'akun tidak ditemukan') !== false) {
-            // return 'akun tidak ditemukan';
             return redirect()->back()->withError('akun tidak ditemukan');
         }
         else {
-            // return 'terjadi kesalahan';
             return redirect()->back()->withError('terjadi kesalahan');
+        }
+    }
+
+    public function resendEmail(Request $request)
+    {
+        $url = \Config::get('api_config.resend_verification');
+        $response = Http::post($url, [
+            'id' => $request->id,
+            'email' => $request->email,
+        ]);
+
+        $resendEmail = json_decode($response, false);
+        return $resendEmail;
+        if($resendEmail->status == 'success') {
+            return back()->withStatus($resendEmail->message);
+        }
+        else {
+            return back()->withError('Gagal mengirim email.');
         }
     }
 

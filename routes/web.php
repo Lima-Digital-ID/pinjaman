@@ -140,6 +140,7 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
 
     // Consume API
     Route::post('/register', [AuthController::class,'ApiRegister'])->name('api.register');
+    Route::post('/resend-email', [AuthController::class,'resendEmail'])->name('api.resend.email');
     Route::post('/login', [AuthController::class,'ApiLogin'])->name('api.login');
     Route::get('/logout', [AuthController::class,'ApiLogout'])->name('api.logout');
 
