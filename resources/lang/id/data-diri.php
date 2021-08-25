@@ -31,7 +31,7 @@ return [
     'relationship-to-one'   => 'Hubungan ke satu',
     'second-relationship'   => 'Hubungan ke dua',
 
-    'guarantor-name'        => 'Pemilik Jaminan', //nama penjamin
+    'guarantor-name'        => 'Kerabat', //nama penjamin
     'guarantor-nik'         => 'NIK Penjamin', //nik penjamin'
     'guarantor-handphone'   => 'No.Handphone Penjamin',
     'ibu-kandung'           => 'Ibu Kandung',
