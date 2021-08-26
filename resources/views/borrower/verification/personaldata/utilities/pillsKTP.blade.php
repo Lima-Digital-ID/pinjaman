@@ -93,7 +93,7 @@
     <select name="id_kantor_cabang" id="id_kantor_cabang" class="form-control select2 @error('id_kantor_cabang') is-invalid @enderror" required>
         <option value="" selected readonly disabled>Pilih Kantor Cabang</option>
         @foreach ($kantorCabang as $item)
-            <option value="{{ $item->id }}">{{ $item->kecamatan }}</option>
+            <option value="{{ $item->id }}">{{ $item->nama }}</option>
         @endforeach
     </select>
     <div class="cabang-error invisible"></div>
