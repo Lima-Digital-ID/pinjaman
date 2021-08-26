@@ -40,7 +40,8 @@
 </div>
 <div class="form-group ">
     <label for="" class=""> {{__('data-diri.NIP')}} (Optional) </label>
-    <input type="text" id="nip" name="nip" value="{{old('nip')}}" class="form-control @error('nip') is-invalid @enderror" maxlength="16" onkeypress="return onlyNumberKey(event)">
+    <input type="text" id="nip" name="nip" maxlength="18" value="{{old('nip')}}" class="form-control @error('nip') is-invalid @enderror" maxlength="16" onkeypress="return onlyNumberKey(event)">
+    <span id="errorMsg" style="display:none;">you can give score -10 to +10 only</span>
     <div class="nip-error invisible"></div>
     @error('nip')
     <span class="invalid-feedback" role="alert">
@@ -136,6 +137,7 @@
 
 @push('script')
     <script>
+
         $(document).ready(function() {
             // get kabupaten
             $('#id_provinsi').change(function(e) {
