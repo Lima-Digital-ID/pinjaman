@@ -117,6 +117,7 @@ class VerificationController extends Controller
                 'selfie_ktp' => 'required',
                 'nama' => 'required',
                 'nik' => 'required',
+                'nip'   => 'max:18',
                 'id_provinsi' => 'required',
                 'id_kabupaten' => 'required',
                 'kecamatan_id' => 'required',
@@ -146,12 +147,14 @@ class VerificationController extends Controller
             [
                 'required' => ':attribute tidak boleh kosong.',
                 'date' => ':attribute tidak valid.',
+                'max'   => ':attribute maksimal 18'
             ], 
             [
                 'scan_ktp' => 'Scan KTP',
                 'selfie_ktp' => 'Selfie KTP',
                 'nama' => 'Nama',
                 'nik' => 'NIK',
+                'nip' => 'NIP',
                 'id_provinsi' => 'Provinsi',
                 'id_kabupaten' => 'Kabupaten',
                 'kecamatan_id' => 'Kecamatan',

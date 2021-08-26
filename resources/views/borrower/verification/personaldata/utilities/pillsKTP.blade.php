@@ -39,7 +39,7 @@
     @enderror
 </div>
 <div class="form-group ">
-    <label for="" class=""> {{__('data-diri.NIP')}} </label>
+    <label for="" class=""> {{__('data-diri.NIP')}} (Optional) </label>
     <input type="text" id="nip" name="nip" value="{{old('nip')}}" class="form-control @error('nip') is-invalid @enderror" maxlength="16" onkeypress="return onlyNumberKey(event)">
     <div class="nip-error invisible"></div>
     @error('nip')
