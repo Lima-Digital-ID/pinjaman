@@ -4,6 +4,7 @@ namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Http;
 
 class PinjamanModalController extends Controller
@@ -73,15 +74,19 @@ class PinjamanModalController extends Controller
                     'nominal' => $request->nominal
                     ]);    
             }else{
-                return back()
-                    ->withError($res->message);
+                Alert::error('Informasi', $res->message)->persistent('Close');
+                return back();
+                // return back()
+                //     ->withError($res->message);
             }
 
             return redirect()
                         ->route('api.pinjaman.cepat.detail');
         }else{
-            return back()
-                    ->withError($res->message);
+            Alert::error('Informasi', $res->message)->persistent('Close');
+            return back();
+            // return back()
+            //         ->withError($res->message);
         }
     }
 

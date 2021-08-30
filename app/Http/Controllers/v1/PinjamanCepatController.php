@@ -66,8 +66,7 @@ class PinjamanCepatController extends Controller
             return redirect()
                         ->route('api.pinjaman.cepat.detail', ['id' => $idPinjaman]);
         }else{
-
-            Alert::info('Informasi', 'Pilih jangka waktu pengembalian');
+            Alert::error('Informasi', $res->message)->persistent('Close');
             return back();
                     // ->withError($res->message);
         }
