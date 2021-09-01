@@ -43,7 +43,8 @@
                                         <li id="personal"><strong>Bank</strong></li>
                                         <li id="payment"><strong>Pekerjaan</strong></li>
                                         <li id="confirm"><strong>Kontak</strong></li>
-                                    </ul> <!-- fieldsets -->
+                                    </ul> 
+                                    <!-- fieldsets -->
                                     <fieldset>
                                         <div class="form-card">
                                             <h2 class="fs-title">Data KTP</h2>
