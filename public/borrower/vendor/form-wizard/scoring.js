@@ -59,7 +59,8 @@ $(document).ready(function(){
     
 
 
-    $(".selanjutnya-1").click(function(){
+    $(".selanjutnya-1").click(function(e){
+        e.preventDefault();
 
         // variable Analisa Character
         var jenkel = document.querySelector(
@@ -81,54 +82,7 @@ $(document).ready(function(){
         var usia = document.querySelector(
             'input[name="berapa-usia-peminjam-saat-ini"]:checked'
         );
-
-        // Analisa Capacity
-        var pendidikanTerakhir = document.querySelector(
-            'input[name="apa-pendidikan-terakhir-anda"]:checked'
-        );
-
-        var pekerjaanSaatIni = document.querySelector(
-            'input[name="apa-jenis-pekerjaan-saat-ini"]:checked'
-        );
-
-        var lamaBekerja = document.querySelector(
-            'input[name="sudah-berapa-lama-anda-bekerja"]:checked'
-        );
-        
-        var statusPekerjaan = document.querySelector(
-            'input[name="apa-status-pekerjaan-saat-ini"]:checked'
-        );
-        
-        var tujuanPinjaman = document.querySelector(
-            'input[name="apa-tujuan-pinjaman-anda"]:checked'
-        );
-
-        // Analisa Repayment Capacity
-        var nilaiAsset = document.querySelector(
-            'input[name="berapa-nilai-aset-yang-anda-butuhkan"]:checked'
-        );
-
-        var penghasilanGaji = document.querySelector(
-            'input[name="berapa-penghasilan-gaji-yang-anda-dapatkan"]:checked'
-        );
-
-        var pengeluaranBiaya = document.querySelector(
-            'input[name="berapa-pengeluaran-biaya-rumah-tangga"]:checked'
-        );
-        
-        // Aspek Condition
-        var pinjamanBank = document.querySelector(
-            'input[name="apakah-ada-pinjaman-di-banklembaga-keuangan-lain"]:checked'
-        );
-
-        var kodisiKredit = document.querySelector(
-            'input[name="bagaimana-kondisi-kredit-saat-ini"]:checked'
-        );
-
-        var totalAngsuran = document.querySelector(
-            'input[name="berapa-total-angsuran-banklembaga-keuangan-lain"]:checked'
-        );
-
+    
         if(index == 0) {
         
             // kondisi validation
@@ -146,6 +100,30 @@ $(document).ready(function(){
                 return;
             }
         }
+    });
+    
+    $(".selanjutnya-2").click(function(e){
+        e.preventDefault();
+        // Analisa Capacity
+        var pendidikanTerakhir = document.querySelector(
+            'input[name="apa-pendidikan-terakhir-anda"]:checked'
+        );
+
+        var pekerjaanSaatIni = document.querySelector(
+            'input[name="apa-jenis-pekerjaan-saat-ini"]:checked'
+        );
+
+        var lamaBekerja = document.querySelector(
+            'input[name="sudah-berapa-lama-anda-bekerja"]:checked'
+        );
+
+        var statusPekerjaan = document.querySelector(
+            'input[name="apa-status-pekerjaan-saat-ini"]:checked'
+        );
+
+        var tujuanPinjaman = document.querySelector(
+            'input[name="apa-tujuan-pinjaman-anda"]:checked'
+        );
 
         if(index == 1) {
             if (pendidikanTerakhir == null || pekerjaanSaatIni == null || lamaBekerja == null || statusPekerjaan == null || tujuanPinjaman == null) {
@@ -162,6 +140,23 @@ $(document).ready(function(){
                 return;
             }
         }
+    });
+
+    $(".selanjutnya-3").click(function(e){
+        
+        e.preventDefault();
+        // Analisa Repayment Capacity
+        var nilaiAsset = document.querySelector(
+            'input[name="berapa-nilai-aset-yang-anda-miliki"]:checked'
+        );
+
+        var penghasilanGaji = document.querySelector(
+            'input[name="berapa-penghasilan-gaji-yang-anda-dapatkan"]:checked'
+        );
+
+        var pengeluaranBiaya = document.querySelector(
+            'input[name="berapa-pengeluaran-biaya-rumah-tangga"]:checked'
+        );
 
         if(index == 2) {
 
@@ -178,6 +173,23 @@ $(document).ready(function(){
                 return;
             }
         }
+    });
+
+    $(".selanjutnya-4").click(function(){
+        // Aspek Condition
+        var pinjamanBank = document.querySelector(
+            'input[name="apakah-ada-pinjaman-di-banklembaga-keuangan-lain"]:checked'
+        );
+
+        var kodisiKredit = document.querySelector(
+            'input[name="bagaimana-kondisi-kredit-saat-ini"]:checked'
+        );
+
+        var totalAngsuran = document.querySelector(
+            'input[name="berapa-total-angsuran-banklembaga-keuangan-lain"]:checked'
+        );
+
+
         if(index == 3) {
             if (pinjamanBank == null || kodisiKredit == null || totalAngsuran == null) {
                 Swal.fire({
@@ -189,7 +201,7 @@ $(document).ready(function(){
             }
         }
     });
-    
+
     $(".previous").click(function(){
         previousStep($(this).parent());
         

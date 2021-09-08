@@ -65,6 +65,7 @@ class ScoringController extends Controller
 
     public function store(Request $request)
     {
+        // return $request;
         $this->validate($request, [
             'apa-jenis-kelamin-anda' => 'required',
             'apakah-status-pernikahan-anda-saat-ini' => 'required',

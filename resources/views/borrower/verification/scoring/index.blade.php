@@ -44,7 +44,8 @@
         </ul>
         <!-- progressbar -->
         {{-- fieldsets --}}
-        <form action="{{ route('proses-skoring') }}" method="POST" id="msform"> @csrf 
+        <form action="{{ route('proses-skoring') }}" method="POST" id="msform">
+          @csrf 
             @foreach ($kategori['data'] as $key => $item)
             <fieldset>
                 <div class="form-card">
@@ -61,7 +62,7 @@
                                     @foreach ($items['option'] as $o => $options)
                                     <div class="custom-control custom-radio d-flex items-align-start">
                                     <input type="radio" id="{{ $options['id'] }}" name="{{ \Str::slug($items['nama_kriteria']) }}" class="custom-control-input 
-                                                                        @error(\Str::slug($items['nama_kriteria'])) is-invalid @enderror">
+                                                                        @error(\Str::slug($items['nama_kriteria'])) is-invalid @enderror" value="{{ $options['id'].'-'.$options['skor'] }}">
                                     <label class="custom-control-label" for="{{ $options['id'] }}">{{ $options['option'] }}</label>
                                     </div> @error(\Str::slug($items['nama_kriteria'])) <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -78,7 +79,7 @@
                       {{-- <input type="button" name="next" class="next action-button" onclick="checkButton()" value="Selanjutnya" /> --}}
                       <input type="button" name="previous" class="previous action-button-previous d-none" id="previous"
                       value="Kembali" />
-                      <input type="button" class="selanjutnya-{{$item['id']}} action-button" value="Selanjutnya" />
+                      <input type="submit" class="selanjutnya-{{$item['id']}} action-button" value="Selanjutnya" />
             </fieldset>
             @endforeach
         </form>
