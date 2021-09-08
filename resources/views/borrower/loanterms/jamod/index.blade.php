@@ -8,7 +8,7 @@
             <div class="form-group row">
                 <label for="" class="col-md-4">@lang('syarat-jamod.type-of-residence') :</label>
                 <div class="col-md-8">
-                    <input type="radio" name="tempat_tinggal" id="rumah" value="Rumah Tangga" required> <label for="rumah">@lang('syarat-jamod.household')</label> <br>
+                    <input type="radio" name="tempat_tinggal" id="rumah" value="Rumah Milik Pribadi" required> <label for="rumah">@lang('syarat-jamod.household')</label> <br>
                     <input type="radio" name="tempat_tinggal" id="kos" value="Kos" required> <label for="kos">@lang('syarat-jamod.cost')</label> <br>
                     <input type="radio" name="tempat_tinggal" id="kontrakan" value="Kontrakan" required> <label for="kontrakan">@lang('syarat-jamod.rent')</label> <br>
                     <input type="radio" name="tempat_tinggal" id="apartemen" value="Apartemen" required> <label for="apartemen">@lang('syarat-jamod.apartement')</label> <br>
