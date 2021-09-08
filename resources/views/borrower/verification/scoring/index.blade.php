@@ -30,7 +30,7 @@
 </div> @endif @if ((\Session::get('is_verified') == 2 && \Session::get('score') == 0)) <div class="col-11 col-sm-9 col-md-7 col-lg-9 text-center p-0 mt-3 mb-2">
   <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
     <h2>
-      <strong>Scoring</strong>
+      <strong>Data Lainnya</strong>
     </h2>
     <p>Isi semua form untuk melanjutkan ke tahap selanjutnya</p>
     <div class="row">
