@@ -21,6 +21,8 @@ use App\Http\Middleware\AuthNoLogin;
     Route::get('/', function () {
         return view('auth.login');
     });
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 
 Route::get('locale/{locale}', function($locale) {
     \Session::put('locale', $locale);
@@ -120,7 +122,7 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     /**
      * Other
      */
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/riwayat', [RiwayatPengajuanController::class, 'index'])->name('riwayat');
     Route::get('/riwayat-detail/{id}', [RiwayatPengajuanController::class, 'detail'])->name('api.riwayat.detail');
     // Route::get('/profile', [AuthController::class, 'edit'])->name('edit.profile');

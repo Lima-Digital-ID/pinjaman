@@ -7,13 +7,13 @@
 
     <!-- Bootstrap CSS -->
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> --}}
-    <link rel="stylesheet" href="borrower/sb-admin-2.css">
-    <link rel="shortcut icon" href="{{asset('img/logo.jpg')}}">
+    <link rel="stylesheet" href="{{ asset('assets/sb-admin-2.css') }}">
+    <link rel="shortcut icon" href="{{ asset('img/logo.jpg') }}">
 
 
     {{-- Style --}}
     <link rel="stylesheet" href=" {{asset('css/auth.css')}} ">
-    <link rel="stylesheet" href=" {{asset('borrower/css/custom.css')}} ">
+    <link rel="stylesheet" href=" {{asset('assets/custom.css')}} ">
     <title>Bank BPR Jatim - {{ $title ?? '' }}</title>
     @stack('stylesheet')
   </head>

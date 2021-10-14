@@ -1,7 +1,7 @@
 @extends('borrower.app', ['jumbotron' => ''])
 
 @push('stylesheet')
-    <link href="{{ asset('borrower/vendor/form-wizard/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/form-wizard/style.css') }}" rel="stylesheet">
 @endpush
 
 @section('body')
@@ -575,7 +575,7 @@
             return true;
         }
     </script>
-    <script src="{{ asset('borrower/vendor/form-wizard/main.js') }}"></script>
+    <script src="{{ asset('assets/vendor/form-wizard/main.js') }}"></script>
     <script type="text/javascript">
         function validateKtp() {
             var fileName = document.getElementById("scan_ktp").value;

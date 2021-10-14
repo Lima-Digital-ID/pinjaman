@@ -14,7 +14,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('dashboard') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    <li class="nav-item {{ str_contains(Request::segment(1), 'pinjaman') ? 'active' : '' }}">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-hands-helping"></i>
         <span>{{__('sidebar.loan')}}</span>
@@ -71,7 +71,7 @@
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
+    <li class="nav-item {{ str_contains(Request::segment(1), 'data-diri') ? 'active' : '' }}">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsedData" aria-expanded="true" aria-controls="collapsedData">
         <i class="fas fa-fw fa-user"></i>
         <span>{{__('sidebar.completeness-of-data')}}</span>
@@ -88,7 +88,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    <li class="nav-item">
+    <li class="nav-item {{ Request::segment(1) == 'profile' || Request::segment(1) == 'riwayat' || Request::segment(1) == 'tagihan'  ? 'active' : '' }}">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-wrench"></i>
         <span>{{__('sidebar.settings')}}</span>
@@ -103,7 +103,7 @@
       </div>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {{ Request::segment(1) == 'kebijakan-privasi' ? 'active' : '' }} ">
       <a class="nav-link" href="{{route('kebijakan.privasi')}}">
         <i class="fas fa-book"></i>
         <span>{{__('sidebar.policy-&-privacy')}}</span></a>

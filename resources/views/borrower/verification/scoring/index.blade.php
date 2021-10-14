@@ -1,6 +1,6 @@
 @extends('borrower.app', ['jumbotron' => '']) 
 @push('stylesheet')
-<link href="{{ asset('borrower/vendor/form-wizard/scoring.css') }}" rel="stylesheet"> 
+<link href="{{ asset('assets/vendor/form-wizard/scoring.css') }}" rel="stylesheet"> 
 @endpush @section('body') 
 @if (\Session::get('score') > 0 && \Session::get('is_verified') == 1) <div class="col-md-10">
   <div class="accordion" id="accordionExample"> @foreach ($kategori['data'] as $key => $item) <div class="card mt-2">
@@ -89,8 +89,8 @@
     </div>
   </div>
 </div> @endif @endsection @push('script') 
-<script src="{{ asset('borrower/vendor/form-wizard/checkbutton.js') }}"></script>
-<script src="{{ asset('borrower/vendor/form-wizard/scoring.js') }}"></script> 
+<script src="{{ asset('assets/vendor/form-wizard/checkbutton.js') }}"></script>
+<script src="{{ asset('assets/vendor/form-wizard/scoring.js') }}"></script> 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @endpush

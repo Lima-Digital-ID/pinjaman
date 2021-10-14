@@ -1,7 +1,7 @@
 @extends('borrower.app', ['jumbotron' => ''])
 
 @push('stylsheet')
-<link href="borrower/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
 @endpush
 
 @section('body')
@@ -50,8 +50,8 @@
 @endsection
 
 @push('script')
-  <script src="borrower/vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="borrower/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
   <script>
     $(document).ready(function() {

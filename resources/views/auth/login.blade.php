@@ -16,7 +16,7 @@
 @endpush
 @section('body')
 <div class="bg-left">
-    <img src="/img/bg-left.jpg" alt="">
+    <img src="{{ asset('img/bg-left.jpg') }}" alt="">
 </div>
 <div class="bg-right">
     <div class="container">
