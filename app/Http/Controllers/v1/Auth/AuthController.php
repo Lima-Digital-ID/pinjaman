@@ -148,7 +148,7 @@ class AuthController extends Controller
         ]);
 
         $resendEmail = json_decode($response, false);
-        return $resendEmail;
+
         if($resendEmail->status == 'success') {
             return back()->withStatus($resendEmail->message);
         }
@@ -178,5 +178,13 @@ class AuthController extends Controller
             return 'terjadi kesalahan';
             return redirect()->back()->withError('terjadi kesalahan');
         }
+    }
+
+    public function verifyEmail($key) {
+	$url = \Config::get('api_config.verify_email').$key;
+
+	$verify = Http::get($url);
+
+	return $verify;
     }
 }

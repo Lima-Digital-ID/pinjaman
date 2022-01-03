@@ -52,9 +52,10 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://pinjaman.bankumkm.id'),
 
-    'asset_url' => env('ASSET_URL', 'http://localhost/pinjaman/public'),
+    'asset_url' => env('ASSET_URL', 'https://pinjaman.bankumkm.id/public'),
+    //'asset_url' => env('ASSET_URL', 'http://103.145.131.197/public/assets'),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 <?php
 
 /* Api Configuration */
-
-$domain = 'http://127.0.0.1:8000/';
+$domain = 'http://192.168.100.4/';
+//$domain = 'https://pinjaman-backoffice.bankumkm.id/';
 // $domain = 'http://demoumkm.tech/backup/';
 $base_url = $domain.'api/';
 
@@ -44,4 +44,5 @@ return [
     'get_scoring'           => $base_url. 'get-scoring-per-nasabah',
     'prosess_skoring'       => $base_url. 'prosess-skoring',
     'update_notification'   => $base_url. 'update-notification-sended',
+    'verify_email'          => $base_url.'verify-email/',
 ];

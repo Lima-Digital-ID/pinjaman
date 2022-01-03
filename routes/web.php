@@ -17,8 +17,12 @@ use App\Http\Controllers\v1\{CriteriaCategoryController,
 use App\Http\Controllers\v1\Auth\AuthController;
 use App\Http\Middleware\AuthStatus;
 use App\Http\Middleware\AuthNoLogin;
+//use Illuminate\Support\Facades\Http;
 
     Route::get('/', function () {
+//	$url = "http://103.145.131.198/api/login";
+//	$response = Http::post($url,['email'=>'tegar@gmail.com','password'=>'123456']);
+//	return json_decode($response);
         return view('auth.login');
     });
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -145,4 +149,5 @@ Route::group(['middleware' => AuthNoLogin::class], function(){
     Route::post('/resend-email', [AuthController::class,'resendEmail'])->name('api.resend.email');
     Route::post('/login', [AuthController::class,'ApiLogin'])->name('api.login');
     Route::get('/logout', [AuthController::class,'ApiLogout'])->name('api.logout');
+    Route::get('/verify-email/{key}', [AuthController::class, 'verifyEmail']);
 
